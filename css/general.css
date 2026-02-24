@@ -2,9 +2,9 @@
     font-family: 'Segoe UI', Verdana, sans-serif;
 }
 
-h1 {
-    font-size: 4rem;
-}
+h1 { font-size: 4rem; }
+h2 { font-size: 3rem; }
+h3 { font-size: 2rem; }
 
 button {
     padding: 0.5rem;
