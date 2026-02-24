@@ -1,0 +1,19 @@
+* {
+    font-family: 'Segoe UI', Verdana, sans-serif;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+button {
+    padding: 0.5rem;
+}
+
+em {
+    font-weight: bold;
+}
+
+p {
+    font-size: 0.75rem;
+}

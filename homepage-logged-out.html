@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameBit</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/general.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <script type="module" src="./js/main.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Gamehub</h1>
+    </header>
+
+    <main>
+        <section class="sign-options">
+            <button type="button" id="sign-in">Inloggen</button>
+            <button type="button" id="sign-up">Registreren</button>
+        </section>
+
+        <section class="games">
+            <form id="search-form">
+                <input type="search" id="search-game" placeholder="Zoeken">
+                <button type="submit"><img src="./assets/magnifying-glass.png"></button>
+            </form>
+
+            <ul id="game-list"></ul>
+        </section>
+    </main>
+</body>
+</html>
