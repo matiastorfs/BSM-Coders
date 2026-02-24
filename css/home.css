@@ -1,0 +1,39 @@
+header {
+    text-align: center;
+}
+
+h1 {
+    font-weight: bold;
+    margin: 2rem;
+}
+
+button {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 0.8rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.searchbar {
+    display: flex;
+}
+
+#btnSearch {
+    padding: 2px;
+    margin: 4rem 2rem;
+    background-color: whitesmoke;
+    border-radius: 0.2rem;
+}
+
+.overviewGames {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
