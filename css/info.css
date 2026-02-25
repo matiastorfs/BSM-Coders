@@ -2,8 +2,27 @@ h2 {
     margin: 4rem;
 }
 
-img {
-    padding: 4rem 4rem;
-    margin: 0 4rem;
-    background-color: whitesmoke;
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+div img {
+  padding: 4rem;
+  margin: 0 4rem;
+  background-color: whitesmoke;
+  width: 400px;
+}
+
+div ul {
+  padding: 2rem;
+}
+
+@media (min-width: 899px) {
+  div {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }

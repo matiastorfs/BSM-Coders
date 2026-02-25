@@ -9,7 +9,18 @@ const title = document.getElementById("title");
 const main = document.getElementById("item-info");
 
 main.innerHTML = `
-                <h2>${game.title}</h2>
-                <img src="${game.image}">`;
-// <p><em>Last updated</em>: ${game.lastUpdated}</p>
+  <h2>${game.title}</h2>
+  <div>
+    <img src="${game.cover}">
+    <ul>
+      <li><em>Description</em>: ${game.description}</li>
+      <li><em>Developer</em>: ${game.developer}</li>
+      <li><em>Publisher</em>: ${game.publisher}</li>
+      <li><em>Platforms</em>: ${game.platforms}</li>
+      <li><em>Genre</em>: ${game.genre}</li>
+      <li><em>Release date</em>: ${game.releaseDate}</li>
+    </ul>
+  </div>
+  `;
+
 title.innerHTML = `${game.title}`;
