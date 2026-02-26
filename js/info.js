@@ -13,14 +13,20 @@ main.innerHTML = `
   <div>
     <img src="${game.cover}">
     <ul>
-      <li><em>Description</em>: ${game.description}</li>
-      <li><em>Developer</em>: ${game.developer}</li>
-      <li><em>Publisher</em>: ${game.publisher}</li>
+      <li><em>Beschrijving</em>: ${game.description}</li>
+      <li><em>Ontwikkelaar</em>: ${game.developer}</li>
+      <li><em>Uitgever</em>: ${game.publisher}</li>
       <li><em>Platforms</em>: ${game.platforms}</li>
       <li><em>Genre</em>: ${game.genre}</li>
-      <li><em>Release date</em>: ${game.releaseDate}</li>
+      <li><em>Releasedatum</em>: ${game.releaseDate}</li>
     </ul>
   </div>
   `;
 
 title.innerHTML = `${game.title}`;
+
+const arrow = document.getElementById("arrow");
+
+arrow.addEventListener("click", function () {
+  window.location.href = "./homepage-logged-out.html";
+});
