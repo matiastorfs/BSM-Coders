@@ -25,7 +25,7 @@ function displayItems(games) {
 
 // It filters every game inside of the list when pressing the glass icon,
 // only keeping the ones that match the input with part of the title
-document.getElementById("search-form").addEventListener("submit", function(e) {
+document.getElementById("search-button").addEventListener("click", function(e) {
   e.preventDefault();
 
   const searchValue = document
@@ -40,6 +40,23 @@ document.getElementById("search-form").addEventListener("submit", function(e) {
   displayItems(filteredGames);
 });
 
+// ...
+document.getElementById("layout-button").addEventListener("click", function(e) {
+  e.preventDefault();
+
+  const listGames = document.getElementById("game-list");
+  const items = listGames.querySelectorAll("li");
+
+  items.forEach(item => {
+    if (item.style.width === "150px") {
+      item.style.width = "300px";
+      item.style.border = "1px solid grey";
+    } else {
+      item.style.width = "150px";
+      item.style.border = "none";
+    }
+  });
+});
 
 // Shows more information about a game when clicking on it
 const items = document.querySelectorAll(".game-items");
