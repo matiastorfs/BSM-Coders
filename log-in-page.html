@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/login.css">
+    <script type="module" src="./js/login.js"></script>
 </head>
 <body>
     <header>
@@ -16,10 +17,10 @@
     <main>
         <form action="">
             <label for="name/email">Naam/Email</label>
-            <input type="email" name="name/email" id="name/email" placeholder="Vul in">
+            <input type="email" name="name/email" id="name/email" placeholder="Vul in" required>
 
             <label for="password">Wachtwoord</label>
-            <input type="password" placeholder="Vul in">
+            <input type="password" placeholder="Vul in" required>
         </form>
         <a id="forgotpassword">Wachtwoord vergeten</a>
 
@@ -27,5 +28,8 @@
         <p>OF</p>
         <button id="signupbutton">Sign Up</button>
     </main>
+    <footer>
+        <p>&copy; BSM-Coders</p>
+    </footer>
 </body>
 </html>

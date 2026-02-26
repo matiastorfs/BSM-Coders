@@ -8,9 +8,20 @@ body {
     flex-direction: column;
 }
 
+#arrow:hover {
+    cursor: pointer;
+}
+
 main {
     text-align: center;
     padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    min-height: 100%;
+    gap:10px;
+    padding-top: 50px;
 }
 
 img {
@@ -31,6 +42,7 @@ h1 {
 }
 
 form {
+    width: 350px;
     text-align: left;
     display:flex;
     flex-direction: column;
