@@ -1,0 +1,24 @@
+header{
+    background-image: url("../assets/RaadHetSpel.jpg");
+    background-size: 300px;
+    background-repeat: no-repeat;
+    height: 300px;
+    background-position: center;
+}
+
+header img{
+    height: 30px;
+    margin: 50px;
+}
+
+main h1 {
+    font-weight: bold;
+    margin: 2rem;
+    font-size: 30px;
+    text-align: center;
+}
+
+.modeSelection{
+    display: flex;
+    justify-content:center;
+}
