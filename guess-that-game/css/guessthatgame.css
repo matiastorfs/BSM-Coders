@@ -11,6 +11,8 @@ header img{
     margin: 50px;
 }
 
+h2 { font-size: 20px; }
+
 main h1 {
     font-weight: bold;
     margin: 2rem;
@@ -21,4 +23,41 @@ main h1 {
 .modeSelection{
     display: flex;
     justify-content:center;
+}
+
+article{
+    padding: 20px;
+    border-bottom: 2px solid gray;
+    display: grid;
+    grid-template-columns: 80px 2fr 1fr;
+    grid-template-rows: 40px 40px;
+    grid-template-areas: 
+    "afbeelding titeltje star"
+    "afbeelding omschrijving omschrijving";
+}
+#difficultyThree{
+    border-bottom: 0px solid gray;
+}
+
+article .difficultie{
+    grid-area: afbeelding;
+}
+article .stargroup{
+    grid-area: star;
+    justify-self: end;
+}
+article .title{
+    padding: 5px;
+    grid-area: titeltje;
+}
+article .description{
+    padding: 5px;
+    grid-area: omschrijving;
+}
+
+article img{
+    height: 80px;
+}
+.star{
+    height: 15px;
 }
