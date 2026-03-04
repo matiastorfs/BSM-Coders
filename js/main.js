@@ -1,9 +1,7 @@
-// Fetch data from games.json
 const response = await fetch("../games.json");
 const games = await response.json();
 displayItems(games);
 
-// Displays all the items inside the parameter as a li-element
 function displayItems(games) {
   const ul = document.getElementById("game-list");
   ul.innerHTML = "";
@@ -15,7 +13,7 @@ function displayItems(games) {
       <a href="../game-info.html" id="game-item${game.id}" class="game-items">
       <img src="${game.cover}" alt="${game.title}" width="150" height="150"><br>
       <em>${game.title}</em>
-      <p>Releasedatum: ${game.releaseDate}</p>
+      <p>${game.developer}</p>
       </a>
     `;
 
@@ -23,8 +21,6 @@ function displayItems(games) {
   });
 }
 
-// It filters every game inside of the list when pressing the glass icon,
-// only keeping the ones that match the input with part of the title
 document.getElementById("search-button").addEventListener("click", function(e) {
   e.preventDefault();
 
@@ -40,7 +36,7 @@ document.getElementById("search-button").addEventListener("click", function(e) {
   displayItems(filteredGames);
 });
 
-// ...
+
 document.getElementById("layout-button").addEventListener("click", function(e) {
   e.preventDefault();
 
@@ -49,16 +45,13 @@ document.getElementById("layout-button").addEventListener("click", function(e) {
 
   items.forEach(item => {
     if (item.style.width === "150px") {
-      item.style.width = "300px";
-      item.style.border = "1px solid grey";
+      item.style.width = "200px";
     } else {
       item.style.width = "150px";
-      item.style.border = "none";
     }
   });
 });
 
-// Shows more information about a game when clicking on it
 const items = document.querySelectorAll(".game-items");
 
 items.forEach(item => {

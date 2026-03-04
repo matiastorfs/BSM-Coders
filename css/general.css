@@ -1,15 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
-    --main-bg-color: #FEF7FF;
+    --main-text-color: #000000;
+    --main-bg-color: #E7E7E7;
+    --secondary-bg-color: #CFCFCF;
+    --main-btn-bg-color: #2EE8C3;
+    --main-btn-border-color: #30C7A0;
 }
 
 * {
-    font-family: 'Segoe UI', Verdana, sans-serif;
+    font-family: 'Work Sans', 'Segoe UI', Verdana, sans-serif;
     background-color: var(--main-bg-color);
 }
 
-h1 { font-size: 4rem; }
-h2 { font-size: 3rem; }
-h3 { font-size: 2rem; }
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
 
 button {
     padding: 0.5rem;
@@ -24,7 +48,6 @@ p {
 }
 
 footer {
-    margin-top: 4rem;
-    margin-bottom: 1rem;
     text-align: center;
+    padding: 4rem 0 1rem;
 }
