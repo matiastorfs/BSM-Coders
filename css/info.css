@@ -2,10 +2,18 @@ h2 {
   margin: 4rem;
 }
 
-#arrow {
+#go-back {
   margin: 2rem;
+  width: fit-content;
+  padding: 0.5rem;
+  background-color: var(--secondary-bg-color);
+  border-radius: 1rem;
+}
+
+#arrow {
   width: 1.5rem;
   cursor: pointer;
+  background-color: var(--secondary-bg-color);
 }
 
 div {
