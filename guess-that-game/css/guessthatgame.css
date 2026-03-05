@@ -1,63 +1,99 @@
-header{
-    background-image: url("../assets/RaadHetSpel.jpg");
-    background-size: 300px;
-    background-repeat: no-repeat;
-    height: 300px;
-    background-position: center;
+header {
+  background-image: url("../assets/RaadHetSpel.jpg");
+  background-size: 300px;
+  background-repeat: no-repeat;
+  height: 300px;
+  background-position: center;
+}
+header img {
+  height: 30px;
+  margin: 50px;
 }
 
-header img{
-    height: 30px;
-    margin: 50px;
+
+
+h1 {
+  font-weight: bold;
+  margin: 2rem;
+  font-size: 30px;
+  text-align: center;
+}
+h2 {
+  font-size: 20px;
+  text-align: center;
 }
 
-h2 { font-size: 20px; }
 
-main h1 {
-    font-weight: bold;
-    margin: 2rem;
-    font-size: 30px;
-    text-align: center;
+
+.modeSelection {
+  display: flex;
+  justify-content: center;
+}
+.modeButton {
+  margin: 5px;
+  border-radius: 20px;
+  width: 200px;
+  border-style: none;
+  text-align: center;
+}
+#active {
+  background-color: rgb(106, 106, 138);
+  color: white;
+}
+#inactive {
+  background-color: rgb(212, 212, 238);
+  color: black;
 }
 
-.modeSelection{
-    display: flex;
-    justify-content:center;
-}
 
-article{
-    padding: 20px;
-    border-bottom: 2px solid gray;
-    display: grid;
-    grid-template-columns: 80px 2fr 1fr;
-    grid-template-rows: 40px 40px;
-    grid-template-areas: 
+
+article {
+  padding: 20px;
+  border-bottom: 2px solid gray;
+  display: grid;
+  grid-template-columns: 80px 2fr 1fr;
+  grid-template-rows: 40px 40px;
+  grid-template-areas:
     "afbeelding titeltje star"
     "afbeelding omschrijving omschrijving";
 }
-#difficultyThree{
-    border-bottom: 0px solid gray;
+#difficultyThree {
+  border-bottom: 0px solid gray;
+}
+article .difficultie {
+  grid-area: afbeelding;
+}
+article .stargroup {
+  grid-area: star;
+  justify-self: end;
+}
+article .title {
+  padding: 5px;
+  grid-area: titeltje;
+}
+article .description {
+  padding: 5px;
+  grid-area: omschrijving;
+}
+article img {
+  height: 80px;
+}
+.star {
+  height: 15px;
 }
 
-article .difficultie{
-    grid-area: afbeelding;
-}
-article .stargroup{
-    grid-area: star;
-    justify-self: end;
-}
-article .title{
-    padding: 5px;
-    grid-area: titeltje;
-}
-article .description{
-    padding: 5px;
-    grid-area: omschrijving;
-}
 
-article img{
-    height: 80px;
+footer{
+  background-color: rgb(234, 234, 234);
+  padding: 10px;
 }
-.star{
-    height: 15px;
+footer ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+footer ul li{
+  grid-template-rows: 20px 30px;
+}
+.footerIcons{
+  height: 25px;
 }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess That Game 1v1</title>
+    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/general.css">
     <link rel="stylesheet" href="./css/guessthatgame.css">
     <script type="module" src="./js/guessthatgame.js"></script>
@@ -15,8 +16,8 @@
     <main>
         <h1>De Raad Het Spel Minigame</h1>
         <section class="modeSelection">
-            <img src="./assets/SoloSpelInactive.png" id="soloPlay">
-            <img src="./assets/1v1.png" id="1v1">
+            <button class="modeButton" id="inactive" onclick="window.location.href='./guess-that-game-homepagina.html'">Solo Spel</button>
+            <button class="modeButton" id="active">1v1</button>
         </section>
 
         <section class="ranking">
@@ -24,7 +25,20 @@
         </section>
     </main>
     <footer>
-
+      <ul>
+        <li onclick="window.location.href = '../homepage-logged-out.html'">
+          <img src="./assets/StarIcon.png" class="footerIcons"> 
+          <div>Spelen</div>
+        </li>
+        <li>
+          <img src="./assets/StarIconActive.png" class="footerIcons"> 
+          <div>Raad Het Spel</div>
+        </li>
+        <li onclick="window.location.href = '../homepage-logged-out.html'">
+          <img src="./assets/SettingsIcon.png" class="footerIcons"> 
+          <div>Instellingen</div>
+        </li>
+      </ul>
     </footer>
 </body>
 </html>
