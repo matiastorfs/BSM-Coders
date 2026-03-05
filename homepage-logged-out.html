@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameBit</title>
+    <title>GameHub</title>
+
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/home.css">
@@ -12,18 +13,19 @@
 <body>
     <header>
         <h1>Gamehub</h1>
+
+        <section class="sign-options">
+            <button type="button" id="sign-in" onclick="location.href='./log-in-page.html'">Inloggen</button>
+            <button type="button" id="sign-up">Registreren</button>
+        </section>
     </header>
 
     <main>
-        <section class="sign-options">
-            <button type="button" id="sign-in">Inloggen</button>
-            <button type="button" id="sign-up">Registreren</button>
-        </section>
-
         <section class="games">
             <form id="search-form">
                 <input type="search" id="search-game" placeholder="Zoeken">
-                <button type="submit"><img src="./assets/magnifying-glass.png"></button>
+                <button type="click" id="search-button"><img src="./assets/magnifying-glass.png"></button>
+                <button type="click" id="layout-button"><img src="./assets/three-lines.png"></button>
             </form>
 
             <ul id="game-list"></ul>

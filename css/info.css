@@ -2,10 +2,18 @@ h2 {
   margin: 4rem;
 }
 
-#arrow {
+#go-back {
   margin: 2rem;
-  width: 2rem;
+  width: fit-content;
+  padding: 0.5rem;
+  background-color: var(--secondary-bg-color);
+  border-radius: 1rem;
+}
+
+#arrow {
+  width: 1.5rem;
   cursor: pointer;
+  background-color: var(--secondary-bg-color);
 }
 
 div {
@@ -16,10 +24,13 @@ div {
 }
 
 div img {
-  padding: 4rem;
-  margin: 0 4rem;
-  background-color: whitesmoke;
-  width: 400px;
+  margin-left: 8rem;
+  margin-right: 4rem;
+  max-width: 400px;
+  max-height: 400px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
 }
 
 div ul {
@@ -28,11 +39,17 @@ div ul {
 
 div li {
   margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+div li, em {
+  background-color: var(--secondary-bg-color);
 }
 
 @media (min-width: 900px) {
   div {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
   }
 }
