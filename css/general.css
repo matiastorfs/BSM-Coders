@@ -49,7 +49,6 @@ p {
 
 footer{
   background-color: rgb(234, 234, 234);
-  padding: 10px;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -60,6 +59,7 @@ footer ul{
   grid-template-columns: 1fr 1fr 1fr;
 }
 footer ul li{
+  padding: 10px;
   grid-template-rows: 20px 30px;
 }
 .footerIcons {

@@ -12,6 +12,7 @@ fetch("forumlijst.json")
     data.forum.forEach(item => {
       const forumItem = document.createElement("div");
       forumItem.classList.add("forum-item");
+      
     if (item.laatste_bericht_dagen_geleden === 1) {
         forumItem.innerHTML = 
         `<div id="forumItem"><h3>${item.titel}</h3>
