@@ -44,10 +44,23 @@ h1 {
     width: 20px;
 }
 
+#sort-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+#sort-buttons button {
+    margin: 0.8rem;
+    background-color: var(--secondary-bg-color);
+    border-radius: 1rem;
+}
+
 #game-list {
     display: flex;
     margin-top: 1rem;
     justify-content: center;
+    text-align: center;
     flex-wrap: wrap;
     gap: 1rem;
 }

@@ -21,6 +21,32 @@ function displayItems(games) {
   });
 }
 
+
+function displaySortButtons() {
+  const form = document.getElementById("sort-buttons");
+  
+  if (form.innerHTML == "") {
+    form.innerHTML = `
+      <button id="sort-name">Naam</button>
+      <button id="sort-developer">Ontwikkelaar</button>
+      <button type="button">Datum</button>
+    `;
+  }
+  else {
+    form.innerHTML = "";
+  }
+
+  document.getElementById("sort-name").addEventListener("click", function(e) {
+    e.preventDefault();
+
+    const sortedGames = [...games].sort(function(a, b){
+      return a.title.localeCompare(b.title);
+    });
+
+    displayItems(sortedGames);
+  });
+}
+
 document.getElementById("search-button").addEventListener("click", function(e) {
   e.preventDefault();
 
@@ -39,6 +65,14 @@ document.getElementById("search-button").addEventListener("click", function(e) {
 
 document.getElementById("layout-button").addEventListener("click", function(e) {
   e.preventDefault();
+  displaySortButtons();
+});
+
+
+/*
+
+document.getElementById("layout-button").addEventListener("click", function(e) {
+  e.preventDefault();
 
   const listGames = document.getElementById("game-list");
   const items = listGames.querySelectorAll("li");
@@ -51,6 +85,8 @@ document.getElementById("layout-button").addEventListener("click", function(e) {
     }
   });
 });
+
+*/
 
 const items = document.querySelectorAll(".game-items");
 
