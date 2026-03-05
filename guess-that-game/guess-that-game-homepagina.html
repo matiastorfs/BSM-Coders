@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/general.css" />
     <link rel="stylesheet" href="./css/guessthatgame.css" />
-    <script type="module" src="./js/guessthatgame.js"></script>
+    <script type="module" src="./js/guess-that-game.js"></script>
   </head>
   <body>
     <header>
@@ -16,21 +16,11 @@
     <main>
       <h1>De Raad Het Spel Minigame</h1>
       <section class="modeSelection">
-        <button class="modeButton" id="active">Solo Spel</button>
-        <button
-          class="modeButton"
-          id="inactive"
-          onclick="window.location.href = './guess-that-game-1v1.html'"
-          >
-          1v1
-        </button>
+        <button class="modeButton active" id="soloPlay">Solo Spel</button>
+        <button class="modeButton inactive" id="1v1">1v1</button>
       </section>
       <section class="spelen">
-        <article 
-          id="difficultyOne" 
-          class="difficulties" 
-          onclick="window.location.href = './guess-that-game-easy.html'"
-          >
+        <article id="difficultyOne" class="difficulties">
           <img src="./assets/Makkelijk.jpg" class="difficultie" id="easy" />
           <div class="title">Makkelijk</div>
           <div class="description">Omschrijving</div>

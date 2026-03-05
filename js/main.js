@@ -1,5 +1,5 @@
 // Fetch data from games.json
-const response = await fetch("../games.json");
+const response = await fetch("./games.json");
 const games = await response.json();
 displayItems(games);
 
