@@ -2,13 +2,13 @@
 
 :root {
     --main-text-color: #000000;
-    --main-bg-color: #E7E7E7;
+    --main-bg-color: #FEF7FF;
     --secondary-bg-color: #CFCFCF;
     --main-btn-bg-color: #2EE8C3;
     --main-btn-border-color: #30C7A0;
 }
 
-* {
+body {
     font-family: 'Work Sans', 'Segoe UI', Verdana, sans-serif;
     background-color: var(--main-bg-color);
 }
@@ -48,20 +48,20 @@ p {
 }
 
 footer{
-  background-color: rgb(234, 234, 234);
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
+    background-color: rgb(234,234,234);
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 footer ul{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 footer ul li{
-  grid-template-rows: 20px 30px;
+    grid-template-rows: 20px 30px;
 }
 .footerIcons{
-  height: 25px;
+    height: 25px;
 }
