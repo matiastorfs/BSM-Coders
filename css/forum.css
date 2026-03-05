@@ -36,6 +36,11 @@ h3 {
     flex-direction: column;
 }
 
+#forumItem:hover {
+    cursor: pointer;;
+    color: gray;
+}
+
 #backtext {
     font-size: 20px;
 }

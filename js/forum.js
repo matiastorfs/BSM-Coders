@@ -14,10 +14,10 @@ fetch("forumlijst.json")
       forumItem.classList.add("forum-item");
 
       forumItem.innerHTML = 
-        `<h3>${item.titel}</h3>
+        `<div id="forumItem"><h3>${item.titel}</h3>
         <p>${item.beschrijving}</p>
         <p id="messages">${item.berichten} Berichten</p>
-        <p id="lastmessage">${item.laatste_bericht_dagen_geleden} dagen geleden - Laatste Bericht</p>`;
+        <p id="lastmessage">${item.laatste_bericht_dagen_geleden} dagen geleden - Laatste Bericht</p><div/>`;
 
       container.appendChild(forumItem);
     });
