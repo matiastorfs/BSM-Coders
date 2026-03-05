@@ -12,6 +12,22 @@ body {
     cursor: pointer;
 }
 
+#termsofservice {
+    width: 10px;
+    color: black;
+    border-radius: 0px;
+}
+
+#showtermsofservice {
+    margin-top: -5px;
+    color: gray;
+}
+
+#showtermsofservice:hover {
+    color: rgb(162, 162, 162);
+    cursor: pointer;
+}
+
 main {
     text-align: center;
     padding: 100px;
