@@ -19,6 +19,23 @@ h2 {
     font-size: 20px;
 }
 
+h3 {
+    font-weight: bold;
+}
+
+#messages {
+    color: gray;
+}
+
+#lastmessage {
+    color: gray;
+}
+
+#forumlijst {
+    display: flex;
+    flex-direction: column;
+}
+
 #backtext {
     font-size: 20px;
 }
