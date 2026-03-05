@@ -1,8 +1,3 @@
-* {
-    background-color: #FEF7FF;
-    padding: 5px;
-}
-
 header {
     display:flex;
     flex-direction: row;
@@ -12,6 +7,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 100px;
 }
 
 #forumlijst {
@@ -31,6 +27,7 @@ h2 {
 
 h3 {
     font-weight: bold;
+    font-size: 25px;
 }
 
 #messages {
@@ -44,8 +41,11 @@ h3 {
 #forumlijst {
     display: flex;
     flex-direction: column;
+    margin: 20px;
 }
-
+#forumItem {
+    padding: 20px;
+}
 #forumItem:hover {
     cursor: pointer;;
     color: gray;
@@ -53,10 +53,13 @@ h3 {
 
 #backtext {
     font-size: 20px;
+    margin: 24px;
 }
 
 #arrow {
+    margin: 20px;
     width: 30px;
+    height: 30px;
 }
 
 #arrow:hover {
