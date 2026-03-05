@@ -62,6 +62,11 @@ footer ul{
 footer ul li{
   grid-template-rows: 20px 30px;
 }
-.footerIcons{
+.footerIcons {
   height: 25px;
+}
+
+li:hover {
+    background-color: rgb(220, 220, 220);
+    cursor: pointer;
 }
