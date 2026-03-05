@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="NL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess That Game</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/general.css" />
+    <link rel="stylesheet" href="./css/guessthatgame.css" />
+    <script type="module" src="./js/guess-that-game.js"></script>
+  </head>
+  <body>
+    <header>
+      <img src="../assets/left-arrow.png" id="arrow" />
+    </header>
+    <main>
+      <h1>De Raad Het Spel Minigame</h1>
+      <section class="modeSelection">
+        <button class="modeButton active" id="soloPlay">Solo Spel</button>
+        <button class="modeButton inactive" id="1v1">1v1</button>
+      </section>
+      <section class="spelen">
+        <article id="difficultyOne" class="difficulties">
+          <img src="./assets/Makkelijk.jpg" class="difficultie" id="easy" />
+          <div class="title">Makkelijk</div>
+          <div class="description">Omschrijving</div>
+          <div class="stargroup">
+            <img src="./assets/Star.png" class="star" />
+            <img src="./assets/Star.png" class="star" />
+            <img src="./assets/Star.png" class="star" />
+          </div>
+        </article>
+        <article id="difficultyTwo" class="difficulties">
+          <img src="./assets/Gemiddeld.jpg" class="difficultie" id="medium" />
+          <div class="title">Gemiddeld</div>
+          <div class="description">Omschrijving</div>
+          <div class="stargroup">
+            <img src="./assets/Star.png" class="star" />
+            <img src="./assets/Star.png" class="star" />
+            <img src="./assets/Star.png" class="star" />
+            <img src="./assets/Star.png" class="star" />
+          </div>
+        </article>
+        <article id="difficultyThree" class="difficulties">
+          <img src="./assets/Moeilijk.jpg" class="difficultie" id="hard" />
+          <div class="title">Moeilijk</div>
+          <div class="description">Omschrijving</div>
+          <div class="stargroup">
+            <img src="./assets/Star.png" class="star" />
+            <img src="./assets/Star.png" class="star" />
+            <img src="./assets/Star.png" class="star" />
+            <img src="./assets/Star.png" class="star" />
+            <img src="./assets/Star.png" class="star" />
+          </div>
+        </article>
+      </section>
+      <section class="ranking"></section>
+    </main>
+    <footer>
+      <ul>
+        <li onclick="window.location.href = '../homepage-logged-out.html'">
+          <img src="../assets/StarIcon.png" class="footerIcons"> 
+          <div>Spelen</div>
+        </li>
+        <li>
+          <img src="../assets/StarIconActive.png" class="footerIcons"> 
+          <div>Raad Het Spel</div>
+        </li>
+        <li onclick="window.location.href = '../homepage-logged-out.html'">
+          <img src="../assets/SettingsIcon.png" class="footerIcons"> 
+          <div>Instellingen</div>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>
