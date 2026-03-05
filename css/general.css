@@ -2,6 +2,10 @@
     font-family: 'Segoe UI', Verdana, sans-serif;
 }
 
+main{
+    margin-bottom: 100px;
+}
+
 h1 { font-size: 4rem; }
 h2 { font-size: 3rem; }
 h3 { font-size: 2rem; }
@@ -18,7 +22,21 @@ p {
     font-size: 0.75rem;
 }
 
-footer {
-    margin-top: 4rem;
-    text-align: center;
+footer{
+  background-color: rgb(234, 234, 234);
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+footer ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+footer ul li{
+  grid-template-rows: 20px 30px;
+}
+.footerIcons{
+  height: 25px;
 }

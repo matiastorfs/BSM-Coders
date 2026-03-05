@@ -96,20 +96,3 @@ form button{
 
 
 
-footer{
-  background-color: rgb(234, 234, 234);
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-footer ul{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-footer ul li{
-  grid-template-rows: 20px 30px;
-}
-.footerIcons{
-  height: 25px;
-}
