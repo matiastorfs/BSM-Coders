@@ -12,12 +12,20 @@ fetch("forumlijst.json")
     data.forum.forEach(item => {
       const forumItem = document.createElement("div");
       forumItem.classList.add("forum-item");
-
-      forumItem.innerHTML = 
+    if (item.laatste_bericht_dagen_geleden === 1) {
+        forumItem.innerHTML = 
+        `<div id="forumItem"><h3>${item.titel}</h3>
+        <p>${item.beschrijving}</p>
+        <p id="messages">${item.berichten} Berichten</p>
+        <p id="lastmessage">${item.laatste_bericht_dagen_geleden} dag geleden - Laatste Bericht</p><div/>`;
+    }
+    else {
+        forumItem.innerHTML = 
         `<div id="forumItem"><h3>${item.titel}</h3>
         <p>${item.beschrijving}</p>
         <p id="messages">${item.berichten} Berichten</p>
         <p id="lastmessage">${item.laatste_bericht_dagen_geleden} dagen geleden - Laatste Bericht</p><div/>`;
+    }
 
       container.appendChild(forumItem);
     });
