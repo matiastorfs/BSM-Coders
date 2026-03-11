@@ -34,19 +34,22 @@ main {
   display: flex;
   width: fit-content;
   margin: 1rem auto;
-  padding: 8px 12px;
   justify-content: center;
-  gap: 0.5rem;
   background-color: var(--secondary-bg-color);
-  border-radius: 1rem;
+  border-radius: 12px;
 }
 
-.search-form button {
+.search-form #search-game {
+  padding: 12px;
   border-radius: 8px;
 }
 
-.search-form * {
-  background-color: var(--secondary-bg-color);
+.search-form button:first-child {
+  border-radius: 12px;
+}
+
+.search-form button:last-child {
+  border-radius: 0 12px 12px 0;
 }
 
 .search-form button:hover {
@@ -73,7 +76,7 @@ main {
 }
 
 .sort-form button:hover {
-  padding: 0 1rem;
+  background-color: var(--main-btn-bg-color);
 }
 
 #game-list {
