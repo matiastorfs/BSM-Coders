@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --main-text-color: #143642;
-  --main-bg-color: #F0E2E7;
-  --secondary-bg-color: #D9D9D9;
-  --main-btn-bg-color: #90E0EF;
-  --main-btn-border-color: #00B4D8;
+  --main-text-color: #000000;
+  --main-bg-color: #F2F2F2;
+  --secondary-bg-color: #CCCCCC;
+  --main-btn-bg-color: #A5A5A5;
+  --main-btn-border-color: #7F7F7F;
 }
 
 * {
   font-family: 'Work Sans', 'Segoe UI', Verdana, sans-serif;
+  color: var(--main-text-color);
 }
 
 body {

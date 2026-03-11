@@ -3,7 +3,6 @@ const response = await fetch("../games.json");
 const games = await response.json();
 
 displayGames(games);
-saveGameId();
 
 // Displays all games inside of the given list
 function displayGames(games) {
@@ -22,6 +21,7 @@ function displayGames(games) {
     `;
 
     ul.appendChild(li);
+    saveGameId();
   });
 }
 
