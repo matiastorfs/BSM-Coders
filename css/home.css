@@ -1,101 +1,121 @@
 header {
-    text-align: center;
-    margin-bottom: 4rem;
+  text-align: center;
+  margin: 2rem 0;
 }
 
 h1 {
-    font-weight: bold;
-    margin: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
 }
 
-.sign-options {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+nav {
+  display: flex;
+  margin: 2rem 0;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.sign-options button {
-    background-color: var(--main-btn-bg-color);
-    color: var(--main-text-color);
-    border: 2px solid var(--main-btn-border-color);
-    border-radius: 8px;
+nav button {
+  color: var(--main-text-color);
+  background-color: var(--main-btn-bg-color);
+  border: 2px solid var(--main-btn-border-color);
+  border-radius: 8px;
 }
 
-.sign-options button:hover {
-    background-color: var(--main-btn-border-color);
+nav button:hover {
+  background-color: var(--main-btn-border-color);
 }
 
-#search-form {
-    display: flex;
-    width: fit-content;
-    margin: auto;
-    justify-content: center;
-    padding: 0.5rem 1rem;
-    gap: 0.5rem;
-    background-color: var(--secondary-bg-color);
-    border-radius: 1.5rem;
+main {
+  margin: 4rem 0;
 }
 
-#search-form * {
-    background-color: var(--secondary-bg-color);
+.search-form {
+  display: flex;
+  width: fit-content;
+  margin: 1rem auto;
+  justify-content: center;
+  background-color: var(--secondary-bg-color);
+  border-radius: 12px;
 }
 
-#search-form img {
-    width: 20px;
+.search-form #search-game {
+  padding: 12px;
+  border-radius: 8px;
 }
 
-#sort-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+.search-form button:first-child {
+  border-radius: 12px;
 }
 
-#sort-buttons button {
-    margin: 0.8rem;
-    background-color: var(--secondary-bg-color);
-    border-radius: 1rem;
+.search-form button:last-child {
+  border-radius: 0 12px 12px 0;
+}
+
+.search-form button:hover {
+  background-color: var(--main-btn-bg-color);
+}
+
+.search-form button:hover img {
+  background-color: var(--main-btn-bg-color);
+}
+
+.search-form img {
+  width: 20px;
+}
+
+.sort-form {
+  display: none;
+  justify-content: center;
+}
+
+.sort-form button {
+  margin: 0.8rem;
+  background-color: var(--secondary-bg-color);
+  border-radius: 8px;
+}
+
+.sort-form button:hover {
+  background-color: var(--main-btn-bg-color);
 }
 
 #game-list {
-    display: flex;
-    margin-top: 1rem;
-    justify-content: center;
-    text-align: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 #game-list li {
-    width: 200px;
-    height: 225px;
+  width: 200px;
+  height: 225px;
 }
 
 #game-list a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 1rem;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
 }
 
 #game-list img {
-    width: 300px;
-    object-fit: contain;
+  width: 300px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
 }
 
 #game-list em,p {
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-#game-list li * {
-    background-color: var(--main-bg-color);
+#game-list li {
+  background-color: var(--main-bg-color);
 }
 
 #game-list li:hover {
-    background-color: var(--secondary-bg-color);
-    * {
-        background-color: var(--secondary-bg-color);
-    }
+  background-color: var(--secondary-bg-color);
 }

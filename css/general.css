@@ -1,72 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --main-text-color: #000000;
-    --main-bg-color: #FEF7FF;
-    --secondary-bg-color: #CFCFCF;
-    --main-btn-bg-color: #27DDFF;
-    --main-btn-border-color: #27BBFF;
+  --main-text-color: #000000;
+  --main-bg-color: #F2F2F2;
+  --secondary-bg-color: #CCCCCC;
+  --main-btn-bg-color: #A5A5A5;
+  --main-btn-border-color: #7F7F7F;
 }
 
 * {
-    font-family: 'Work Sans', 'Segoe UI', Verdana, sans-serif;
-}
-
-html, body {
-  height: 100%;
+  font-family: 'Work Sans', 'Segoe UI', Verdana, sans-serif;
+  color: var(--main-text-color);
 }
 
 body {
   background-color: var(--main-bg-color);
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 }
 
-main {
-  flex: 1;
+h1 {
+  font-size: 4rem;
 }
 
-main{
-    margin-bottom: 100px;
+h2 {
+  font-size: 3rem;
 }
 
-h1 { font-size: 4rem; }
-h2 { font-size: 3rem; }
-h3 { font-size: 2rem; }
-
-button {
-    padding: 0.5rem;
-}
-
-em {
-    font-weight: bold;
+h3 {
+  font-size: 2rem;
 }
 
 p {
-    font-size: 0.75rem;
+  font-size: 0.75rem;
 }
 
-footer{
-  background-color: rgb(234, 234, 234);
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-}
-footer ul{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-footer ul li{
-  padding: 10px;
-  grid-template-rows: 20px 30px;
-}
-.footerIcons {
-  height: 25px;
+em {
+  font-weight: bold;
 }
 
-li:hover {
-    background-color: rgb(220, 220, 220);
-    cursor: pointer;
+button {
+  padding: 0.5rem;
 }

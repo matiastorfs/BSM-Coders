@@ -1,52 +1,39 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameHub</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameHub</title>
 
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/general.css">
-    <link rel="stylesheet" href="./css/home.css">
-    <script type="module" src="./js/main.js"></script>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/general.css">
+  <link rel="stylesheet" href="./css/home.css">
+  <script type="module" src="./js/home.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Gamehub</h1>
+  <header>
+    <h1>Gamehub</h1>
 
-        <section class="sign-options">
-            <button type="button" id="sign-in" onclick="location.href='./log-in-page.html'">Inloggen</button>
-            <button type="button" id="sign-up">Registreren</button>
-        </section>
-    </header>
+    <nav>
+      <button type="button" id="sign-in">Inloggen</button>
+      <button type="button" id="sign-up">Registreren</button>
+    </nav>
+  </header>
 
-    <main>
-        <section class="games">
-            <form id="search-form">
-                <input type="search" id="search-game" placeholder="Zoeken">
-                <button type="click" id="search-button"><img src="./assets/magnifying-glass.png"></button>
-                <button type="click" id="layout-button"><img src="./assets/three-lines.png"></button>
-            </form>
+  <main>
+    <form class="search-form">
+      <input type="text" id="search-game" placeholder="Zoeken">
+      <button type="button" id="search-button"><img src="./assets/glass-icon.png"></button>
+      <button type="button" id="sort-button"><img src="./assets/sort-icon.png"></button>
+    </form>
 
-            <form id="sort-buttons"></form>
-            <ul id="game-list"></ul>
-        </section>
-    </main>
-    <footer>
-      <ul>
-        <li>
-          <img src="./assets/StarIconActive.png" class="footerIcons"> 
-          <div>Spelen</div>
-        </li>
-        <li onclick="window.location.href = './guess-that-game/guess-that-game-homepagina.html'">
-          <img src="./assets/StarIcon.png" class="footerIcons"> 
-          <div>Raad Het Spel</div>
-        </li>
-        <li onclick="window.location.href = '../homepage-logged-out.html'">
-          <img src="./assets/SettingsIcon.png" class="footerIcons"> 
-          <div>Instellingen</div>
-        </li>
-      </ul>
-    </footer>
+    <form class="sort-form">
+      <button type="button" id="sort-name">Naam</button>
+      <button type="button" id="sort-developer">Ontwikkelaar</button>
+      <button type="button" id="sort-date">Datum</button>
+    </form>
+    
+    <ul id="game-list"></ul>
+  </main>
 </body>
 </html>
