@@ -2,7 +2,7 @@
 
 :root {
   --main-text-color: #000000;
-  --main-bg-color: #F2F2F2;
+  --main-bg-color: #FEF7FF;
   --secondary-bg-color: #CCCCCC;
   --main-btn-bg-color: #A5A5A5;
   --main-btn-border-color: #7F7F7F;
@@ -15,6 +15,10 @@
 
 body {
   background-color: var(--main-bg-color);
+}
+
+main{
+    margin-bottom: 100px;
 }
 
 h1 {
@@ -39,4 +43,37 @@ em {
 
 button {
   padding: 0.5rem;
+}
+
+
+footer {
+    margin-top: 4rem;
+    text-align: center;
+}
+footer {
+
+  background-color: rgb(234, 234, 234);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+footer ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+footer ul li {
+  grid-template-rows: 20px 30px;
+  padding: 10px;
+}
+
+.footerIcons {
+  height: 25px;
+}
+
+li:hover {
+    background-color: rgb(220, 220, 220);
+    cursor: pointer;
 }
