@@ -6,7 +6,7 @@ displayGames(games);
 
 // Displays all games inside of the given list
 function displayGames(games) {
-  const ul = document.getElementById("game-list");
+  const ul = document.getElementById("list-games");
   ul.innerHTML = "";
 
   games.forEach(game => {
@@ -38,10 +38,10 @@ function saveGameId() {
 }
 
 // Filter games based on the title and see if it contains the search input
-document.getElementById("search-button").addEventListener("click", function(e) {
+document.getElementById("btn-search").addEventListener("click", function(e) {
   e.preventDefault();
 
-  const searchValue = document.getElementById("search-game").value.toLowerCase();
+  const searchValue = document.getElementById("txt-search").value.toLowerCase();
   const filteredGames = games.filter(game =>
     game.title.toLowerCase().includes(searchValue)
   );
@@ -50,8 +50,8 @@ document.getElementById("search-button").addEventListener("click", function(e) {
 });
 
 // Shows or hides the sort options
-document.getElementById("sort-button").addEventListener("click", function(e) {
-  const form = document.querySelector(".sort-form");
+document.getElementById("btn-sort").addEventListener("click", function(e) {
+  const form = document.querySelector(".sort-options");
   
   if (form.style.display === "") {
     form.style.display = "none";

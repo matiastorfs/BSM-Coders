@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameHub</title>
+
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/general.css">
+  <link rel="stylesheet" href="./css/home.css">
+  <script type="module" src="./js/home.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Gamehub</h1>
+  </header>
+
+  <main>
+    <section class="search-bar">
+      <form class="search-options">
+        <input type="text" id="txt-search" placeholder="Zoeken">
+        <button type="button" id="btn-search"><img src="./assets/glass-icon.png"></button>
+        <button type="button" id="btn-sort"><img src="./assets/sort-icon.png"></button>
+      </form>
+
+      <form class="sort-options">
+        <button type="button" id="sort-name">Naam</button>
+        <button type="button" id="sort-developer">Ontwikkelaar</button>
+        <button type="button" id="sort-date">Datum</button>
+      </form>
+    </section>
+
+  
+    <section>
+      <ul id="list-games"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy;BSM-Coders</p>
+  </footer>
+</body>
+</html>
