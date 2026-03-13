@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --main-text-color: #000000;
-  --main-bg-color: #F2F3F4;
-  --secondary-bg-color: #DCDCDC;
-  --secondary-bg-hl-color: #CCCCCC;
-  --main-btn-bg-color: #A5A5A5;
-  --main-btn-border-color: #010000;
+  /* Source: https://www.coloors.net/colors */
+  --main-text-color: #232323; /* Young Night */
+  --main-bg-color: #FDFDFD; /* Brilliance */
+  --secondary-bg-color: #F3F1F3; /* Aragonite White */
+  --secondary-bg-hl-color: #DED7DA; /* Pearl Pebble */
+  --main-btn-bg-color: #D2CCD1; /* Light Stately Frills */
+  --main-btn-bg-hl-color: #A7AEB4; /* Northern Light Grey */
 }
 
 * {
