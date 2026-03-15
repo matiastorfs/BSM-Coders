@@ -1,0 +1,57 @@
+#arrow {
+    width: 30px;
+}
+
+header {
+    margin-left: 10xp;
+    padding: 20px;
+    display: flex;
+    p {
+        font-size: 20px;
+        padding: 5px;
+        margin-left: 10px;
+    }
+}
+
+main {
+    display: flex;
+}
+
+#userlogo {
+    border-radius: 100%;
+    width: 110px;
+    margin: 20px;
+}
+
+.usertext {
+    padding: 20px;
+    p {
+        padding: 5px;
+    }
+}
+
+#username {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#accountsettingsbutton {
+    border-radius: 5px;
+    color: white;
+    background-color: gray;
+    margin-top: 5px;
+}
+#accountsettingsbutton:hover {
+    cursor: pointer;
+    background-color: rgb(168, 168, 168);
+}
+
+#accountsettingsicon {
+    width: 15px;
+    margin-left: 10px;
+}
+
+@media (min-width: 900px) {
+  header {
+  }
+}

@@ -17,16 +17,16 @@
     <main>
         <form action="">
             <label for="name/email">Naam/E-mail</label>
-            <input type="email" name="name/email" id="name/email" placeholder="Vul in" required>
+            <input type="email" name="name_email" id="name_email" placeholder="Vul in" required>
 
             <label for="password">Wachtwoord</label>
-            <input type="password" placeholder="Vul in" required>
+            <input type="password" name= "password" id= "password" placeholder="Vul in" required>
         </form>
         <a id="forgotpassword">Wachtwoord vergeten?</a>
 
         <button id="loginbutton">Inloggen</button>
         <p>OF</p>
-        <button id="signupbutton">Registreren</button>
+        <button id="signupbutton" onclick="window.location.href = '../sign-up-page.html'">Registreren</button>
     </main>
 </body>
 </html>

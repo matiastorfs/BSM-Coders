@@ -77,3 +77,18 @@ li:hover {
     background-color: rgb(220, 220, 220);
     cursor: pointer;
 }
+
+#settingsbuttonhover:hover {
+  #settingsicon {
+  animation: settingsturn 1s infinite ease;
+}
+}
+
+@keyframes settingsturn {
+  0% {
+      transform: rotate(0deg);
+    }
+  100% {
+      transform: rotate(360deg);
+    }
+}

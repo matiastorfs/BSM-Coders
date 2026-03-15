@@ -23,22 +23,24 @@
             <input type="email" name="email" id="email" placeholder="Vul in" required>
 
             <label for="password">Wachtwoord</label>
-            <input type="password" placeholder="Vul in" required>
+            <input type="password" name= "password" id= "password" placeholder="Vul in" required>
 
             <label for="password">Herhaal Wachtwoord</label>
-            <input type="password" placeholder="Vul in" required>
+            <input type="password" name= "password" id= "password" placeholder="Vul in" required>
 
             
-            <input type="checkbox" id="termsofservice" name="termsofservice" required>
-            <label for="termsofservice">Accepteer Algemene Voorwaarde</label>
+            <div class="checkbox-group">
+                <input type="checkbox" class="checkmark" id="termsofservice" name="termsofservice" required>
+                <label for="termsofservice">Accepteer Algemene Voorwaarde</label>
+            </div>
             <a id="showtermsofservice">Laat zien</a>
         </form>
-        <a id="forgotpassword">Wachtwoord vergeten</a>
+        <a id="forgotpassword">Wachtwoord vergeten?</a>
 
 
         <button id="signupbutton">Sign Up</button>
         <p>OF</p>
-        <button id="loginbutton">Login</button>
+        <button id="loginbutton" onclick="window.location.href = '../log-in-page.html'">Login</button>
     </main>
 </body>
 </html>

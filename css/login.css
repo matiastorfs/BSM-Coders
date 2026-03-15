@@ -2,11 +2,11 @@
     cursor: pointer;
 }
 
-#termsofservice {
+/*#termsofservice {
     width: 10px;
     color: black;
     border-radius: 0px;
-}
+}*/
 
 #showtermsofservice {
     margin-top: -5px;
@@ -42,6 +42,31 @@ main {
 #arrow:hover {
     animation: arrowMove 0.4s ease;
 }
+.checkbox-group {
+    display: flex;
+    flex-direction: row; /* Zet ze naast elkaar */
+    align-items: center; /* Lijn ze verticaal uit */
+    gap: 10px;        /* Ruimte tussen checkbox en tekst */
+}
+
+.checkmark {
+    width: 20px; /* Gewoon een normale breedte */
+    height: 20px;
+    cursor: pointer;
+    margin: 0; /* Haalt eventuele ongewenste marges weg */
+    background-color: white;
+    border: 1px solid black;
+}
+
+.checkmark:hover {
+    background-color: lightgray;
+}
+
+.checkmark:checked {
+    appearance: checkbox;
+    
+}
+
 
 h1 {
     font-weight: bold;
@@ -99,7 +124,7 @@ button {
     color: rgb(217, 217, 217);
 }
 
-input {
+#name,#email,#password,#name_email {
     padding: 10px;
     border: 1px solid rgb(113, 113, 113);
     border-radius: 10px;
@@ -111,7 +136,7 @@ input {
     transform: translateX(0);
   }
     50% {
-    transform: translateX(15px);
+    transform: translateX(-10px);
   }
     100% {
     transform: translateX(0);
