@@ -1,16 +1,47 @@
 header {
-  margin: 4rem auto 4rem;
   text-align: center;
 }
 
-h3 {
-  margin: 4rem;
+nav {
+  display: flex;
+  justify-content: space-between;
 }
 
 nav img {
-  display: grid;
-  margin: 0;
-  position: fixed;
+  width: 28px;
+}
+
+h1 {
+  margin: 2rem;
+}
+
+h3 {
+  margin: 2rem;
+}
+
+#list-friends {
+  display: flex;
+  margin: auto 4rem;
+  overflow-x: auto;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 2rem;
+  border-radius: 8px;
+  scrollbar-width: none;
+}
+
+#list-friends img {
+  min-width: 5rem;
+  border-radius: 50%;
+  background-color: var(--secondary-bg-color);
+}
+
+#list-friends li {
+  cursor: pointer;
+}
+
+#list-friends li:hover img {
+  background-color: var(--secondary-bg-hl-color);
 }
 
 .search-bar {
@@ -27,7 +58,7 @@ nav img {
   height: 40px;
   line-height: 40px;
   padding: 0 10px;
-  flex: 1 1 auto;
+  flex: 1;
 }
 
 .search-options button {
@@ -41,17 +72,24 @@ nav img {
 }
 
 .sort-options button {
+  display: flex;
+  align-items: center;
   padding: 4px 8px;
-  height: 100%;
   border-radius: 6px;
   background-color: var(--main-btn-bg-color);
+  gap: 4px;
 }
 
 .sort-options button:hover {
   background-color: var(--main-btn-bg-hl-color);
 }
 
-#list-games {
+.sort-options img {
+  margin: auto;
+  width: 1rem;
+}
+
+.list-games {
   display: flex;
   margin: 1rem 0;
   justify-content: center;
@@ -60,33 +98,42 @@ nav img {
   gap: 1rem;
 }
 
-#list-games * {
+.list-games * {
   display: block;
 }
 
-#list-games li {
+.list-games li {
   width: 200px;
   height: fit-content;
   padding: 1rem;
   background-color: var(--secondary-bg-color);
   border: 4px solid var(--secondary-bg-color);
   border-radius: 8px;
+  flex-shrink: 0;
 }
 
-#list-games li:hover {
+.list-games li:hover {
   border: 4px solid var(--secondary-bg-hl-color);
 }
 
-#list-games img {
+.list-games img {
   width: 100%;
   object-fit: contain;
   margin-bottom: 8px;
 }
 
-#list-games em,p {
+.list-games em,p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+#list-favorites {
+  margin: auto 4rem;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
 footer {
@@ -96,8 +143,7 @@ footer {
 
 @media (min-width: 900px) {
   header {
-    margin: 4rem;
-    text-align: left;
+    margin: 2rem;
   }
 
   .search-bar {

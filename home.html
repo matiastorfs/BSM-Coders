@@ -12,34 +12,42 @@
 </head>
 <body>
   <header>
+    <nav>
+      <button type="button" id="btn-menu">
+        <img src="./assets/menu.png">
+      </button>
+      
+      <button type="button" id="btn-account">
+        <img id="idle" src="./assets/account-icon-light.png">
+      </button>
+    </nav>
+
     <h1>Gamehub</h1>
   </header>
 
   <main>
-    <section class="favorites">
+    <section class="friends">
       <h3>Vrienden <img src="./assets/right-arrow.png"></h3>
+      <ul id="list-friends"></ul>
     </section>
 
     <section class="favorites">
       <h3>Favorieten <img src="./assets/right-arrow.png"></h3>
+      <ul class="list-games" id="list-favorites"></ul>
     </section>
   
     <section>
       <h3>Alle Games <img src="./assets/right-arrow.png"></h3>
-          <section class="search-bar">
-      <form class="search-options">
-        <input type="text" id="txt-search" placeholder="Zoeken">
-        <button type="button" id="btn-search"><img src="./assets/search-icon.png"></button>
-        <button type="button" id="btn-sort"><img src="./assets/sort-icon.png"></button>
-      </form>
+      <section class="search-bar">
+        <form class="search-options">
+          <input type="text" id="txt-search" placeholder="Zoeken">
+          <button type="button" id="btn-search"><img src="./assets/search-icon.png"></button>
+          <button type="button" id="btn-sort"><img src="./assets/sort-icon.png"></button>
+        </form>
 
-      <form class="sort-options">
-        <button type="button" id="sort-name">Naam</button>
-        <button type="button" id="sort-developer">Ontwikkelaar</button>
-        <button type="button" id="sort-date">Datum</button>
-      </form>
-    </section>
-      <ul id="list-games"></ul>
+        <form class="sort-options"></form>
+      </section>
+      <ul class="list-games" id="list-search"></ul>
     </section>
   </main>
 
