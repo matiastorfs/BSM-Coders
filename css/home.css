@@ -2,6 +2,11 @@ header {
   text-align: center;
 }
 
+/* Default width for icons */
+img {
+  width: 24px;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
