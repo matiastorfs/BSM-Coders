@@ -99,7 +99,7 @@ footer ul li {
   height: 25px;
 }
 
-li:hover {
+footer li:hover {
     background-color: rgb(220, 220, 220);
     cursor: pointer;
 }
