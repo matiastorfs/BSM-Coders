@@ -6,27 +6,25 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/general.css">
-    <link rel="stylesheet" href="./css/forum.css">
-    <script type="module" src="./js/forum.js"></script>
+    <link rel="stylesheet" href="./css/account.css">
 </head>
 <body>
     <header>
         <img src="./assets/left-arrow.png" id="arrow">
-        <p id="backtext">Thuispagina</p>
+        <p>Games</p>
     </header>
     <main>
-        <h1>Forum</h1>
-        <form id="search-form">
-                <input type="search" id="search-forum" placeholder="Zoeken">
-                <button type="click" id="search-button"><img src="./assets/glass-icon.png"></button>
-                <button type="click" id="layout-button"><img src="./assets/three-lines.png"></button>
-        </form>
-        <h2>Forumlijst</h2>
-        <div id="forumlijst"></div>
+        <img src="./assets/userdefaultimage.jpg" id="userlogo">
+        <div class="usertext">
+            
+        <p id="username">Gebruiker</p>
+        <p id="userdescription">Beschrijving</p>
+        <button id="accountsettingsbutton">Account settings<img src="./assets/SettingsIcon.png" id="accountsettingsicon"> </button>
+        </div>
     </main>
     <footer>
       <ul>
-        <li>
+        <li onclick="window.location.href = '../homepage-logged-out.html'">
           <img src="./assets/StarIconActive.png" class="footerIcons"> 
           <div>Spelen</div>
         </li>
@@ -34,8 +32,8 @@
           <img src="./assets/StarIcon.png" class="footerIcons"> 
           <div>Raad Het Spel</div>
         </li>
-        <li onclick="window.location.href = '../homepage-logged-out.html'">
-          <img src="./assets/SettingsIcon.png" class="footerIcons"> 
+        <li onclick="window.location.href = '../homepage-logged-out.html'" id="settingsbuttonhover">
+          <img src="./assets/SettingsIcon.png" class="footerIcons" id="settingsicon"> 
           <div>Instellingen</div>
         </li>
       </ul>
