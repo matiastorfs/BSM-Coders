@@ -58,6 +58,7 @@ h1 {
 }
 
 form {
+    margin-top: -50px;
     width: 350px;
     text-align: left;
     display:flex;
@@ -103,4 +104,10 @@ input {
     border: 1px solid rgb(113, 113, 113);
     border-radius: 10px;
     background-color: white;
+}
+
+@media (min-width: 900px) {
+  form {
+    margin-top: -100px;
+  }
 }

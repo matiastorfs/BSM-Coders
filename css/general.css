@@ -1,50 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --main-text-color: #000000;
-    --main-bg-color: #FEF7FF;
-    --secondary-bg-color: #CFCFCF;
-    --main-btn-bg-color: #2EE8C3;
-    --main-btn-border-color: #30C7A0;
+  --main-text-color: #000000;
+  --main-bg-color: #F2F2F2;
+  --secondary-bg-color: #CCCCCC;
+  --main-btn-bg-color: #A5A5A5;
+  --main-btn-border-color: #7F7F7F;
+}
+
+* {
+  font-family: 'Work Sans', 'Segoe UI', Verdana, sans-serif;
+  color: var(--main-text-color);
 }
 
 body {
-    font-family: 'Work Sans', 'Segoe UI', Verdana, sans-serif;
-    background-color: var(--main-bg-color);
+  background-color: var(--main-bg-color);
 }
 
-html, body {
-  height: 100%;
+h1 {
+  font-size: 4rem;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+h2 {
+  font-size: 3rem;
 }
 
-main {
-  flex: 1;
-}
-
-main{
-    margin-bottom: 100px;
-}
-
-h1 { font-size: 4rem; }
-h2 { font-size: 3rem; }
-h3 { font-size: 2rem; }
-
-button {
-    padding: 0.5rem;
-}
-
-em {
-    font-weight: bold;
+h3 {
+  font-size: 2rem;
 }
 
 p {
-    font-size: 0.75rem;
+  font-size: 0.75rem;
 }
 
 footer{
@@ -64,4 +50,10 @@ footer ul li{
 }
 .footerIcons{
     height: 25px;
+em {
+  font-weight: bold;
+}
+
+button {
+  padding: 0.5rem;
 }

@@ -1,0 +1,39 @@
+{
+  "forum": [
+    {
+      "id": 1,
+      "titel": "Algemene Discussie",
+      "beschrijving": "Praat hier over alles wat met de community te maken heeft.",
+      "berichten": 1000,
+      "laatste_bericht_dagen_geleden": 2
+    },
+    {
+      "id": 2,
+      "titel": "Help & Support",
+      "beschrijving": "Heb je hulp nodig? Stel hier je vragen.",
+      "berichten": 542,
+      "laatste_bericht_dagen_geleden": 1
+    },
+    {
+      "id": 3,
+      "titel": "Suggesties",
+      "beschrijving": "Heb je ideeën om het forum te verbeteren?",
+      "berichten": 231,
+      "laatste_bericht_dagen_geleden": 3
+    },
+    {
+      "id": 4,
+      "titel": "Off-Topic",
+      "beschrijving": "Praat hier over dingen die niets met het forum te maken hebben.",
+      "berichten": 876,
+      "laatste_bericht_dagen_geleden": 5
+    },
+    {
+      "id": 5,
+      "titel": "Nieuws & Updates",
+      "beschrijving": "Officiële aankondigingen en updates.",
+      "berichten": 120,
+      "laatste_bericht_dagen_geleden": 2
+    }
+  ]
+}
