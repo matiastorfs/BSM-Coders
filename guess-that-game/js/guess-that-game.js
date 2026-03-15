@@ -8,22 +8,20 @@ oneVOne.addEventListener("click", function () {
   window.location.href = "./guess-that-game-1v1.html";
 });
 
-
-
 async function loadRanking() {
   try {
     const response = await fetch("./rankingDummies.json");
     const players = await response.json();
 
-    players.sort((a, b) => b.xpOwned - a.xpOwned);
-
-    const topPlayers = players.slice(0, 3);
-
     const rankingSection = document.getElementById("rankingList");
 
-    topPlayers.forEach((player, index) => {
-      const rank = index + 1;
+    players.sort((a, b) => b.xpOwned - a.xpOwned);
 
+    const myPlayer = players.find(player => player.name === "Ik");
+
+    const myRank = players.findIndex(player => player.name === "Ik") + 1;
+
+    function createRankingItem(player, rank) {
       const article = document.createElement("article");
       article.classList.add("rankingItem");
 
@@ -32,7 +30,7 @@ async function loadRanking() {
       if (rank === 3) article.classList.add("bronze");
 
       const medals = ["🥇", "🥈", "🥉"];
-      const rankDisplay = medals[index] || rank;
+      const rankDisplay = medals[rank - 1] || rank;
 
       article.innerHTML = `
         <div class="rankNumber">${rankDisplay}</div>
@@ -49,11 +47,25 @@ async function loadRanking() {
         </div>
       `;
 
+      return article;
+    }
+
+    if (myPlayer) {
+      const myArticle = createRankingItem(myPlayer, myRank);
+      myArticle.classList.add("myRank");
+      rankingSection.appendChild(myArticle);
+    }
+
+    const topPlayers = players.slice(0, 3);
+
+    topPlayers.forEach((player, index) => {
+      const rank = index + 1;
+      const article = createRankingItem(player, rank);
       rankingSection.appendChild(article);
     });
 
   } catch (error) {
-    console.error("Error loading ranking:", error);
+    console.error("Error bij het laden van de ranks:", error);
   }
 }
 

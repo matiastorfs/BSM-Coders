@@ -22,5 +22,11 @@
     "name": "Speler 4",
     "description": "Een actieve speler die graag bezig is met coderen.",
     "xpOwned": 55
+  },
+  {
+    "id": 5,
+    "name": "Ik",
+    "description": "Een actieve speler die graag bezig is met coderen.",
+    "xpOwned": 20
   }
 ]
