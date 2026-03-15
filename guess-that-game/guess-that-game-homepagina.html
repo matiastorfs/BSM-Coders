@@ -7,11 +7,17 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/general.css" />
     <link rel="stylesheet" href="./css/guessthatgame.css" />
+
+    <script>
+      function setDifficulty(level){
+          localStorage.setItem("difficulty", level);
+          window.location.href = "guess-that-game-play.html";
+      }
+    </script>
     <script type="module" src="./js/guess-that-game.js"></script>
   </head>
   <body>
     <header>
-      <img src="../assets/left-arrow.png" id="arrow" />
     </header>
     <main>
       <h1>De Raad Het Spel Minigame</h1>
@@ -20,9 +26,9 @@
         <button class="modeButton inactive" id="1v1">1v1</button>
       </section>
       <section class="spelen">
-        <article id="difficultyOne" class="difficulties">
+        <article class="difficulties" onclick="setDifficulty('easy')">
           <img src="./assets/Makkelijk.jpg" class="difficultie" id="easy" />
-          <div class="title">Makkelijk</div>
+          <div class="title"><em>Makkelijk</em></div>
           <div class="description">Omschrijving</div>
           <div class="stargroup">
             <img src="./assets/Star.png" class="star" />
@@ -30,9 +36,9 @@
             <img src="./assets/Star.png" class="star" />
           </div>
         </article>
-        <article id="difficultyTwo" class="difficulties">
+        <article class="difficulties" onclick="setDifficulty('medium')">
           <img src="./assets/Gemiddeld.jpg" class="difficultie" id="medium" />
-          <div class="title">Gemiddeld</div>
+          <div class="title"><em>Gemiddeld</em></div>
           <div class="description">Omschrijving</div>
           <div class="stargroup">
             <img src="./assets/Star.png" class="star" />
@@ -41,9 +47,9 @@
             <img src="./assets/Star.png" class="star" />
           </div>
         </article>
-        <article id="difficultyThree" class="difficulties">
+        <article class="difficulties lowestOne" onclick="setDifficulty('hard')">
           <img src="./assets/Moeilijk.jpg" class="difficultie" id="hard" />
-          <div class="title">Moeilijk</div>
+          <div class="title"><em>Moeilijk</em></div>
           <div class="description">Omschrijving</div>
           <div class="stargroup">
             <img src="./assets/Star.png" class="star" />
@@ -54,7 +60,8 @@
           </div>
         </article>
       </section>
-      <section class="ranking"></section>
+      <h1>Ranking</h1>
+      <section class="ranking" id="rankingList"></section>
     </main>
     <footer>
       <ul>

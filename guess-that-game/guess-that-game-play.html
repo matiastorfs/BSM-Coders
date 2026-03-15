@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guess That Game - Play</title>
+
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/general.css">
+<link rel="stylesheet" href="./css/guessthatgame.css">
+
+<script type="module" src="./js/guess-that-game-play.js" defer></script>
+</head>
+
+<body>
+
+<header></header>
+
+<h2 id="title"></h2>
+
+<div id="gameInfo">
+<p class="xps">XP: <span id="xp">0</span></p>
+<p class="xps">Correct: <span id="progress">0</span> / 5</p>
+</div>
+
+<form id="guessForm">
+
+<section id="imgGame"></section>
+
+<label for="guessInput">
+Welk spel denkt u dat het is?
+</label>
+
+<input id="guessInput" name="guess" required autocomplete="off">
+
+<button type="submit">Raad</button>
+
+</form>
+
+<div id="result" class="xps"></div>
+
+</body>
+</html>
