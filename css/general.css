@@ -39,7 +39,6 @@ p {
 
 footer{
     background-color: rgb(234,234,234);
-    padding: 10px;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -54,6 +53,8 @@ footer ul li{
 }
 .footerIcons{
     height: 25px;
+}
+
 em {
   font-weight: bold;
 }
