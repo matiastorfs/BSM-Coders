@@ -42,6 +42,7 @@ h2 {
   width: 200px;
   border-style: none;
   text-align: center;
+  height: 30px;
 }
 .active {
   background-color: rgb(106, 106, 138);
@@ -191,7 +192,7 @@ li:hover {
     margin-left: 140px;
   }
   header{
-    margin-left: 100px;
+    margin-left: 140px;
     margin-right: 20px;
   }
 

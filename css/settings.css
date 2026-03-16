@@ -16,8 +16,70 @@ header {
     margin: 24px;
 }
 
+button img {
+  width: 24px;
+}
+
 h1 {
     font-weight: bold;
     margin: 2rem;
     text-align: center;
+}
+
+.search-bar {
+  background-color: var(--secondary-bg-color);
+  border: 8px solid var(--secondary-bg-color);
+  border-radius: 8px;
+  width: 300px;
+  justify-self: center;
+}
+
+.search-options {
+  display: flex;
+}
+
+.search-options input {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  flex: 1;
+}
+
+.search-options button {
+  margin: auto 1rem;
+}
+
+@media screen and (min-width: 700px) {
+  footer{
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 120px;
+  }
+  main{
+    margin-left: 140px;
+  }
+  header{
+    margin-left: 140px;
+    margin-right: 20px;
+  }
+
+  #rankTitle{
+    text-align: left;
+  }
+
+  footer ul {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 120px;
+  }
+
+  footer ul li {
+    display: grid;
+    margin-top: 10px;
+    grid-template-columns: 100px;
+    grid-template-rows: 20px 30px;
+    padding: 10px;
+  }
+  
 }

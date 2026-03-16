@@ -1,0 +1,26 @@
+  main{
+    margin-left: 0px;
+  }
+  header{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  button{
+    width: 60px;
+    height: 30px;
+    text-align: center;
+  }
+
+  .xps{
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  h3{
+    font-size: 60px;
+  }
+  p{
+    padding: 5px;
+    font-size: 30px;
+  }
