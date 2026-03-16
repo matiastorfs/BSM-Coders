@@ -13,7 +13,9 @@ header img {
 
 
 main{
-  padding-bottom: 100px;
+  padding-bottom: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 
@@ -171,4 +173,44 @@ form button{
 .playerDescription {
   margin-top: 6px;
   font-size: 0.9rem;
+}
+
+li:hover {
+    background-color: rgb(220, 220, 220);
+    cursor: pointer;
+}
+
+@media screen and (min-width: 700px) {
+  footer{
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 120px;
+  }
+  main{
+    margin-left: 140px;
+  }
+  header{
+    margin-left: 100px;
+    margin-right: 20px;
+  }
+
+  #rankTitle{
+    text-align: left;
+  }
+
+  footer ul {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 120px;
+  }
+
+  footer ul li {
+    display: grid;
+    margin-top: 10px;
+    grid-template-columns: 100px;
+    grid-template-rows: 20px 30px;
+    padding: 10px;
+  }
+  
 }

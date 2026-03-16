@@ -50,12 +50,6 @@ async function loadRanking() {
       return article;
     }
 
-    if (myPlayer) {
-      const myArticle = createRankingItem(myPlayer, myRank);
-      myArticle.classList.add("myRank");
-      rankingSection.appendChild(myArticle);
-    }
-
     const topPlayers = players.slice(0, 3);
 
     topPlayers.forEach((player, index) => {
@@ -63,6 +57,12 @@ async function loadRanking() {
       const article = createRankingItem(player, rank);
       rankingSection.appendChild(article);
     });
+
+    if (myPlayer) {
+      const myArticle = createRankingItem(myPlayer, myRank);
+      myArticle.classList.add("myRank");
+      rankingSection.appendChild(myArticle);
+    }
 
   } catch (error) {
     console.error("Error bij het laden van de ranks:", error);
