@@ -1,0 +1,23 @@
+header {
+    display:flex;
+    flex-direction: row;
+}
+
+#arrow {
+    margin: 20px;
+    width: 30px;
+    height: 30px;
+}
+#arrow:hover {
+    cursor: pointer;
+}
+#backtext {
+    font-size: 20px;
+    margin: 24px;
+}
+
+h1 {
+    font-weight: bold;
+    margin: 2rem;
+    text-align: center;
+}

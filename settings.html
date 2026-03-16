@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/general.css">
+    <link rel="stylesheet" href="./css/settings.css">
+
+    <script type="module" src="./js/settings.js"></script>
+</head>
+<body>
+    <header>
+        <img src="./assets/left-arrow.png" id="arrow">
+        <p id="backtext">Thuispagina</p>
+    </header>
+    <main>
+        <h1>Instellingen</h1>
+    </main>
+    <footer>
+      <ul>
+        <li onclick="window.location.href = '../homepage-logged-out.html'">
+          <img src="./assets/StarIcon.png" class="footerIcons"> 
+          <div>Spelen</div>
+        </li>
+        <li onclick="window.location.href = './guess-that-game/guess-that-game-homepagina.html'">
+          <img src="./assets/StarIcon.png" class="footerIcons"> 
+          <div>Raad Het Spel</div>
+        </li>
+        <li id="settingsbuttonhover">
+          <img src="./assets/SettingsIconActive.png" class="footerIcons" id="settingsicon"> 
+          <div>Instellingen</div>
+        </li>
+      </ul>
+    </footer>
+</body>
+</html>
