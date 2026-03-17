@@ -1,9 +1,16 @@
 // Fetch all game data
 const response = await fetch("../games.json");
 const games = await response.json();
+let favoriteGames;
 
+try {
+  favoriteGames = JSON.parse(localStorage.getItem("favoriteGames")) || [];
+} catch {
+  favoriteGames = [];
+}
+
+displayFavorites(favoriteGames);
 displayGames(games);
-displayFavorites(games);
 
 // Displays all games inside of the given list
 function displayGames(games) {
@@ -14,7 +21,7 @@ function displayGames(games) {
     const li = document.createElement("li");
 
     li.innerHTML = `
-      <a href="../game-info.html" id="game-item${game.id}" class="game-items">
+      <a href="../info.html" id="game-item${game.id}" class="game-items">
         <img src="${game.cover}" alt="${game.title}" width="150" height="150">
         <em>${game.title}</em>
         <p>${game.developer}</p>
@@ -22,8 +29,9 @@ function displayGames(games) {
     `;
 
     ul.appendChild(li);
-    saveGameId();
   });
+
+  saveGameId();
 }
 
 function displayFavorites(games) {
@@ -31,21 +39,20 @@ function displayFavorites(games) {
   ul.innerHTML = "";
 
   games.forEach(game => {
-    // Favorites will be saved in a variable later
-    if (game.id > 6 && game.id < 14) {
-      const li = document.createElement("li");
+    const li = document.createElement("li");
 
-      li.innerHTML = `
-        <a href="../game-info.html" id="game-item${game.id}" class="game-items">
-          <img src="${game.cover}" alt="${game.title}" width="150" height="150">
-          <em>${game.title}</em>
-          <p>${game.developer}</p>
-        </a>
-      `;
+    li.innerHTML = `
+      <a href="../info.html" id="game-item${game.id}" class="game-items">
+        <img src="${game.cover}" alt="${game.title}" width="150" height="150">
+        <em>${game.title}</em>
+        <p>${game.developer}</p>
+      </a>
+    `;
 
-      ul.appendChild(li);
-    }
+    ul.appendChild(li);
   });
+
+  saveGameId();
 }
 
 // Saves the game you clicked on so it can be used on the info page
