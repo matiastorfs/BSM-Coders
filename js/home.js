@@ -198,3 +198,24 @@ function displayFriends(totalFriends) {
 }
 
 displayFriends(12);
+
+
+document.getElementById("btn-menu").addEventListener("click", function(e) {
+  e.preventDefault();
+
+  const menu = document.querySelector(".menu");
+
+  menu.style.display = "flex";
+
+  menu.innerHTML = `
+    <button type="button" id="exit-menu"><img src="./assets/x-icon.png"></button>
+    <a href="./home.html"><em>Home</em></a>
+    <a href="./guess-that-game/guess-that-game-homepagina.html"><em>Raad Dat Spel</em></a>
+    <a><em>Instellingen</em></a>
+  `;
+
+  document.getElementById("exit-menu").addEventListener("click", function() {
+    menu.innerHTML = "";
+    menu.style.display = "none";
+  });
+});
