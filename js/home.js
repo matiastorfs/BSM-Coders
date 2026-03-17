@@ -209,9 +209,9 @@ document.getElementById("btn-menu").addEventListener("click", function(e) {
 
   menu.innerHTML = `
     <button type="button" id="exit-menu"><img src="./assets/x-icon.png"></button>
-    <a href="./home.html"><em>Home</em></a>
-    <a href="./guess-that-game/guess-that-game-homepagina.html"><em>Raad Dat Spel</em></a>
-    <a><em>Instellingen</em></a>
+    <a href="./home.html"><em>Home</em><img src="./assets/home-icon.png"></a>
+    <a href="./guess-that-game/guess-that-game-homepagina.html"><em>Raad Het Spel</em><img src="./assets/guess-icon.png"></a>
+    <a><em>Instellingen</em><img src="./assets/setting-icon.png"></a>
   `;
 
   document.getElementById("exit-menu").addEventListener("click", function() {

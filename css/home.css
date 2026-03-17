@@ -1,4 +1,5 @@
 header {
+  margin: 2rem;
   text-align: center;
 }
 
@@ -50,9 +51,12 @@ h3 {
 }
 
 .search-bar {
+  margin: 2rem 4rem;
+  justify-content: flex-start;
   background-color: var(--secondary-bg-color);
   border: 8px solid var(--secondary-bg-color);
   border-radius: 8px;
+  
 }
 
 .search-options {
@@ -152,7 +156,7 @@ footer {
   left: 0;
   position: fixed;
   height: 100vh;
-  width: 250px;
+  width: 100%;
   flex-direction: column;
   background-color: var(--secondary-bg-hl-color);
 }
@@ -161,26 +165,27 @@ footer {
   display: flex;
   width: fit-content;
   align-self: flex-end;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .menu a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--main-btn-bg-color);
   padding: 1rem;
+  margin: 8px 1rem;
   cursor: pointer;
+  border-radius: 8px;
+  gap: 8px;
 }
 
 .menu a:hover {
   background-color: var(--main-btn-bg-hl-color);
 }
 
-@media (min-width: 900px) {
-  header {
-    margin: 2rem;
-  }
-
-  .search-bar {
-    margin: 2rem 4rem;
-    justify-content: flex-start;
+@media (min-width: 600px) {
+  .menu {
+    width: 300px;
   }
 }
