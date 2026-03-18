@@ -1,44 +1,124 @@
+/* Adds some space for the navigation bar */
+body {
+  margin-top: 6rem;
+}
+
 header {
+  margin: 2rem;
   text-align: center;
 }
 
-/* Default width for icons */
+/* Default size for icons or images */
 img {
   width: 24px;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
+section h3 {
+  margin: 2rem;
 }
 
-nav img {
+/* NAVIGATION MENU */
+nav > * {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  background-color: #9EB2C3; /* Perfect Landing */
+}
+
+.nav-bar {
+  top: 0;
+  left: 0;
+  justify-content: space-between;
+  padding: 18px;
+}
+
+.nav-bar img {
   width: 28px;
 }
 
-h1 {
-  margin: 2rem;
+.nav-menu {
+  top: 0;
+  left: -100vw;
+  height: 100vh;
+  flex-direction: column;
+  transition: left 0.3s ease;
 }
 
-h3 {
-  margin: 2rem;
+.nav-menu.open {
+  left: 0;
 }
 
-#list-friends {
+.nav-menu button {
   display: flex;
-  margin: auto 4rem;
-  overflow-x: auto;
-  justify-content: flex-start;
-  text-align: center;
-  gap: 2rem;
-  border-radius: 8px;
-  scrollbar-width: none;
+  width: fit-content;
+  margin: 1.5rem;
 }
 
-#list-friends img {
-  min-width: 5rem;
-  border-radius: 50%;
+.nav-menu a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 1rem;
+  padding: 1rem;
+  background-color: #8D99B1; /* Moon Veil */
+  border-radius: 4px;
+  gap: 8px;
+}
+
+.nav-menu a:hover {
+  background-color: #70789B; /* Blue Ice */
+}
+
+/* SEARCH BAR */
+.search-bar {
+  margin: 2rem 4rem;
   background-color: var(--secondary-bg-color);
+  border: 8px solid var(--secondary-bg-color);
+  border-radius: 8px;
+}
+
+.search-buttons {
+  display: flex;
+}
+
+.search-buttons input {
+  flex: 1;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+}
+
+.search-buttons button {
+  margin: auto 1rem;
+}
+
+.sort-buttons {
+  display: none;
+  margin: 8px;
+  gap: 8px;
+}
+
+.sort-buttons button {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: var(--main-btn-bg-color);
+  border-radius: 6px;
+  gap: 4px;
+}
+
+.sort-buttons button:hover {
+  background-color: var(--main-btn-bg-hl-color);
+}
+
+.sort-buttons img {
+  width: 1rem;
+}
+
+/* ALL LISTS */
+#list-friends {
+  border-radius: 8px;
+  gap: 2rem;
 }
 
 #list-friends li {
@@ -49,110 +129,71 @@ h3 {
   background-color: var(--secondary-bg-hl-color);
 }
 
-.search-bar {
+#list-friends img {
+  min-width: 5rem;
+  border-radius: 50%;
   background-color: var(--secondary-bg-color);
-  border: 8px solid var(--secondary-bg-color);
-  border-radius: 8px;
-}
-
-.search-options {
-  display: flex;
-}
-
-.search-options input {
-  height: 40px;
-  line-height: 40px;
-  padding: 0 10px;
-  flex: 1;
-}
-
-.search-options button {
-  margin: auto 1rem;
-}
-
-.sort-options {
-  display: none;
-  margin: 8px;
-  gap: 1rem;
-}
-
-.sort-options button {
-  display: flex;
-  align-items: center;
-  padding: 4px 8px;
-  border-radius: 6px;
-  background-color: var(--main-btn-bg-color);
-  gap: 4px;
-}
-
-.sort-options button:hover {
-  background-color: var(--main-btn-bg-hl-color);
-}
-
-.sort-options img {
-  margin: auto;
-  width: 1rem;
-}
-
-.list-games {
-  display: flex;
-  margin: 1rem 0;
-  justify-content: center;
-  text-align: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.list-games * {
-  display: block;
-}
-
-.list-games li {
-  width: 200px;
-  height: fit-content;
-  padding: 1rem;
-  background-color: var(--secondary-bg-color);
-  border: 4px solid var(--secondary-bg-color);
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-.list-games li:hover {
-  border: 4px solid var(--secondary-bg-hl-color);
-}
-
-.list-games img {
-  width: 100%;
-  object-fit: contain;
-  margin-bottom: 8px;
-}
-
-.list-games em,p {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 #list-favorites {
+  gap: 1rem;
+}
+
+#list-friends,
+#list-favorites {
+  display: flex;
   margin: auto 4rem;
-  justify-content: flex-start;
+  text-align: center;
   flex-wrap: nowrap;
   overflow-x: auto;
   scrollbar-width: none;
 }
 
-footer {
-  margin: 4rem auto 1rem;
+#list-games {
+  display: flex;
+  margin: 1rem 0;
+  justify-content: center;
+  flex-wrap: wrap;
   text-align: center;
+  gap: 1rem;
 }
 
-@media (min-width: 900px) {
-  header {
-    margin: 2rem;
-  }
+.game-cards * {
+  display: block;
+}
 
-  .search-bar {
-    margin: 2rem 4rem;
-    justify-content: flex-start;
+.game-cards li {
+  background-color: var(--secondary-bg-color);
+  border: 4px solid var(--secondary-bg-color);
+  border-radius: 8px;
+}
+
+.game-cards li a {
+  width: 200px;
+  height: fit-content;
+  padding: 1rem;
+}
+
+.game-cards li:hover {
+  border: 4px solid var(--secondary-bg-hl-color);
+}
+
+.game-cards img {
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.game-cards em,
+.game-cards p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 600px) {
+  .nav-menu {
+    width: 20rem;
+    left: -20rem;
   }
 }

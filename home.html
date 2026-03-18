@@ -1,60 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GameHub</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameHub</title>
+    <link rel="icon" type="image/png" href="./assets/console.png" />
 
-  <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/general.css">
-  <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/general.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <script type="module" src="./js/home.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <section class="nav-bar">
+          <button type="button" class="toggle-menu" id="btn-menu">
+            <img src="./assets/menu.png" />
+          </button>
 
-  <script type="module" src="./js/darkMode.js"></script>
-  <script type="module" src="./js/home.js"></script>
-</head>
-<body>
-  <header>
-    <nav>
-      <button type="button" id="btn-menu">
-        <img src="./assets/menu.png">
-      </button>
-      
-      <button type="button" id="btn-account">
-        <img id="idle" src="./assets/account-icon-light.png">
-      </button>
-    </nav>
+          <button type="button" id="btn-account">
+            <img id="idle" src="./assets/account-icon-light.png" />
+          </button>
+        </section>
 
-    <h1>Gamehub</h1>
-  </header>
+        <section class="nav-menu">
+          <button type="button" class="toggle-menu">
+            <img src="./assets/close-icon2.png" id="btn-exit" />
+          </button>
 
-  <main>
-    <section class="friends">
-      <h3>Vrienden <img src="./assets/right-arrow.png"></h3>
-      <ul id="list-friends"></ul>
-    </section>
+          <a href="./home.html">
+            <em>Home</em>
+            <img src="./assets/home-icon.png" />
+          </a>
+          <a href="./guess-that-game/guess-that-game-homepagina.html">
+            <em>Raad Het Spel</em>
+            <img src="./assets/guess-icon.png" />
+          </a>
+          <a href="#">
+            <em>Instellingen</em>
+            <img src="./assets/setting-icon.png" />
+          </a>
+        </section>
+      </nav>
 
-    <section class="favorites">
-      <h3>Favorieten <img src="./assets/right-arrow.png"></h3>
-      <ul class="list-games" id="list-favorites"></ul>
-    </section>
-  
-    <section>
-      <h3>Alle Games <img src="./assets/right-arrow.png"></h3>
-      <section class="search-bar">
-        <form class="search-options">
-          <input type="text" id="txt-search" placeholder="Zoeken">
-          <button type="button" id="btn-search"><img src="./assets/search-icon.png"></button>
-          <button type="button" id="btn-sort"><img src="./assets/sort-icon.png"></button>
-        </form>
+      <h1>Gamehub</h1>
+    </header>
 
-        <form class="sort-options"></form>
+    <main>
+      <section class="friends">
+        <h3>Vrienden <img src="./assets/right-arrow.png" /></h3>
+        <ul id="list-friends"></ul>
       </section>
-      <ul class="list-games" id="list-search"></ul>
-    </section>
-  </main>
 
-  <!-- <footer>
-    <p>&copy;BSM-Coders</p>
-  </footer> -->
-</body>
+      <section class="favorites">
+        <h3>Favorieten <img src="./assets/right-arrow.png" /></h3>
+        <ul class="game-cards" id="list-favorites"></ul>
+      </section>
+
+      <section>
+        <h3>Alle Games <img src="./assets/right-arrow.png" /></h3>
+
+        <article class="search-bar">
+          <form class="search-buttons">
+            <input type="text" id="txt-search" placeholder="Zoeken" />
+            
+            <button type="button" id="btn-search">
+              <img src="./assets/search-icon.png" />
+            </button>
+            <button type="button" id="btn-sort">
+              <img src="./assets/sort-icon.png" />
+            </button>
+          </form>
+          <form class="sort-buttons">
+            <button type="button" class="sort-button" id="sort-name">Naam</button>
+            <button type="button" class="sort-button" id="sort-developer">Ontwikkelaar</button>
+            <button type="button" class="sort-button" id="sort-date">Datum</button>
+          </form>
+        </article>
+
+        <ul class="game-cards" id="list-games"></ul>
+      </section>
+    </main>
+  </body>
 </html>
