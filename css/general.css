@@ -10,13 +10,19 @@
   --main-btn-bg-hl-color: #A7AEB4; /* Northern Light Grey */
 }
 
-* {
-  font-family: 'Work Sans', 'Segoe UI', Verdana, sans-serif;
-  color: var(--main-text-color);
+/* ---------- Dark Mode ---------- */
+body.dark-mode {
+  --main-bg-color: #1f1e1e;
+  --main-text-color: #f1f1f1;
 }
 
 body {
   background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+}
+
+* {
+  font-family: 'Work Sans', 'Segoe UI', Verdana, sans-serif;
 }
 
 main{
@@ -42,6 +48,7 @@ p {
 
 footer{
     background-color: rgb(234,234,234);
+    color: #111;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -72,30 +79,25 @@ footer {
     text-align: center;
 }
 footer {
-
   background-color: rgb(234, 234, 234);
   position: fixed;
   bottom: 0;
   width: 100%;
   text-align: center;
 }
-
 footer ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
-
 footer ul li {
   display: grid;
   justify-items: center;
   grid-template-rows: 20px 30px;
   padding: 10px;
 }
-
 .footerIcons {
   height: 25px;
 }
-
 footer li:hover {
     background-color: rgb(220, 220, 220);
     cursor: pointer;
