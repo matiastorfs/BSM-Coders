@@ -63,7 +63,7 @@ h1 {
     margin-left: 20px; 
     margin-top: 50px;
     width: auto;
-
+    font-weight: normal;
 }
 
 .profile {
@@ -110,6 +110,7 @@ main {
     color: white;
     background-color: gray;
     margin-top: 5px;
+    padding: 5px;
 }
 #accountsettingsbutton:hover {
     cursor: pointer;
