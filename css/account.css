@@ -2,10 +2,13 @@
     width: 30px;
 }
 
+#arrow:hover {
+    cursor: pointer;
+}
+
 main {
     display: flex;
     align-items: center;
-    background: linear-gradient(to bottom, rgb(193, 193, 193), transparent);
 }
 
 header {
@@ -21,20 +24,67 @@ header {
     }
 }
 
+.titles-container {
+    cursor: pointer;
+}
+
+.titles-container .active {
+    border-bottom: 4px solid #333;
+    color: #000;
+}
+
+#lijst-container {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#data-lijst {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 900px;
+}
+
+#data-lijst li {
+    list-style: none;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.status {
+    font-style: italic;
+    color: #666;
+}
+
 h1 {
     font-size: 30px;
     margin-left: 20px; 
     margin-top: 50px;
     width: auto;
+
+}
+
+.profile {
+    display: flex;
+}
+
+.titles-container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.titles-container {
+    gap: 40px;
+    margin-top: 20px;
 }
 
 main {
     display: flex;
     flex-direction: column;
-}
-
-.profile {
-    display: flex;
 }
 
 #userlogo {
@@ -71,7 +121,45 @@ main {
     margin-left: 10px;
 }
 
+.game-card {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.game-cover {
+    width: 80px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.game-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.game-dev {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.game-desc {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+small {
+    color: #888;
+    font-size: 0.75rem;
+}
 @media (min-width: 900px) {
+
+
   .profile {
     display: flex;
     align-items: center;
@@ -95,8 +183,10 @@ main {
   }
 
   #accountsettingsbutton {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    margin-top: 0;
-  }
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        margin-left: auto;
+        margin-top: 0;
+        width: 180px;
+    }
 }
