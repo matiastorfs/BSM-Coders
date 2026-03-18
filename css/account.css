@@ -2,10 +2,18 @@
     width: 30px;
 }
 
+main {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to bottom, rgb(193, 193, 193), transparent);
+}
+
 header {
-    margin-left: 10xp;
+    margin-left: 10px;
     padding: 20px;
     display: flex;
+    align-items: center;
+    
     p {
         font-size: 20px;
         padding: 5px;
@@ -13,7 +21,19 @@ header {
     }
 }
 
+h1 {
+    font-size: 30px;
+    margin-left: 20px; 
+    margin-top: 50px;
+    width: auto;
+}
+
 main {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile {
     display: flex;
 }
 
@@ -52,6 +72,31 @@ main {
 }
 
 @media (min-width: 900px) {
-  header {
+  .profile {
+    display: flex;
+    align-items: center;
+  }
+
+  .usertext {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 30px;
+    align-items: center;
+  }
+
+  #username {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  #userdescription {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  #accountsettingsbutton {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin-top: 0;
   }
 }
