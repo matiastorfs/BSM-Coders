@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/settings.css">
 
+    <script type="module" src="./js/darkMode.js"></script>
     <script type="module" src="./js/settings.js"></script>
 </head>
 <body>
@@ -22,6 +23,69 @@
                 <input type="text" id="txt-search" placeholder="Zoeken">
                 <button type="button" id="btn-search"><img src="./assets/search-icon.png"></button>
             </form>
+        </section>
+        <section class="settings-tabs">
+          <div class="tab">
+            <div class="tab-header">
+              <h2>Account</h2>
+              <span class="arrow-down">▼</span>
+            </div>
+            <div class="tab-content">
+              <label>Username</label>
+              <input type="text" placeholder="Your username">
+
+              <label class="setting-item">
+                <span>Email notifications</span>
+                <input type="checkbox">
+              </label>
+            </div>
+          </div>
+
+          <div class="tab">
+            <div class="tab-header">
+              <h2>Notifications</h2>
+              <span class="arrow-down">▼</span>
+            </div>
+            <div class="tab-content">
+              <label class="setting-item">
+                <span>Push notifications</span>
+                <input type="checkbox">
+              </label>
+
+              <label>Sound</label>
+              <input type="range">
+            </div>
+          </div>
+
+          <div class="tab">
+            <div class="tab-header">
+              <h2>Privacy & Security</h2>
+              <span class="arrow-down">▼</span>
+            </div>
+            <div class="tab-content">
+              <label class="setting-item">
+                <span>Profile visibility</span>
+                <input type="checkbox">
+              </label>
+
+              <label class="setting-item">
+                <span>Two-factor authentication</span>
+                <input type="checkbox">
+              </label>
+            </div>
+          </div>
+
+          <div class="tab">
+            <div class="tab-header">
+              <h2>Dark Mode</h2>
+            </div>
+            <div class="tab-content show">
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
         </section>
     </main>
     <footer>
