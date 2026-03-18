@@ -109,8 +109,9 @@ function endGame() {
     imgContainer.innerHTML = "";
 
     result.innerHTML =
-        `<h3>Gefeliciteerd! 🎉</h3>
+        `<br/><br/><br/>
+         <h3>Gefeliciteerd!</h3>
          <p>Je hebt het spel voltooid.</p>
          <p>Totaal XP verdiend: ${xp}</p>
-         <a href="./guess-that-game-homepagina.html">➡️Terug naar "Raad het spel"⬅️</a>`;
+         <p><a href="./guess-that-game-homepagina.html">➡️Terug naar "Raad het spel"⬅️</a><p/>`;
 }

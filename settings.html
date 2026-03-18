@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/general.css">
+    <link rel="stylesheet" href="./css/settings.css">
+
+    <script type="module" src="./js/darkMode.js"></script>
+    <script type="module" src="./js/settings.js"></script>
+</head>
+<body>
+    <header>
+        <img src="./assets/left-arrow.png" id="arrow">
+        <p id="backtext">Thuispagina</p>
+    </header>
+    <main>
+        <h1>Instellingen</h1>
+        <section class="search-bar">
+            <form class="search-options">
+                <input type="text" id="txt-search" placeholder="Zoeken">
+                <button type="button" id="btn-search"><img src="./assets/search-icon.png"></button>
+            </form>
+        </section>
+        <section class="settings-tabs">
+          <div class="tab">
+            <div class="tab-header">
+              <h2>Account</h2>
+              <span class="arrow-down">▼</span>
+            </div>
+            <div class="tab-content">
+              <label>Username</label>
+              <input type="text" placeholder="Your username">
+
+              <label class="setting-item">
+                <span>Email notifications</span>
+                <input type="checkbox">
+              </label>
+            </div>
+          </div>
+
+          <div class="tab">
+            <div class="tab-header">
+              <h2>Notifications</h2>
+              <span class="arrow-down">▼</span>
+            </div>
+            <div class="tab-content">
+              <label class="setting-item">
+                <span>Push notifications</span>
+                <input type="checkbox">
+              </label>
+
+              <label>Sound</label>
+              <input type="range">
+            </div>
+          </div>
+
+          <div class="tab">
+            <div class="tab-header">
+              <h2>Privacy & Security</h2>
+              <span class="arrow-down">▼</span>
+            </div>
+            <div class="tab-content">
+              <label class="setting-item">
+                <span>Profile visibility</span>
+                <input type="checkbox">
+              </label>
+
+              <label class="setting-item">
+                <span>Two-factor authentication</span>
+                <input type="checkbox">
+              </label>
+            </div>
+          </div>
+
+          <div class="tab">
+            <div class="tab-header">
+              <h2>Dark Mode</h2>
+            </div>
+            <div class="tab-content show">
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </section>
+    </main>
+    <footer>
+      <ul>
+        <li onclick="window.location.href = './home.html'">
+          <img src="./assets/StarIcon.png" class="footerIcons"> 
+          <div>Spelen</div>
+        </li>
+        <li onclick="window.location.href = './guess-that-game/guess-that-game-homepagina.html'">
+          <img src="./assets/StarIcon.png" class="footerIcons"> 
+          <div>Raad Het Spel</div>
+        </li>
+        <li id="settingsbuttonhover">
+          <img src="./assets/SettingsIconActive.png" class="footerIcons" id="settingsicon"> 
+          <div>Instellingen</div>
+        </li>
+      </ul>
+    </footer>
+</body>
+</html>

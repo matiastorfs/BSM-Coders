@@ -10,14 +10,11 @@ header img {
   margin: 50px;
 }
 
-
-
 main{
   padding-bottom: 0px;
   margin-left: 20px;
   margin-right: 20px;
 }
-
 
 h1 {
   font-weight: bold;
@@ -30,8 +27,6 @@ h2 {
   text-align: center;
 }
 
-
-
 .modeSelection {
   display: flex;
   justify-content: center;
@@ -42,6 +37,7 @@ h2 {
   width: 200px;
   border-style: none;
   text-align: center;
+  height: 30px;
 }
 .active {
   background-color: rgb(106, 106, 138);
@@ -51,8 +47,6 @@ h2 {
   background-color: rgb(212, 212, 238);
   color: black;
 }
-
-
 
 article {
   padding: 20px;
@@ -89,8 +83,6 @@ article img {
   height: 15px;
 }
 
-
-
 form{
   display: flex;
   flex-direction: column;
@@ -112,8 +104,9 @@ form button{
   text-align: center;
 }
 
-
 .rankingItem {
+  color: #232323;
+  background-color: #FDFDFD;
   display: flex;
   gap: 15px;
   padding: 12px;
@@ -181,17 +174,11 @@ li:hover {
 }
 
 @media screen and (min-width: 700px) {
-  footer{
-    position: fixed;
-    left: 0;
-    height: 100%;
-    width: 120px;
-  }
   main{
     margin-left: 140px;
   }
   header{
-    margin-left: 100px;
+    margin-left: 140px;
     margin-right: 20px;
   }
 
@@ -199,12 +186,17 @@ li:hover {
     text-align: left;
   }
 
+  footer{
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 120px;
+  }
   footer ul {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 120px;
   }
-
   footer ul li {
     display: grid;
     margin-top: 10px;
@@ -212,5 +204,4 @@ li:hover {
     grid-template-rows: 20px 30px;
     padding: 10px;
   }
-  
 }
