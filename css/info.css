@@ -6,47 +6,73 @@ h2 {
 #go-back {
   margin: 2rem;
   width: fit-content;
-  padding: 0.5rem;
-  background-color: var(--secondary-bg-color);
-  border-radius: 1rem;
 }
 
 #arrow {
-  width: 1.5rem;
+  width: 24px;
   cursor: pointer;
-  background-color: var(--secondary-bg-color);
 }
 
-div {
+.info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
 }
 
-div img {
-  max-width: 200px;
-  max-height: 200px;
-  border-radius: 1rem;
-}
-
-div ul {
-  margin: auto;
-  padding: 2rem;
-}
-
-div li {
-  margin-bottom: 1rem;
+.info-cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem auto;
+  width: fit-content;
   padding: 1rem;
-  border-radius: 1rem;
+  background-color: var(--secondary-bg-color);
+  border-radius: 8px;
+  gap: 1rem;
+  text-align: center;
+}
+
+.info-cover img {
+  max-width: 250px;
+  object-fit: cover;
+}
+
+.info-cover button {
+  background-color: var(--main-btn-bg-color);
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.info-cover button:hover {
+  background-color: var(--main-btn-bg-hl-color);
+}
+
+.info-list {
+  margin: auto 1rem;
+  background-color: var(--main-bg-color);
+}
+
+.info-list li {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: var(--secondary-bg-hl-color);
   word-wrap: break-word;
   overflow-wrap: break-word;
   word-break: break-word;
+  border-radius: 8px;
+  text-align: center;
 }
 
-div li, em {
+.info-list li, em {
   background-color: var(--secondary-bg-color);
+}
+
+.info-list em {
+  text-align: center;
+  margin-bottom: 8px;
 }
 
 @media (min-width: 900px) {
@@ -54,7 +80,15 @@ div li, em {
     text-align: left;
   }
 
-  div {
+  .info {
     flex-direction: row;
+  }
+
+  .info-cover {
+    margin-left: 4rem;
+  }
+
+  .info-list {
+    margin: auto 4rem;
   }
 }

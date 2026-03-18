@@ -1,20 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --main-text-color: #000000;
-  --main-bg-color: #FEF7FF;
-  --secondary-bg-color: #CCCCCC;
-  --main-btn-bg-color: #A5A5A5;
-  --main-btn-border-color: #7F7F7F;
+  /* Source: https://www.coloors.net/colors */
+  --main-text-color: #232323; /* Young Night */
+  --main-bg-color: #FDFDFD; /* Brilliance */
+  --secondary-bg-color: #F3F1F3; /* Aragonite White */
+  --secondary-bg-hl-color: #DED7DA; /* Pearl Pebble */
+  --main-btn-bg-color: #D2CCD1; /* Light Stately Frills */
+  --main-btn-bg-hl-color: #A7AEB4; /* Northern Light Grey */
 }
 
-* {
-  font-family: 'Work Sans', 'Segoe UI', Verdana, sans-serif;
-  color: var(--main-text-color);
+/* ---------- Dark Mode ---------- */
+body.dark-mode {
+  --main-bg-color: #1f1e1e;
+  --main-text-color: #f1f1f1;
 }
 
 body {
   background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+}
+
+* {
+  font-family: 'Work Sans', 'Segoe UI', Verdana, sans-serif;
 }
 
 main{
@@ -23,6 +31,7 @@ main{
 
 h1 {
   font-size: 4rem;
+  font-weight: bold;
 }
 
 h2 {
@@ -34,7 +43,26 @@ h3 {
 }
 
 p {
-  font-size: 0.75rem;
+  font-size: 12px;
+}
+
+footer{
+    background-color: rgb(234,234,234);
+    color: #111;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+footer ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+footer ul li{
+    grid-template-rows: 20px 30px;
+}
+.footerIcons{
+    height: 25px;
 }
 
 em {
@@ -42,7 +70,7 @@ em {
 }
 
 button {
-  padding: 0.5rem;
+  cursor: pointer;
 }
 
 
@@ -51,29 +79,26 @@ footer {
     text-align: center;
 }
 footer {
-
   background-color: rgb(234, 234, 234);
   position: fixed;
   bottom: 0;
   width: 100%;
   text-align: center;
 }
-
 footer ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
-
 footer ul li {
+  display: grid;
+  justify-items: center;
   grid-template-rows: 20px 30px;
   padding: 10px;
 }
-
 .footerIcons {
   height: 25px;
 }
-
-li:hover {
+footer li:hover {
     background-color: rgb(220, 220, 220);
     cursor: pointer;
 }

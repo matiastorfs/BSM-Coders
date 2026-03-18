@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Speler 1",
+    "description": "Een actieve speler die graag bezig is met coderen.",
+    "xpOwned": 50
+  },
+  {
+    "id": 2,
+    "name": "Speler 2",
+    "description": "Een actieve speler die graag bezig is met coderen.",
+    "xpOwned": 220
+  },
+  {
+    "id": 3,
+    "name": "Speler 3",
+    "description": "Een actieve speler die graag bezig is met coderen.",
+    "xpOwned": 100
+  },
+  {
+    "id": 4,
+    "name": "Speler 4",
+    "description": "Een actieve speler die graag bezig is met coderen.",
+    "xpOwned": 55
+  },
+  {
+    "id": 5,
+    "name": "Ik",
+    "description": "Een actieve speler die graag bezig is met coderen.",
+    "xpOwned": 20
+  }
+]
