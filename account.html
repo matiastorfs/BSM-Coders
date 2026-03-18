@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/account.css">
+    <script type="module" src="./js/account.js"></script>
 
     <script type="module" src="./js/darkMode.js"></script>
 </head>
@@ -16,14 +17,27 @@
         <p>Games</p>
     </header>
     <main>
+    <div class="profile">
         <img src="./assets/userdefaultimage.jpg" id="userlogo">
+
         <div class="usertext">
-            
-        <p id="username">Gebruiker</p>
-        <p id="userdescription">Beschrijving</p>
-        <button id="accountsettingsbutton">Account settings<img src="./assets/SettingsIcon.png" id="accountsettingsicon"> </button>
+            <p id="username">Gebruiker</p>
+            <p id="userdescription">Beschrijving</p>
+            <button id="accountsettingsbutton">
+                Account settings
+                <img src="./assets/SettingsIcon.png" id="accountsettingsicon">
+            </button>
         </div>
-    </main>
+    </div>
+    <div class="titles-container">
+    <h1 id="tab-projecten">Projecten</h1>
+    <h1 id="tab-prestaties">Prestaties</h1>
+  </div>
+
+  <div id="lijst-container">
+      <ul id="data-lijst"></ul>
+  </div>
+</main>
     <footer>
       <ul>
         <li onclick="window.location.href = '../home.html'">
