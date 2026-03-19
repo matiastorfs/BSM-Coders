@@ -1,7 +1,13 @@
 // Fetch all game data
 const response = await fetch("../games.json");
 const games = await response.json();
-let favoriteGames = JSON.parse(localStorage.getItem("favoriteGames"));
+let favoriteGames;
+
+try {
+  favoriteGames = JSON.parse(localStorage.getItem("favoriteGames")) || [];
+} catch {
+  favoriteGames = [];
+}
 
 displayGames(favoriteGames, "favorites");
 displayGames(games);
