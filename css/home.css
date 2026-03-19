@@ -22,7 +22,7 @@ nav > * {
   display: flex;
   position: fixed;
   width: 100%;
-  background-color: #9EB2C3; /* Perfect Landing */
+  box-shadow: 0 0 4px var(--main-btn-bg-hl-color);
 }
 
 .nav-bar {
@@ -30,6 +30,7 @@ nav > * {
   left: 0;
   justify-content: space-between;
   padding: 18px;
+  background-color: #F2C1C0; /* Silver Strawberry */
 }
 
 .nav-bar img {
@@ -38,20 +39,23 @@ nav > * {
 
 .nav-menu {
   top: 0;
-  left: -100vw;
+  left: 0;
+  width: 100%;
   height: 100vh;
   flex-direction: column;
-  transition: left 0.3s ease;
+  background-color: #F8C0C7; /* Pale Petunia */
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
 }
 
 .nav-menu.open {
-  left: 0;
+  transform: translateX(0);
 }
 
 .nav-menu button {
   display: flex;
   width: fit-content;
-  margin: 1.5rem;
+  margin: 1.4rem 1.2rem;
 }
 
 .nav-menu a {
@@ -59,14 +63,14 @@ nav > * {
   justify-content: center;
   align-items: center;
   margin: 8px 1rem;
-  padding: 1rem;
-  background-color: #8D99B1; /* Moon Veil */
+  padding: 12px;
+  background-color: #DB9DA7; /* Glamour */
   border-radius: 4px;
   gap: 8px;
 }
 
 .nav-menu a:hover {
-  background-color: #70789B; /* Blue Ice */
+  background-color: #AC8989; /* Woodrose */
 }
 
 /* SEARCH BAR */
@@ -82,6 +86,8 @@ nav > * {
 }
 
 .search-buttons input {
+  /* This helps to make it more responsive */
+  width: 1px;
   flex: 1;
   height: 40px;
   line-height: 40px;
@@ -194,6 +200,5 @@ nav > * {
 @media (min-width: 600px) {
   .nav-menu {
     width: 20rem;
-    left: -20rem;
   }
 }
