@@ -1,6 +1,6 @@
 const selectedId = localStorage.getItem("selectedGameId");
 
-const response = await fetch("../games.json");
+const response = await fetch("./games.json");
 const games = await response.json();
 
 let favoriteGames = JSON.parse(localStorage.getItem("favoriteGames")) || [];

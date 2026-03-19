@@ -1,13 +1,13 @@
-header {
-  background-image: url("../assets/RaadHetSpel.png");
-  background-size: 200px;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 200px;
+header div{
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
-header img {
-  height: 30px;
-  margin: 50px;
+
+header #logo {
+  height: 200px;
+  width: 200px;
+  margin-top: 80px;
 }
 
 main{
@@ -174,34 +174,7 @@ li:hover {
 }
 
 @media screen and (min-width: 700px) {
-  main{
-    margin-left: 140px;
-  }
-  header{
-    margin-left: 140px;
-    margin-right: 20px;
-  }
-
   #rankTitle{
     text-align: left;
-  }
-
-  footer{
-    position: fixed;
-    left: 0;
-    height: 100%;
-    width: 120px;
-  }
-  footer ul {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 120px;
-  }
-  footer ul li {
-    display: grid;
-    margin-top: 10px;
-    grid-template-columns: 100px;
-    grid-template-rows: 20px 30px;
-    padding: 10px;
   }
 }

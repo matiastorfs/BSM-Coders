@@ -9,6 +9,7 @@
 main {
     display: flex;
     align-items: center;
+    padding: 100px;
 }
 
 header {
@@ -25,6 +26,8 @@ header {
 }
 
 .titles-container {
+    
+    border-bottom: 1px solid #333;
     cursor: pointer;
 }
 

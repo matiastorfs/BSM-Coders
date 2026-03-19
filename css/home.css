@@ -8,15 +8,13 @@ header {
   text-align: center;
 }
 
-/* Default size for icons or images */
-img {
-  width: 24px;
-}
+
 
 section h3 {
   margin: 2rem;
 }
 
+<<<<<<< HEAD
 /* NAVIGATION MENU */
 nav > * {
   display: flex;
@@ -71,6 +69,10 @@ nav > * {
 
 .nav-menu a:hover {
   background-color: rgb(210, 210, 210); /* Woodrose */
+=======
+img {
+  width: 24px;
+>>>>>>> 00c433a3b528c58bdb05d13b961fbbed6f5efc76
 }
 
 /* SEARCH BAR */
@@ -197,8 +199,4 @@ nav > * {
   text-overflow: ellipsis;
 }
 
-@media (min-width: 600px) {
-  .nav-menu {
-    width: 20rem;
-  }
-}
+

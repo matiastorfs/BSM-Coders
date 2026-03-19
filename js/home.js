@@ -1,5 +1,5 @@
 // Fetch all game data
-const response = await fetch("../games.json");
+const response = await fetch("./games.json");
 const games = await response.json();
 let favoriteGames;
 
@@ -21,7 +21,7 @@ function displayGames(games, listType = "games") {
     const li = document.createElement("li");
 
     li.innerHTML = `
-      <a href="../info.html" id="game-item${game.id}" class="game-items">
+      <a href="./info.html" id="game-item${game.id}" class="game-items">
         <img src="${game.cover}" alt="${game.title}" width="150" height="150">
         <em>${game.title}</em>
         <p>${game.developer}</p>
@@ -149,12 +149,12 @@ function displayFriends(totalFriends) {
 
 displayFriends(12);
 
+<<<<<<< HEAD
 document.querySelectorAll(".toggle-menu").forEach((button) => {
   button.addEventListener("click", () => {
     document.querySelector(".nav-menu").classList.toggle("open");
   });
 });
+=======
+>>>>>>> 00c433a3b528c58bdb05d13b961fbbed6f5efc76
 
-document.getElementById("btn-account").addEventListener("click", () => {
-  window.location.href = "./account.html";
-});
