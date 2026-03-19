@@ -14,11 +14,43 @@
           window.location.href = "guess-that-game-play.html";
       }
     </script>
+    <script type="module" src="../js/main.js"></script>
     <script type="module" src="../js/darkMode.js"></script>
     <script type="module" src="./js/guess-that-game.js"></script>
   </head>
   <body>
     <header>
+      <nav>
+        <section class="nav-bar">
+          <button type="button" class="toggle-menu" id="btn-menu">
+            <img src="../assets/menu.png" />
+          </button>
+
+          <button type="button" id="btn-account">
+            <img id="idle" src="../assets/account-icon-light.png" />
+          </button>
+        </section>
+
+        <section class="nav-menu">
+          <button type="button" class="toggle-menu">
+            <img src="../assets/close-icon.png" id="btn-exit" />
+          </button>
+
+          <a href="../home.html">
+            <em>Home</em>
+            <img src="../assets/home-icon.png" />
+          </a>
+          <a href="./guess-that-game-homepagina.html">
+            <em>Raad Het Spel</em>
+            <img src="../assets/guess-icon.png" />
+          </a>
+          <a href="../settings.html">
+            <em>Instellingen</em>
+            <img src="../assets/setting-icon.png" />
+          </a>
+        </section>
+      </nav>
+      <div><img src="./assets/RaadHetSpel.png" alt="Raad Het Spel" id="logo"></div>
     </header>
     <main>
       <h1>De Raad Het Spel Minigame</h1>
@@ -64,21 +96,5 @@
       <h1 id="rankTitle">Ranking 🏆</h1>
       <section class="ranking" id="rankingList"></section>
     </main>
-    <footer>
-      <ul>
-        <li onclick="window.location.href = './home.html'">
-          <img src="../assets/StarIcon.png" class="footerIcons"> 
-          <div>Spelen</div>
-        </li>
-        <li>
-          <img src="../assets/StarIconActive.png" class="footerIcons"> 
-          <div>Raad Het Spel</div>
-        </li>
-        <li onclick="window.location.href = '../settings.html'" id="settingsbuttonhover">
-          <img src="../assets/SettingsIcon.png" class="footerIcons" id="settingsicon"> 
-          <div>Instellingen</div>
-        </li>
-      </ul>
-    </footer>
   </body>
 </html>

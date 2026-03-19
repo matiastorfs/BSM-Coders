@@ -21,7 +21,7 @@ function displayGames(games, listType = "games") {
     const li = document.createElement("li");
 
     li.innerHTML = `
-      <a href="../info.html" id="game-item${game.id}" class="game-items">
+      <a href="./info.html" id="game-item${game.id}" class="game-items">
         <img src="${game.cover}" alt="${game.title}" width="150" height="150">
         <em>${game.title}</em>
         <p>${game.developer}</p>
@@ -152,12 +152,4 @@ function displayFriends(totalFriends) {
 
 displayFriends(12);
 
-document.querySelectorAll(".toggle-menu").forEach(button => {
-  button.addEventListener("click", () => {
-    document.querySelector(".nav-menu").classList.toggle("open");
-  });
-});
 
-document.getElementById("btn-account").addEventListener("click", () => {
-  window.location.href = "./account.html";
-});
