@@ -81,10 +81,16 @@ function sortGames(option, sort) {
   displayGames(sortedGames);
 }
 
+let sortNames = {
+  name: "Naam",
+  developer: "Ontwikkelaar",
+  date: "Datum"
+};
+
 let sortButton = {
   type: "",
   state: 0,
-  arrow: "",
+  arrow: ""
 };
 
 document.querySelector(".sort-buttons").addEventListener("click", (e) => {
@@ -111,19 +117,10 @@ function changeState(type) {
     sortButton.state = 0;
   }
 
-  const button = document.getElementById(`sort-${sortButton.type}`);
-
-  switch (sortButton.type) {
-    case "name":
-      button.innerHTML = "Naam" + sortButton.arrow;
-      break;
-    case "developer":
-      button.innerHTML = "Ontwikkelaar" + sortButton.arrow;
-      break;
-    case "date":
-      button.innerHTML = "Datum" + sortButton.arrow;
-      break;
-  }
+  document.querySelectorAll(".sort-button").forEach(button => {
+    const key = button.id.replace("sort-", "");
+    button.innerHTML = sortNames[key] + ((sortButton.type === key) ? sortButton.arrow : "");
+  });
 
   if (sortButton.state === 1) {
     sortGames(sortButton.type, "asc");
@@ -152,7 +149,7 @@ function displayFriends(totalFriends) {
 
 displayFriends(12);
 
-document.querySelectorAll(".toggle-menu").forEach(button => {
+document.querySelectorAll(".toggle-menu").forEach((button) => {
   button.addEventListener("click", () => {
     document.querySelector(".nav-menu").classList.toggle("open");
   });
