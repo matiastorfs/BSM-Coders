@@ -149,12 +149,4 @@ function displayFriends(totalFriends) {
 
 displayFriends(12);
 
-<<<<<<< HEAD
-document.querySelectorAll(".toggle-menu").forEach((button) => {
-  button.addEventListener("click", () => {
-    document.querySelector(".nav-menu").classList.toggle("open");
-  });
-});
-=======
->>>>>>> 00c433a3b528c58bdb05d13b961fbbed6f5efc76
 
