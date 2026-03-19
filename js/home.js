@@ -1,5 +1,5 @@
 // Fetch all game data
-const response = await fetch("../games.json");
+const response = await fetch("./games.json");
 const games = await response.json();
 let favoriteGames;
 
