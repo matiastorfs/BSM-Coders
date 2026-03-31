@@ -64,7 +64,7 @@ h2 {
   overflow-wrap: break-word;
   word-break: break-word;
   border-radius: 8px;
-  text-align: center;
+  text-align: left;
 }
 
 .info-list li, em {
@@ -72,7 +72,8 @@ h2 {
 }
 
 .info-list em {
-  text-align: center;
+  border-radius: 5px;
+  text-align: left;
   margin-bottom: 8px;
 }
 
