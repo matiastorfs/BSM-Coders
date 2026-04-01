@@ -13,6 +13,7 @@ main {
 }
 
 header {
+    margin-top: 80px;
     margin-left: 10px;
     padding: 20px;
     display: flex;

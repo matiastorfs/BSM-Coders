@@ -1,7 +1,7 @@
 const arrow = document.getElementById("arrow");
 
 arrow.addEventListener("click", function () {
-  window.location.href = "../home.html";
+  window.location.href = "./home.html";
 });
 
 const tabProjecten = document.getElementById('tab-projecten');
