@@ -28,7 +28,7 @@ h2 {
   margin: 2rem auto;
   width: fit-content;
   padding: 1rem;
-  background-color: var(--secondary-bg-color);
+  background-color: var(--container-color);
   border-radius: 8px;
   gap: 1rem;
   text-align: center;
@@ -40,18 +40,18 @@ h2 {
 }
 
 .info-cover button {
-  background-color: var(--main-btn-bg-color);
+  background-color: var(--button-color);
   padding: 8px;
   border-radius: 4px;
 }
 
 .info-cover button:hover {
-  background-color: var(--main-btn-bg-hl-color);
+  background-color: var(--button-highlight-color);
 }
 
 .info-list {
   margin: auto 1rem;
-  background-color: var(--main-bg-color);
+  background-color: var(--background-color);
 }
 
 .info-list li {
@@ -59,21 +59,18 @@ h2 {
   flex-direction: column;
   padding: 1rem;
   margin: 1rem;
-  background-color: var(--secondary-bg-hl-color);
+  background-color: var(--container-highlight-color);
   word-wrap: break-word;
   overflow-wrap: break-word;
   word-break: break-word;
   border-radius: 8px;
-  text-align: left;
 }
 
 .info-list li, em {
-  background-color: var(--secondary-bg-color);
+  background-color: var(--container-color);
 }
 
 .info-list em {
-  border-radius: 5px;
-  text-align: left;
   margin-bottom: 8px;
 }
 

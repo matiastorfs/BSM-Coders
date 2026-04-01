@@ -21,8 +21,8 @@ img {
 /* SEARCH BAR */
 .search-bar {
   margin: 2rem 4rem;
-  background-color: var(--secondary-bg-color);
-  border: 8px solid var(--secondary-bg-color);
+  background-color: var(--container-color);
+  padding: 8px;
   border-radius: 8px;
 }
 
@@ -53,13 +53,13 @@ img {
   display: flex;
   align-items: center;
   padding: 8px 12px;
-  background-color: var(--main-btn-bg-color);
+  background-color: var(--button-color);
   border-radius: 6px;
   gap: 4px;
 }
 
 .sort-buttons button:hover {
-  background-color: var(--main-btn-bg-hl-color);
+  background-color: var(--button-highlight-color);
 }
 
 .sort-buttons img {
@@ -77,13 +77,13 @@ img {
 }
 
 #list-friends li:hover img {
-  background-color: var(--secondary-bg-hl-color);
+  background-color: var(--container-color);
 }
 
 #list-friends img {
-  min-width: 5rem;
+  min-width: 4rem;
   border-radius: 50%;
-  background-color: var(--secondary-bg-color);
+  background-color: var(--background-color);
 }
 
 #list-favorites {
@@ -114,8 +114,8 @@ img {
 }
 
 .game-cards li {
-  background-color: var(--secondary-bg-color);
-  border: 4px solid var(--secondary-bg-color);
+  background-color: var(--container-color);
+  border: 4px solid var(--container-color);
   border-radius: 8px;
 }
 
@@ -126,7 +126,7 @@ img {
 }
 
 .game-cards li:hover {
-  border: 4px solid var(--secondary-bg-hl-color);
+  border-color: var(--container-highlight-color);
 }
 
 .game-cards img {

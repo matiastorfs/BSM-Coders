@@ -147,6 +147,6 @@ function displayFriends(totalFriends) {
   }
 }
 
-displayFriends(12);
+displayFriends(20);
 
 
