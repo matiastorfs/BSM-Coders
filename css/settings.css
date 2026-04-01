@@ -8,6 +8,10 @@ body.dark-mode {
   --border-color: #333;
 }
 
+body{
+  margin-top: 80px;
+}
+
 #arrow {
     margin: 20px;
     width: 30px;
@@ -235,33 +239,4 @@ body.dark-mode input[type="range"]::-webkit-slider-runnable-track {
 }
 body.dark-mode input[type="range"]::-moz-range-track {
   background: #444;
-}
-
-@media screen and (min-width: 700px) {
-  main{
-    margin-left: 140px;
-  }
-  header{
-    margin-left: 140px;
-    margin-right: 20px;
-  }
-
-  footer{
-    position: fixed;
-    left: 0;
-    height: 100%;
-    width: 120px;
-  }
-  footer ul {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 120px;
-  }
-  footer ul li {
-    display: grid;
-    margin-top: 10px;
-    grid-template-columns: 100px;
-    grid-template-rows: 20px 30px;
-    padding: 10px;
-  }
 }
