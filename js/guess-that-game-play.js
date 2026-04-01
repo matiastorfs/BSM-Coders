@@ -1,4 +1,4 @@
-const response = await fetch("../games.json");
+const response = await fetch("./data/games.json");
 const games = await response.json();
 
 const difficulty = localStorage.getItem("difficulty");

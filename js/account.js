@@ -9,11 +9,11 @@ const tabPrestaties = document.getElementById('tab-prestaties');
 const lijst = document.getElementById('data-lijst');
 
 tabProjecten.addEventListener('click', function() {
-    laadEenItem('games.json', 'projecten');
+    laadEenItem('./data/games.json', 'projecten');
 });
 
 tabPrestaties.addEventListener('click', function() {
-    laadEenItem('prestaties.json', 'prestaties');
+    laadEenItem('./data/prestaties.json', 'prestaties');
 });
 
 function laadEenItem(bestandsnaam, type) {
@@ -49,4 +49,4 @@ function laadEenItem(bestandsnaam, type) {
             lijst.appendChild(li);
         });
 }
-laadEenItem('games.json', 'projecten');
+laadEenItem('./data/games.json', 'projecten');

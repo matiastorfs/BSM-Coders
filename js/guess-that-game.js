@@ -10,7 +10,7 @@ oneVOne.addEventListener("click", function () {
 
 async function loadRanking() {
   try {
-    const response = await fetch("./rankingDummies.json");
+    const response = await fetch("./data/rankingDummies.json");
     const players = await response.json();
 
     const rankingSection = document.getElementById("rankingList");
