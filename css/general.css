@@ -1,24 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* https://www.color-hex.com/color-palette/1074676 */
 :root {
-  /* Source: https://www.coloors.net/colors */
-  --main-text-color: #232323; /* Young Night */
-  --main-bg-color: #FDFDFD; /* Brilliance */
-  --secondary-bg-color: #F3F1F3; /* Aragonite White */
-  --secondary-bg-hl-color: #DED7DA; /* Pearl Pebble */
-  --main-btn-bg-color: #D2CCD1; /* Light Stately Frills */
-  --main-btn-bg-hl-color: #A7AEB4; /* Northern Light Grey */
+  --text-color: #232323;
+  --background-color: #f2f5f4;
+  --container-color: #e5ece9;
+  --container-highlight-color: #d9e2de;
+  --navigation-color: #d9e2de;
+  --button-color: #ccd9d3;
+  --button-highlight-color: #bfcfc8;
 }
 
-/* ---------- Dark Mode ---------- */
+/* Dark mode feature */
 body.dark-mode {
-  --main-bg-color: #1f1e1e;
-  --main-text-color: #f1f1f1;
+  --background-color: #1f1e1e;
+  --text-color: #f1f1f1;
 }
 
 body {
-  background-color: var(--main-bg-color);
-  color: var(--main-text-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 * {
@@ -34,17 +35,18 @@ nav img {
 nav > * {
   display: flex;
   position: fixed;
-  width: 100%;
   z-index: 100;
-  box-shadow: 0 0 4px var(--main-btn-bg-hl-color);
+  /* box-shadow: 0 0 4px var(--button-highlight-color); */
 }
 
 .nav-bar {
   top: 0;
   left: 0;
+  width: 100%;
   justify-content: space-between;
   padding: 18px;
-  background-color: rgb(219, 219, 219); /* Silver Strawberry */
+  background-color: var(--background-color);
+  opacity: 96%;
 }
 
 .nav-bar img {
@@ -54,16 +56,17 @@ nav > * {
 .nav-menu {
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100px;
   height: 100vh;
+  align-items: flex-start;
   flex-direction: column;
-  background-color: rgb(219, 219, 219); /* Pale Petunia */
+  background-color: var(--navigation-color); /* Pale Petunia */
   transform: translateX(-100%);
   transition: transform 0.3s ease;
 }
 
 .nav-menu.open {
-  transform: translateX(0);
+  transform: translateX(0%);
 }
 
 .nav-menu button {
@@ -74,17 +77,16 @@ nav > * {
 
 .nav-menu a {
   display: flex;
-  justify-content: center;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 1rem;
   align-items: center;
-  margin: 8px 1rem;
-  padding: 12px;
-  background-color: rgb(192, 192, 192); /* Glamour */
-  border-radius: 4px;
+  background-color: var(--navigation-color);
   gap: 8px;
 }
 
 .nav-menu a:hover {
-  background-color: rgb(180, 180, 180); /* Woodrose */
+  background-color: var(--button-color); /* Woodrose */
 }
 
 main{

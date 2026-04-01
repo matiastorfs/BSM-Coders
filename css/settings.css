@@ -36,8 +36,8 @@ button img {
 }
 
 .search-bar {
-  background-color: var(--secondary-bg-color);
-  border: 8px solid var(--secondary-bg-color);
+  background-color: var(--container-color);
+  border: 8px solid var(--container-color);
   border-radius: 8px;
   width: 300px;
   justify-self: center;
