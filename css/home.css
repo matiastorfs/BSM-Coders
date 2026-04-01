@@ -1,14 +1,9 @@
-/* Adds some space for the navigation bar */
-body {
-  margin-top: 6rem;
-}
+
 
 header {
   margin: 2rem;
   text-align: center;
 }
-
-
 
 section h3 {
   margin: 2rem;
@@ -31,8 +26,7 @@ img {
 }
 
 .search-buttons input {
-  /* This helps to make it more responsive */
-  width: 1px;
+  width: 0;
   flex: 1;
   height: 40px;
   line-height: 40px;
@@ -47,6 +41,8 @@ img {
   display: none;
   margin: 8px;
   gap: 8px;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .sort-buttons button {
@@ -64,6 +60,10 @@ img {
 
 .sort-buttons img {
   width: 1rem;
+}
+
+.sort-buttons * {
+  justify-content: space-between;
 }
 
 /* ALL LISTS */
@@ -142,4 +142,8 @@ img {
   text-overflow: ellipsis;
 }
 
-
+@media (min-width: 600px) {
+  .sort-buttons {
+    flex-direction: row;
+  } 
+}
