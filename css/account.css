@@ -121,6 +121,7 @@ main {
     background-color: gray;
     margin-top: 5px;
     padding: 5px;
+    min-width: 175px;
 }
 #accountsettingsbutton:hover {
     cursor: pointer;
@@ -136,6 +137,7 @@ main {
     display: flex;
     gap: 20px;
     align-items: flex-start;
+    min-width: auto;
 }
 
 .game-cover {
