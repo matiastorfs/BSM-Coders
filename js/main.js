@@ -14,15 +14,15 @@ document.getElementById("navigation-menu").innerHTML = `
     <img src="./assets/close-icon.png" id="btn-exit" />
   </button>
 
-  <a href="./home.html">
-    <img src="./assets/home-icon.png" />
+  <a href="./home.html" id="homebuttonnav">
+    <img src="./assets/home-icon.png"/>
     <em>Home</em>
   </a>
-  <a href="./guess-that-game-homepagina.html">
+  <a href="./guess-that-game-homepagina.html" id="gtgbuttonnav">
     <img src="./assets/guess-icon.png" />
     <em>Raad Het Spel</em>
   </a>
-  <a href="./settings.html">
+  <a href="./settings.html" id="settingsbuttonnav">
     <img src="./assets/setting-icon.png" />
     <em>Instellingen</em>
   </a>

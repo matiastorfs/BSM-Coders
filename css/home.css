@@ -127,7 +127,17 @@ img {
 
 .game-cards li:hover {
   border-color: var(--container-highlight-color);
+  animation: grow 0.2s forwards;
 }
+
+@keyframes grow {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.05);
+    }
+  }
 
 .game-cards img {
   width: 100%;
@@ -140,6 +150,35 @@ img {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+#list-games li {
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+}
+
+#list-games li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: none;
+    pointer-events: none;
+}
+
+#list-games li:hover::before {
+    left: 150%;
+    transition: left 0.6s ease-in-out;
 }
 
 @media (min-width: 600px) {
