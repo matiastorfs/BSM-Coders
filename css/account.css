@@ -122,6 +122,8 @@ main {
     margin-top: 5px;
     padding: 5px;
     min-width: 175px;
+    display: flex;
+    align-items: center;
 }
 #accountsettingsbutton:hover {
     cursor: pointer;
@@ -130,6 +132,7 @@ main {
 
 #accountsettingsicon {
     width: 15px;
+    height: 15px;
     margin-left: 10px;
 }
 
