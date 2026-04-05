@@ -1,30 +1,24 @@
-// Fetch all game data
 const response = await fetch("./data/games.json");
 const games = await response.json();
-let favoriteGames;
+const sortForm = document.querySelector(".sort-form");
+let favoriteGames = JSON.parse(localStorage.getItem("favoriteGames")) || [];
+let state = 0;
 
-try {
-  favoriteGames = JSON.parse(localStorage.getItem("favoriteGames")) || [];
-} catch {
-  favoriteGames = [];
-}
+displayItems(favoriteGames, "favorites");
+displayItems(games);
 
-displayGames(favoriteGames, "favorites");
-displayGames(games);
-
-// Displays all the games that are on the given list
-function displayGames(games, listType = "games") {
-  const ul = document.querySelector(`#list-${listType}`);
+function displayItems(items, type = "games") {
+  const ul = document.querySelector(`#list-${type}`);
   ul.innerHTML = "";
 
-  games.forEach((game) => {
+  items.forEach((item) => {
     const li = document.createElement("li");
 
     li.innerHTML = `
-      <a href="./info.html" id="game-item${game.id}" class="game-items">
-        <img src="${game.cover}" alt="${game.title}" width="150" height="150">
-        <em>${game.title}</em>
-        <p>${game.developer}</p>
+      <a href="./info.html" id="game-item${item.id}" class="game-items">
+        <img src="${item.cover}" alt="${item.title}" width="150" height="150">
+        <em>${item.title}</em>
+        <p>${item.developer}</p>
       </a>
     `;
 
@@ -33,41 +27,26 @@ function displayGames(games, listType = "games") {
 
   ul.addEventListener("click", (e) => {
     const item = e.target.closest(".game-items");
-    const idNumber = item.id.replace("game-item", "");
+    if (!item) return;
 
-    localStorage.setItem("selectedGameId", idNumber);
+    localStorage.setItem("selectedGameId", item.id.replace("game-item", ""));
   });
 }
 
-// Filter games based on the title and see if it contains the search input
-document.getElementById("btn-search").addEventListener("click", function (e) {
+document.querySelector("#btn-search").addEventListener("click", (e) => {
   e.preventDefault();
 
-  const searchValue = document.getElementById("txt-search").value.toLowerCase();
+  const searchValue = document.querySelector("#txt-search").value.toLowerCase();
   const filteredGames = games.filter((game) =>
     game.title.toLowerCase().includes(searchValue),
   );
 
-  displayGames(filteredGames);
+  displayItems(filteredGames);
 });
 
-// Shows or hides the sort options
-document.getElementById("btn-sort").addEventListener("click", function (e) {
-  const form = document.querySelector(".sort-buttons");
-
-  if (form.style.display === "") {
-    form.style.display = "flex";
-    sortButton.state--;
-    changeState(sortButton.type);
-  } else {
-    form.style.display = "";
-  }
-});
-
-// Sort games by name, developer or date
 function sortGames(option, sort) {
-  const sortedGames = [...games].sort(function (a, b) {
-    const dir = sort === "asc" ? 1 : -1;
+  const dir = sort === 1 ? 1 : -1;
+  return [...games].sort((a, b) => {
     switch (option) {
       case "name":
         return a.title.localeCompare(b.title) * dir;
@@ -77,76 +56,28 @@ function sortGames(option, sort) {
         return (new Date(a.releaseDate) - new Date(b.releaseDate)) * dir;
     }
   });
-
-  displayGames(sortedGames);
 }
 
-let sortNames = {
-  name: "Naam",
-  developer: "Ontwikkelaar",
-  date: "Datum"
-};
-
-let sortButton = {
-  type: "",
-  state: 0,
-  arrow: ""
-};
-
-document.querySelector(".sort-buttons").addEventListener("click", (e) => {
-  const btn = e.target.closest("button");
-  if (!btn) return;
-
-  changeState(btn.id.replace("sort-", ""));
+document.querySelector("#btn-sort").addEventListener("click", (e) => {
+  e.preventDefault();
+  sortForm.classList.toggle("visible");
 });
 
-function changeState(type) {
-  if (sortButton.type !== type) {
-    sortButton.type = type;
-    sortButton.state = 0;
-  }
+sortForm.querySelectorAll("button").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
 
-  if (sortButton.state === 0) {
-    sortButton.arrow = `<img src="./assets/arrow-down.png">`;
-    sortButton.state++;
-  } else if (sortButton.state === 1) {
-    sortButton.arrow = `<img src="./assets/arrow-up.png">`;
-    sortButton.state++;
-  } else {
-    sortButton.arrow = "";
-    sortButton.state = 0;
-  }
+    state = btn.querySelector("img") ? (state + 1) % 3 : 1;
+    sortForm.querySelectorAll("button img").forEach((img) => img.remove());
 
-  document.querySelectorAll(".sort-button").forEach(button => {
-    const key = button.id.replace("sort-", "");
-    button.innerHTML = sortNames[key] + ((sortButton.type === key) ? sortButton.arrow : "");
+    if (state === 0) {
+      displayItems(games);
+    } else {
+      const img = `<img src="./assets/arrow-${state === 1 ? "down" : "up"}.png">`;
+      const sortedGames = sortGames(btn.id.replace("sort-", ""), state);
+
+      btn.insertAdjacentHTML("beforeend", img);
+      displayItems(sortedGames);
+    }
   });
-
-  if (sortButton.state === 1) {
-    sortGames(sortButton.type, "asc");
-  } else if (sortButton.state === 2) {
-    sortGames(sortButton.type, "desc");
-  } else {
-    displayGames(games);
-  }
-}
-
-// Display all of your friends
-function displayFriends(totalFriends) {
-  const ul = document.querySelector("#list-friends");
-  ul.innerHTML = "";
-
-  for (let index = 0; index < totalFriends; index++) {
-    const li = document.createElement("li");
-
-    li.innerHTML = `
-      <img src="./assets/user-icon.png"><p>Vriend</p>
-    `;
-
-    ul.appendChild(li);
-  }
-}
-
-displayFriends(20);
-
-
+});
