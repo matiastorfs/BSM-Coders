@@ -17,9 +17,9 @@ async function loadRanking() {
 
     players.sort((a, b) => b.xpOwned - a.xpOwned);
 
-    const myPlayer = players.find(player => player.name === "Ik");
+    const myPlayer = players.find((player) => player.name === "Ik");
 
-    const myRank = players.findIndex(player => player.name === "Ik") + 1;
+    const myRank = players.findIndex((player) => player.name === "Ik") + 1;
 
     function createRankingItem(player, rank) {
       const article = document.createElement("article");
@@ -63,7 +63,6 @@ async function loadRanking() {
       myArticle.classList.add("myRank");
       rankingSection.appendChild(myArticle);
     }
-
   } catch (error) {
     console.error("Error bij het laden van de ranks:", error);
   }

@@ -57,3 +57,7 @@ if (darkToggle !== null) {
     }
   });
 }
+
+window.addEventListener("storage", () => {
+  window.location.reload();
+});

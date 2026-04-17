@@ -6,7 +6,7 @@ arrow.addEventListener("click", function () {
 
 const tabs = document.querySelectorAll(".tab");
 
-tabs.forEach(tab => {
+tabs.forEach((tab) => {
   const header = tab.querySelector(".tab-header");
 
   header.addEventListener("click", () => {
