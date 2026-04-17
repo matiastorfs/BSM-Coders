@@ -4,7 +4,7 @@ arrow.addEventListener("click", function () {
   window.location.href = "./home.html";
 });
 
-fetch("./data/forumlijst.json")
+fetch("/api/forumlijst.json")
   .then((response) => response.json())
   .then((data) => {
     const container = document.getElementById("forumlijst");

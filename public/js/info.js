@@ -1,6 +1,6 @@
 const selectedId = localStorage.getItem("selectedGameId");
 
-const response = await fetch("./data/games.json");
+const response = await fetch("/api/games.json");
 const games = await response.json();
 const game = games.find((g) => g.id === Number(selectedId));
 
