@@ -4,7 +4,11 @@ const sortForm = document.querySelector(".sort-form");
 let favoriteGames = JSON.parse(localStorage.getItem("favoriteGames")) || [];
 let state = 0;
 
-displayItems(favoriteGames, "favorites");
+const favoriteGameObjects = favoriteGames
+  .map((id) => games.find((g) => g.id === id))
+  .filter(Boolean);
+
+displayItems(favoriteGameObjects, "favorites");
 displayItems(games);
 
 function displayItems(items, type = "games") {

@@ -9,12 +9,20 @@ h2 {
   width: fit-content;
 }
 
+#go-back a {
+  display: inline-block;
+}
+
+#go-back img {
+  display: block;
+}
+
 #arrow {
   width: 24px;
   cursor: pointer;
 }
 
-.info {
+.infopage {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,6 +57,14 @@ h2 {
   background-color: var(--button-highlight-color);
 }
 
+.info-cover button.favorite {
+  background-color: var(--favorite-color);
+}
+
+.info-cover button.favorite:hover {
+  background-color: var(--favorite-highlight-color);
+}
+
 .info-list {
   margin: auto 1rem;
   background-color: var(--background-color);
@@ -66,7 +82,8 @@ h2 {
   border-radius: 8px;
 }
 
-.info-list li,.info-list em {
+.info-list li,
+.info-list em {
   background-color: var(--container-color);
 }
 
@@ -79,7 +96,7 @@ h2 {
     text-align: left;
   }
 
-  .info {
+  .infopage {
     flex-direction: row;
   }
 
