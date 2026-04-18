@@ -1,7 +1,5 @@
-
-
 header {
-  margin: 2rem;
+  margin: 2rem 0;
   text-align: center;
 }
 
@@ -13,19 +11,19 @@ img {
   width: 24px;
 }
 
-/* SEARCH BAR */
+/* Search bar + sort options */
 .search-bar {
   margin: 2rem 4rem;
-  background-color: var(--container-color);
   padding: 8px;
+  background-color: var(--container-color);
   border-radius: 8px;
 }
 
-.search-buttons {
+.search-form {
   display: flex;
 }
 
-.search-buttons input {
+.search-form input {
   width: 0;
   flex: 1;
   height: 40px;
@@ -33,11 +31,11 @@ img {
   padding: 0 10px;
 }
 
-.search-buttons button {
+.search-form button {
   margin: auto 1rem;
 }
 
-.sort-buttons {
+.sort-form {
   display: none;
   margin: 8px;
   gap: 8px;
@@ -45,7 +43,11 @@ img {
   flex-direction: column;
 }
 
-.sort-buttons button {
+.sort-form.visible {
+  display: flex;
+}
+
+.sort-form button {
   display: flex;
   align-items: center;
   padding: 8px 12px;
@@ -54,19 +56,19 @@ img {
   gap: 4px;
 }
 
-.sort-buttons button:hover {
+.sort-form button:hover {
   background-color: var(--button-highlight-color);
 }
 
-.sort-buttons img {
+.sort-form img {
   width: 1rem;
 }
 
-.sort-buttons * {
+.sort-form * {
   justify-content: space-between;
 }
+/* */
 
-/* ALL LISTS */
 #list-friends {
   border-radius: 8px;
   gap: 2rem;
@@ -131,13 +133,13 @@ img {
 }
 
 @keyframes grow {
-    from {
-      transform: scale(1);
-    }
-    to {
-      transform: scale(1.05);
-    }
+  from {
+    transform: scale(1);
   }
+  to {
+    transform: scale(1.05);
+  }
+}
 
 .game-cards img {
   width: 100%;
@@ -153,36 +155,35 @@ img {
 }
 
 #list-games li {
-    position: relative;
-    overflow: hidden;
-    list-style: none;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
 }
 
 #list-games li::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(
-        to right, 
-        rgba(255, 255, 255, 0) 0%, 
-        rgba(255, 255, 255, 0.3) 50%, 
-        rgba(255, 255, 255, 0) 100%
-    );
-    transform: skewX(-25deg);
-    transition: none;
-    pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
 }
 
 #list-games li:hover::before {
-    left: 150%;
-    transition: left 0.6s ease-in-out;
+  left: 150%;
+  transition: left 0.6s ease-in-out;
 }
 
 @media (min-width: 600px) {
-  .sort-buttons {
+  .sort-form {
     flex-direction: row;
-  } 
+  }
 }

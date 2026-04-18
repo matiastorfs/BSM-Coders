@@ -4,12 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GameHub</title>
-    <link rel="icon" type="image/png" href="./assets/console.png" />
 
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/general.css" />
     <link rel="stylesheet" href="./css/home.css" />
-   
+
     <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/home.js"></script>
   </head>
@@ -22,7 +21,20 @@
     <main>
       <section class="friends">
         <h3>Vrienden <img src="./assets/right-arrow.png" /></h3>
-        <ul id="list-friends"></ul>
+        <ul id="list-friends">
+          <li>
+            <img src="./assets/user-icon.png" />
+            <p>Vriend</p>
+          </li>
+          <li>
+            <img src="./assets/user-icon.png" />
+            <p>Vriend</p>
+          </li>
+          <li>
+            <img src="./assets/user-icon.png" />
+            <p>Vriend</p>
+          </li>
+        </ul>
       </section>
 
       <section class="favorites">
@@ -33,23 +45,23 @@
       <section>
         <h3>Alle Games <img src="./assets/right-arrow.png" /></h3>
 
-        <article class="search-bar">
-          <form class="search-buttons">
+        <section class="search-bar">
+          <form class="search-form">
             <input type="text" id="txt-search" placeholder="Zoeken" />
-            
-            <button type="button" id="btn-search">
+
+            <button id="btn-search">
               <img src="./assets/search-icon.png" />
             </button>
-            <button type="button" id="btn-sort">
+            <button id="btn-sort">
               <img src="./assets/sort-icon.png" />
             </button>
           </form>
-          <form class="sort-buttons">
-            <button type="button" class="sort-button" id="sort-name">Naam</button>
-            <button type="button" class="sort-button" id="sort-developer">Ontwikkelaar</button>
-            <button type="button" class="sort-button" id="sort-date">Datum</button>
+          <form class="sort-form">
+            <button id="sort-name">Naam</button>
+            <button id="sort-developer">Ontwikkelaar</button>
+            <button id="sort-date">Datum</button>
           </form>
-        </article>
+        </section>
 
         <ul class="game-cards" id="list-games"></ul>
       </section>

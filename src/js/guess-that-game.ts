@@ -10,16 +10,16 @@ oneVOne.addEventListener("click", function () {
 
 async function loadRanking() {
   try {
-    const response = await fetch("./data/rankingDummies.json");
+    const response = await fetch("/data/rankingDummies.json");
     const players = await response.json();
 
     const rankingSection = document.getElementById("rankingList");
 
     players.sort((a, b) => b.xpOwned - a.xpOwned);
 
-    const myPlayer = players.find(player => player.name === "Ik");
+    const myPlayer = players.find((player) => player.name === "Ik");
 
-    const myRank = players.findIndex(player => player.name === "Ik") + 1;
+    const myRank = players.findIndex((player) => player.name === "Ik") + 1;
 
     function createRankingItem(player, rank) {
       const article = document.createElement("article");
@@ -63,7 +63,6 @@ async function loadRanking() {
       myArticle.classList.add("myRank");
       rankingSection.appendChild(myArticle);
     }
-
   } catch (error) {
     console.error("Error bij het laden van de ranks:", error);
   }

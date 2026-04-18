@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 /* https://www.color-hex.com/color-palette/1074676 */
 :root {
@@ -9,6 +9,8 @@
   --navigation-color: #d9e2de;
   --button-color: #ccd9d3;
   --button-highlight-color: #bfcfc8;
+  --favorite-color: #e8ce49;
+  --favorite-highlight-color: #e6bc00;
 }
 
 /* Dark mode feature */
@@ -23,7 +25,7 @@ body {
 }
 
 * {
-  font-family: 'Work Sans', 'Segoe UI', Verdana, sans-serif;
+  font-family: "Work Sans", "Segoe UI", Verdana, sans-serif;
 }
 
 /* Default size for icons or images */
@@ -80,7 +82,7 @@ nav > * {
 
 #gtgbuttonnav:hover img {
   transition: transform 0.8s ease-in-out;
-   transform: rotateY(360deg);
+  transform: rotateY(360deg);
 }
 
 #settingsbuttonnav:hover img {
@@ -107,8 +109,8 @@ nav > * {
   background-color: var(--button-color);
 }
 
-main{
-    margin-bottom: 100px;
+main {
+  margin-bottom: 100px;
 }
 
 h1 {
@@ -128,8 +130,6 @@ p {
   font-size: 12px;
 }
 
-
-
 em {
   font-weight: bold;
 }
@@ -140,35 +140,35 @@ button {
 
 #settingsbuttonhover:hover {
   #settingsicon {
-  animation: settingsturn 1s infinite ease;
-}
+    animation: settingsturn 1s infinite ease;
+  }
 }
 
 @keyframes settingsturn {
   0% {
-      transform: rotate(0deg);
-    }
+    transform: rotate(0deg);
+  }
   100% {
-      transform: rotate(360deg);
-    }
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes bounce {
-    0% {
-        transform: translateY(0) scaleX(1.2) scaleY(0.8);
-    }
-    15% {
-        transform: translateY(0) scaleX(1) scaleY(1);
-    }
-    50% {
-        transform: translateY(-10px) scaleX(1) scaleY(1);
-    }
-    85% {
-      transform: translateY(0) scaleX(1) scaleY(1);
-    }
-    100% {
-      transform: translateY(0) scaleX(1.2) scaleY(0.8);
-    }
+  0% {
+    transform: translateY(0) scaleX(1.2) scaleY(0.8);
+  }
+  15% {
+    transform: translateY(0) scaleX(1) scaleY(1);
+  }
+  50% {
+    transform: translateY(-10px) scaleX(1) scaleY(1);
+  }
+  85% {
+    transform: translateY(0) scaleX(1) scaleY(1);
+  }
+  100% {
+    transform: translateY(0) scaleX(1.2) scaleY(0.8);
+  }
 }
 
 @media (min-width: 600px) {
