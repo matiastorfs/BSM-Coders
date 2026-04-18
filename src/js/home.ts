@@ -1,8 +1,15 @@
-const response = await fetch("/api/games.json");
+const response = await fetch("/data/games.json");
 const games = await response.json();
 const sortForm = document.querySelector(".sort-form");
-let favoriteGames = JSON.parse(localStorage.getItem("favoriteGames")) || [];
+let favoriteGames;
 let state = 0;
+
+try {
+  favoriteGames = JSON.parse(localStorage.getItem("favoriteGames")) || [];
+} catch (err) {
+  favoriteGames = [];
+  console.log(err);
+}
 
 const favoriteGameObjects = favoriteGames
   .map((id) => games.find((g) => g.id === id))
