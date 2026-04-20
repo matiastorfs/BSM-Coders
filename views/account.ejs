@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/general.css" />
+    <link rel="stylesheet" href="./css/account.css" />
+
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/account.js"></script>
+  </head>
+  <body>
+    <header>
+      <%- include("partials/navigation") %>
+
+      <img src="./assets/left-arrow.png" id="arrow" />
+      <p>Games</p>
+    </header>
+    <main>
+      <div class="profile">
+        <img src="./assets/userdefaultimage.jpg" id="userlogo" />
+
+        <div class="usertext">
+          <p id="username">Gebruiker</p>
+          <p id="userdescription">Beschrijving</p>
+          <button id="accountsettingsbutton">
+            Account settings
+            <img src="./assets/setting-icon.png" id="accountsettingsicon" />
+          </button>
+        </div>
+      </div>
+      <div class="titles-container">
+        <h1 id="tab-projecten">Collecties</h1>
+        <h1 id="tab-prestaties">Prestaties</h1>
+      </div>
+
+      <div id="lijst-container">
+        <ul id="data-lijst"></ul>
+      </div>
+    </main>
+  </body>
+</html>

@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Guess That Game</title>
-    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/general.css" />
     <link rel="stylesheet" href="./css/guessthatgame.css" />
 
     <script>
-      function setDifficulty(level){
-          localStorage.setItem("difficulty", level);
-          window.location.href = "guess-that-game-play.html";
+      function setDifficulty(level) {
+        localStorage.setItem("difficulty", level);
+        window.location.href = "guess-that-game-play.html";
       }
     </script>
     <script type="module" src="./js/main.js"></script>
@@ -19,8 +19,10 @@
   </head>
   <body>
     <header>
-      <nav id="navigation-menu"></nav>
-      <div><img src="./assets/RaadHetSpel.png" alt="Raad Het Spel" id="logo"></div>
+      <%- include("partials/navigation") %>
+      <div>
+        <img src="./assets/RaadHetSpel.png" alt="Raad Het Spel" id="logo" />
+      </div>
     </header>
     <main>
       <h1>De Raad Het Spel Minigame</h1>
@@ -32,7 +34,9 @@
         <article class="difficulties" onclick="setDifficulty('easy')">
           <img src="./assets/Makkelijk.jpg" class="difficultie" id="easy" />
           <div class="title"><em>Makkelijk</em></div>
-          <div class="description">Ideaal om snel wat extra xp te verdienen</div>
+          <div class="description">
+            Ideaal om snel wat extra xp te verdienen
+          </div>
           <div class="stargroup">
             <img src="./assets/Star.png" class="star" />
             <img src="./assets/Star.png" class="star" />
@@ -42,7 +46,9 @@
         <article class="difficulties" onclick="setDifficulty('medium')">
           <img src="./assets/Gemiddeld.jpg" class="difficultie" id="medium" />
           <div class="title"><em>Gemiddeld</em></div>
-          <div class="description">Heb je zin om xp te verzamelen met een kleine uitdaging</div>
+          <div class="description">
+            Heb je zin om xp te verzamelen met een kleine uitdaging
+          </div>
           <div class="stargroup">
             <img src="./assets/Star.png" class="star" />
             <img src="./assets/Star.png" class="star" />
@@ -53,7 +59,9 @@
         <article class="difficulties lowestOne" onclick="setDifficulty('hard')">
           <img src="./assets/Moeilijk.jpg" class="difficultie" id="hard" />
           <div class="title"><em>Moeilijk</em></div>
-          <div class="description">Klaar om je kennis tot het uiterste te testen</div>
+          <div class="description">
+            Klaar om je kennis tot het uiterste te testen
+          </div>
           <div class="stargroup">
             <img src="./assets/Star.png" class="star" />
             <img src="./assets/Star.png" class="star" />
