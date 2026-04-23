@@ -63,7 +63,17 @@
           </form>
         </section>
 
-        <ul class="game-cards" id="list-games"></ul>
+        <ul class="game-cards" id="list-games">
+            <% for(const game of games) { %>
+              <li>
+                <a href="/game/<%= game.id %>" id="game-item<%= game.id %>" class="game-items">
+                <img src="<%= game.cover %>" alt="<%= game.title %>" width="150" height="150">
+                <em><%= game.title %></em>    
+                <p><%= game.developer %></p>
+                </a>
+              </li>
+            <% } %>
+        </ul>
       </section>
     </main>
   </body>
