@@ -5,6 +5,8 @@
 
 import express from "express";
 import path from "path";
+import { getGameById, getGames } from "./data";
+import { Game } from "./types";
 
 const app = express();
 const root = process.cwd();
@@ -20,6 +22,22 @@ app.get("/:page.html", (req, res) => {
 
 app.get("/", (req, res) => {
   res.render("index");
+});
+
+app.get("/home.html", (req, res) => {
+  const games: Game[] = getGames();
+  res.render("home", { games });
+});
+
+app.get("/game/:id", async (req, res) => {
+
+  const game = await getGameById(parseInt(req.params.id));
+
+  if (!game) {
+    return res.status(404).send("Game niet gevonden");
+  }
+
+  res.render("info", { game });
 });
 
 app.listen(3000, () => {
