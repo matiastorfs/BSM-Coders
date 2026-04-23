@@ -8,9 +8,9 @@ document.getElementById("btn-account").addEventListener("click", () => {
   window.location.href = "./account.html";
 });
 
-const darkToggle = document.querySelector(".switch input");
+const darkToggle = document.querySelector(".switch input") as HTMLInputElement | null;
 
-if (localStorage.getItem("theme") === "dark") {
+if (darkToggle && localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-mode");
   darkToggle.checked = true;
 }
