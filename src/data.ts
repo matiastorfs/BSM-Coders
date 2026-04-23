@@ -1,5 +1,5 @@
-import games from "../public/data/games.json";
-import { Game } from "./types";
+import games from "../public/data/games.json" with { type: 'json'};
+import { Game } from "./types.js";
 
 export function getGames(): Game[] {
   return games;

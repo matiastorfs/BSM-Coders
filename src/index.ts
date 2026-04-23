@@ -5,8 +5,8 @@
 
 import express from "express";
 import path from "path";
-import { getGameById, getGames } from "./data";
-import { Game } from "./types";
+import { getGameById, getGames } from "./data.js";
+import { Game } from "./types.js";
 
 const app = express();
 const root = process.cwd();
@@ -16,15 +16,17 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(root, "public")));
 app.use(express.static(path.join(root, "dist")));
 
+/*
 app.get("/:page.html", (req, res) => {
   res.render(req.params.page);
 });
+*/
 
 app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/home.html", (req, res) => {
+app.get("/home", (req, res) => {
   const games: Game[] = getGames();
   res.render("home", { games });
 });
