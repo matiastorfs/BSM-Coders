@@ -6,6 +6,7 @@
 import express from "express";
 import path from "path";
 import { getGameById, getGames } from "./data";
+import { Game } from "./types";
 
 const app = express();
 const root = process.cwd();
@@ -23,8 +24,8 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/home", (req, res) => {
-  const games = getGames();
+app.get("/home.html", (req, res) => {
+  const games : Game[] = getGames();
   res.render("home", { games });
 });
 
