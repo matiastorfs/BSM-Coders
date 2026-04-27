@@ -122,7 +122,8 @@ img {
 }
 
 .game-cards li a {
-  width: 200px;
+  width: 250px;
+  height: 250px;
   height: fit-content;
   padding: 1rem;
 }

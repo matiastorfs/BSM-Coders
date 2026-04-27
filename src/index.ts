@@ -1,47 +1,37 @@
-// To run this server in localhost, type the following commands:
-// npm install (one time only)
-// npm run build
-// npm start
-
 import express from "express";
+import { connect, getGames } from "./database";
 import path from "path";
-import { getGameById, getGames } from "./data";
-import { Game } from "./types";
+import homeRouter from "./routers/home";
 
 const app = express();
 const root = process.cwd();
 
 app.set("view engine", "ejs");
+app.set("port", 3000);
 
 app.use(express.static(path.join(root, "public")));
-app.use(express.static(path.join(root, "dist")));
-
-
-app.get("/:page.html", (req, res) => {
-  res.render(req.params.page);
-});
-
+app.use("/home", homeRouter());
 
 app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/home", (req, res) => {
-  const games: Game[] = getGames();
-  res.render("home", { games });
-});
-
-app.get("/game/:id", async (req, res) => {
-
-  const game = await getGameById(parseInt(req.params.id));
-
-  if (!game) {
-    return res.status(404).send("Game niet gevonden");
+app.get("/api/games", async (req, res) => {
+  try {
+    const games = await getGames();
+    res.json(games);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to fetch games" });
   }
-
-  res.render("info", { game });
 });
 
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+// Temporary route for all files
+app.get("/:file.html", (req, res) => {
+  res.render(req.params.file);
+});
+
+app.listen(app.get("port"), async () => {
+  await connect();
+  console.log("Server started on http://localhost:" + app.get("port"));
 });
