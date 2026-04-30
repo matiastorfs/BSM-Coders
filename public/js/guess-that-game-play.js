@@ -104,5 +104,5 @@ function endGame() {
          <h3>Gefeliciteerd!</h3>
          <p>Je hebt het spel voltooid.</p>
          <p>Totaal XP verdiend: ${xp}</p>
-         <p><a href="./guess-that-game-homepagina.html">➡️Terug naar "Raad het spel"⬅️</a><p/>`;
+         <p><a href="/guess-that-game">➡️Terug naar "Raad het spel"⬅️</a><p/>`;
 }
