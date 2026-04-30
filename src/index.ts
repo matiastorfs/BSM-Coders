@@ -3,6 +3,8 @@ import { connect, getGames, getGameById } from "./database";
 import path from "path";
 import homeRouter from "./routers/home";
 import { Game } from "./types";
+import guessRouter from "./routers/guessthatgame";
+import settingsRouter from "./routers/settings";
 
 const app = express();
 const root = process.cwd();
@@ -12,6 +14,8 @@ app.set("port", 3000);
 
 app.use(express.static(path.join(root, "public")));
 app.use("/home", homeRouter());
+app.use("/guess-that-game", guessRouter());
+app.use("/settings", settingsRouter());
 
 app.get("/", (req, res) => {
   res.render("index");
