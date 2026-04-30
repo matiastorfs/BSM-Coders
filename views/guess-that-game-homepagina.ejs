@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Guess That Game</title>
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/general.css" />
-    <link rel="stylesheet" href="./css/guessthatgame.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/guessthatgame.css" />
 
     <script>
       function setDifficulty(level) {
@@ -14,60 +14,57 @@
         window.location.href = "guess-that-game-play.html";
       }
     </script>
-    <script type="module" src="./js/main.js"></script>
-    <script type="module" src="./js/guess-that-game.js"></script>
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/js/guess-that-game.js"></script>
   </head>
   <body>
     <header>
       <%- include("partials/navigation") %>
-      <div>
-        <img src="./assets/RaadHetSpel.png" alt="Raad Het Spel" id="logo" />
-      </div>
+      <h1>Raad Het Spel</h1>
     </header>
     <main>
-      <h1>De Raad Het Spel Minigame</h1>
       <section class="modeSelection">
         <button class="modeButton active" id="soloPlay">Solo Spel</button>
         <button class="modeButton inactive" id="1v1">1v1</button>
       </section>
       <section class="spelen">
         <article class="difficulties" onclick="setDifficulty('easy')">
-          <img src="./assets/Makkelijk.jpg" class="difficultie" id="easy" />
+          <img src="/assets/Makkelijk.jpg" class="difficultie" id="easy" />
           <div class="title"><em>Makkelijk</em></div>
           <div class="description">
             Ideaal om snel wat extra xp te verdienen
           </div>
           <div class="stargroup">
-            <img src="./assets/Star.png" class="star" />
-            <img src="./assets/Star.png" class="star" />
-            <img src="./assets/Star.png" class="star" />
+            <img src="/assets/Star.png" class="star" />
+            <img src="/assets/Star.png" class="star" />
+            <img src="/assets/Star.png" class="star" />
           </div>
         </article>
         <article class="difficulties" onclick="setDifficulty('medium')">
-          <img src="./assets/Gemiddeld.jpg" class="difficultie" id="medium" />
+          <img src="/assets/Gemiddeld.jpg" class="difficultie" id="medium" />
           <div class="title"><em>Gemiddeld</em></div>
           <div class="description">
             Heb je zin om xp te verzamelen met een kleine uitdaging
           </div>
           <div class="stargroup">
-            <img src="./assets/Star.png" class="star" />
-            <img src="./assets/Star.png" class="star" />
-            <img src="./assets/Star.png" class="star" />
-            <img src="./assets/Star.png" class="star" />
+            <img src="/assets/Star.png" class="star" />
+            <img src="/assets/Star.png" class="star" />
+            <img src="/assets/Star.png" class="star" />
+            <img src="/assets/Star.png" class="star" />
           </div>
         </article>
         <article class="difficulties lowestOne" onclick="setDifficulty('hard')">
-          <img src="./assets/Moeilijk.jpg" class="difficultie" id="hard" />
+          <img src="/assets/Moeilijk.jpg" class="difficultie" id="hard" />
           <div class="title"><em>Moeilijk</em></div>
           <div class="description">
             Klaar om je kennis tot het uiterste te testen
           </div>
           <div class="stargroup">
-            <img src="./assets/Star.png" class="star" />
-            <img src="./assets/Star.png" class="star" />
-            <img src="./assets/Star.png" class="star" />
-            <img src="./assets/Star.png" class="star" />
-            <img src="./assets/Star.png" class="star" />
+            <img src="/assets/Star.png" class="star" />
+            <img src="/assets/Star.png" class="star" />
+            <img src="/assets/Star.png" class="star" />
+            <img src="/assets/Star.png" class="star" />
+            <img src="/assets/Star.png" class="star" />
           </div>
         </article>
       </section>

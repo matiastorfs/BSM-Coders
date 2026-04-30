@@ -4,39 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Guess That Game 1v1</title>
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/general.css" />
-    <link rel="stylesheet" href="./css/guessthatgame.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/guessthatgame.css" />
 
-    <script type="module" src="./js/main.js"></script>
-    <script type="module" src="./js/guess-that-game.js"></script>
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/js/guess-that-game.js"></script>
   </head>
   <body>
     <header>
       <%- include("partials/navigation") %>
-      <div>
-        <img src="./assets/RaadHetSpel.png" alt="Raad Het Spel" id="logo" />
-      </div>
+      <h1>Raad Het Spel</h1>
     </header>
     <main>
-      <h1>De Raad Het Spel Minigame</h1>
       <section class="modeSelection">
         <button class="modeButton inactive" id="soloPlay">Solo Spel</button>
         <button class="modeButton active" id="1v1">1v1</button>
       </section>
       <article class="1v1play lowestOne">
-        <img src="./assets/1V1img.png" class="difficultie" />
+        <img src="/assets/1V1img.png" class="difficultie" />
         <div class="title"><em>Een andere speler uitdagen</em></div>
         <div class="description">
           Ben jij klaar om het tegen een andere speler op te nemen in Raad Het
           Spel.
         </div>
         <div class="stargroup">
-          <img src="./assets/Star.png" class="star" />
-          <img src="./assets/Star.png" class="star" />
-          <img src="./assets/Star.png" class="star" />
-          <img src="./assets/Star.png" class="star" />
-          <img src="./assets/Star.png" class="star" />
+          <img src="/assets/Star.png" class="star" />
+          <img src="/assets/Star.png" class="star" />
+          <img src="/assets/Star.png" class="star" />
+          <img src="/assets/Star.png" class="star" />
+          <img src="/assets/Star.png" class="star" />
         </div>
       </article>
       <h1 id="rankTitle">Ranking 🏆</h1>
