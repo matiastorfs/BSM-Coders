@@ -1,11 +1,11 @@
 const soloPlay = document.getElementById("soloPlay");
 soloPlay.addEventListener("click", function () {
-  window.location.href = "./guess-that-game-homepagina.html";
+  window.location.href = "/guess-that-game";
 });
 
 const oneVOne = document.getElementById("1v1");
 oneVOne.addEventListener("click", function () {
-  window.location.href = "./guess-that-game-1v1.html";
+  window.location.href = "/guess-that-game/1v1";
 });
 
 async function loadRanking() {
