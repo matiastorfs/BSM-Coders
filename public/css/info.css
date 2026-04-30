@@ -18,7 +18,9 @@ h2 {
 }
 
 #arrow {
-  width: 24px;
+  position: relative;
+  margin-left: -10px;
+  width: 40px;
   cursor: pointer;
 }
 
@@ -26,14 +28,14 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: top;
 }
 
 .info-cover {
   display: flex;
+  height: fit-content;
   flex-direction: column;
-  justify-content: center;
-  margin: 2rem auto;
+  margin: 1rem auto;
   width: fit-content;
   padding: 1rem;
   background-color: var(--container-color);
@@ -43,7 +45,8 @@ h2 {
 }
 
 .info-cover img {
-  max-width: 250px;
+  width: 500px;
+  max-width: 500px;
   object-fit: cover;
 }
 
@@ -107,4 +110,11 @@ h2 {
   .info-list {
     margin: auto 4rem;
   }
+
+  #arrow {
+  position: fixed;
+  margin-left: -10px;
+  width: 24px;
+  cursor: pointer;
+}
 }

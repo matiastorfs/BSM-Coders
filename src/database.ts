@@ -42,3 +42,12 @@ export async function connect() {
     console.error(error);
   }
 }
+
+export async function getGameById(id: string | number) {
+  try {
+    return await gameCollection.findOne({ id: Number(id) });
+  } catch (error) {
+    console.error("Error fetching game by id:", error);
+    return null;
+  }
+}

@@ -1,7 +1,8 @@
 import express from "express";
-import { connect, getGames } from "./database";
+import { connect, getGames, getGameById } from "./database";
 import path from "path";
 import homeRouter from "./routers/home";
+import { Game } from "./types";
 import guessRouter from "./routers/guessthatgame";
 import settingsRouter from "./routers/settings";
 
@@ -28,6 +29,16 @@ app.get("/api/games", async (req, res) => {
     console.error(err);
     res.status(500).json({ error: "Failed to fetch games" });
   }
+});
+
+app.get("/game/:id", async (req, res) => {
+      const game: Game | null = await getGameById(req.params.id);
+    if (game) {
+        res.render("info", { game });
+    }
+    else {
+        res.status(404).render("404")
+    }
 });
 
 // Temporary route for all files
