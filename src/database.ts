@@ -3,14 +3,10 @@ import { Game } from "./types";
 import dotenv from "dotenv";
 
 dotenv.config();
-const uri = process.env.MONGO_URI;
+const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}`;
 
-if (!uri) {
-  throw new Error("MONGO_URI is not defined");
-}
-
-export const client = new MongoClient(uri);
-export const gameCollection: Collection<Game> = client
+const client = new MongoClient(uri);
+const gameCollection: Collection<Game> = client
   .db("gamehub")
   .collection<Game>("games");
 

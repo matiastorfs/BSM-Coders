@@ -13,6 +13,7 @@
   <script type="module" src="./js/main.js"></script>
   <script type="module" src="./js/home.js"></script>
 </head>
+
 <body>
   <header>
     <%- include("partials/navigation") %>
@@ -57,11 +58,11 @@
             <img src="./assets/sort-icon.png" />
           </button>
         </div>
-        <div class="sort-form">
-          <button id="sort-name">Naam</button>
-          <button id="sort-developer">Ontwikkelaar</button>
-          <button id="sort-date">Datum</button>
-        </div>
+        <form method="GET" action="/home">
+          <button name="sort" value="name">Naam</button>
+          <button name="sort" value="developer">Ontwikkelaar</button>
+          <button name="sort" value="date">Datum</button>
+        </form>
       </section>
 
       <ul class="game-cards" id="list-games">
@@ -78,4 +79,5 @@
     </section>
   </main>
 </body>
+
 </html>
