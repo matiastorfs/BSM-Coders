@@ -1,44 +1,47 @@
 <!doctype html>
 <html lang="nl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title id="title">GameHub</title>
-    
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/general.css" />
-    <link rel="stylesheet" href="./css/info.css" />
 
-    <script type="module" src="./js/main.js"></script>
-    <script type="module" src="./js/info.js"></script>
-  </head>
-  <body>
-    <header>
-      <%- include("partials/navigation") %>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="title">GameHub</title>
+
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/general.css" />
+  <link rel="stylesheet" href="/css/info.css" />
+
+  <script type="module" src="/js/main.js"></script>
+  <script type="module" src="/js/info.js"></script>
+</head>
+
+<body>
+  <header>
+    <%- include("partials/navigation") %>
 
       <section id="go-back">
         <a href="./home.html">
           <img src="./assets/left-arrow3.png" id="arrow" />
         </a>
       </section>
-    </header>
+  </header>
 
-    <main>
-      <h2 id="info-title"></h2>
-      <section class="infopage">
-        <section class="info-cover">
-          <img id="item-cover" />
-          <button type="button" id="btn-favorite">Favoriet</button>
-        </section>
-        <ul class="info-list">
-          <li id="item-description"><em>Beschrijving</em></li>
-          <li id="item-developer"><em>Ontwikkelaar</em></li>
-          <li id="item-publisher"><em>Uitgever</em></li>
-          <li id="item-platforms"><em>Platforms</em></li>
-          <li id="item-genre"><em>Genre</em></li>
-          <li id="item-releaseDate"><em>Releasedatum</em></li>
-        </ul>
+  <main>
+    <h2 id="info-title"></h2>
+    <section class="infopage">
+      <section class="info-cover">
+        <img id="item-cover" />
+        <button type="button" id="btn-favorite">Favoriet</button>
       </section>
-    </main>
-  </body>
+      <ul class="info-list">
+        <li id="item-description"><em>Beschrijving</em></li>
+        <li id="item-developer"><em>Ontwikkelaar</em></li>
+        <li id="item-publisher"><em>Uitgever</em></li>
+        <li id="item-platforms"><em>Platforms</em></li>
+        <li id="item-genre"><em>Genre</em></li>
+        <li id="item-releaseDate"><em>Releasedatum</em></li>
+      </ul>
+    </section>
+  </main>
+</body>
+
 </html>
