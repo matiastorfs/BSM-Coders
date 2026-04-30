@@ -18,6 +18,7 @@ h2 {
 }
 
 #arrow {
+  position: fixed;
   width: 24px;
   cursor: pointer;
 }
@@ -43,7 +44,7 @@ h2 {
 }
 
 .info-cover img {
-  max-width: 250px;
+  width: 600px;
   object-fit: cover;
 }
 

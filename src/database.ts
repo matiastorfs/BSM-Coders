@@ -21,10 +21,9 @@ async function exit() {
 }
 
 async function seed() {
-  const res = await fetch("https://www.freetogame.com/api/games");
-  const games = await res.json();
-
   if ((await gameCollection.countDocuments()) === 0) {
+    const res = await fetch("https://www.freetogame.com/api/games");
+    const games = await res.json();
     await gameCollection.insertMany(games);
   }
 }
