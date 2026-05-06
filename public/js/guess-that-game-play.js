@@ -53,7 +53,7 @@ async function main() {
     e.preventDefault();
 
     const guess = select.value;
-    const correctName = currentGame.title.toLowerCase().replace(/\s+/g, "-");
+    const correctName = currentGame.title
 
     if (guess === correctName) {
       correctAnswers++;
@@ -121,7 +121,7 @@ function generateOptions() {
 
   options.forEach(game => {
     const option = document.createElement("option");
-    option.value = game.title.toLowerCase().replace(/\s+/g, "-");
+    option.value = game.title
     option.textContent = game.title;
     select.appendChild(option);
   });
