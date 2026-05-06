@@ -1,11 +1,32 @@
+const navMenu = document.querySelector(".nav-menu");
+
 document.querySelectorAll(".toggle-menu").forEach((button) => {
-  button.addEventListener("click", () => {
-    document.querySelector(".nav-menu").classList.toggle("open");
+  button.addEventListener("click", (e) => {
+    e.stopPropagation();
+    navMenu.classList.toggle("open");
   });
 });
 
-document.getElementById("btn-account").addEventListener("click", () => {
-  window.location.href = "./account.html";
+window.addEventListener("click", () => {
+  if (navMenu && navMenu.classList.contains("open")) {
+    navMenu.classList.remove("open");
+  }
+});
+
+const accountBtn = document.getElementById("btn-account");
+const accountDropdown = document.getElementById("account-dropdown");
+
+if (accountBtn && accountDropdown) {
+  accountBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    accountDropdown.classList.toggle("show");
+  });
+}
+
+window.addEventListener("click", () => {
+  if (accountDropdown && accountDropdown.classList.contains("show")) {
+    accountDropdown.classList.remove("show");
+  }
 });
 
 const darkToggle = document.querySelector(".switch input");

@@ -16,7 +16,8 @@
       <img src="./assets/left-arrow.png" id="arrow" />
     </header>
     <main>
-      <form action="">
+      <form action="/signin" method="post">
+        <input type="hidden" name="userIcon" value="userdefaultimage.jpg">
         <label for="name/email">Naam</label>
         <input
           type="text"
@@ -44,10 +45,10 @@
           required
         />
 
-        <label for="password">Herhaal Wachtwoord</label>
+        <label for="password2">Herhaal Wachtwoord</label>
         <input
           type="password"
-          name="password"
+          name="passwordConfirm"
           id="password2"
           placeholder="Vul in"
           required
@@ -64,14 +65,14 @@
           <label for="termsofservice">Accepteer Algemene Voorwaarde</label>
         </div>
         <a id="showtermsofservice" href="/algemenevoorwaarde.html">Laat zien</a>
-      </form>
       <a id="forgotpassword">Wachtwoord vergeten?</a>
 
       <button id="signupbutton">Registreren</button>
+      </form>
       <p>OF</p>
       <button
         id="loginbutton"
-        onclick="window.location.href = './log-in-page.html'"
+        onclick="window.location.href = '/login'"
       >
         Login
       </button>

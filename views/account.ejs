@@ -20,10 +20,10 @@
     </header>
     <main>
       <div class="profile">
-        <img src="./assets/userdefaultimage.jpg" id="userlogo" />
+        <img src="./assets/<%= user.userIcon %>" id="userlogo" />
 
         <div class="usertext">
-          <p id="username">Gebruiker</p>
+          <p id="username"><%= user.name %></p>
           <p id="userdescription">Beschrijving</p>
           <button id="accountsettingsbutton">
             Account settings

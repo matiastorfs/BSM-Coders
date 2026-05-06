@@ -1,3 +1,7 @@
+body {
+    margin-top: 0px;
+}
+
 #arrow:hover {
     cursor: pointer;
 }
@@ -44,16 +48,16 @@ main {
 }
 .checkbox-group {
     display: flex;
-    flex-direction: row; /* Zet ze naast elkaar */
-    align-items: center; /* Lijn ze verticaal uit */
-    gap: 10px;        /* Ruimte tussen checkbox en tekst */
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
 }
 
 .checkmark {
-    width: 20px; /* Gewoon een normale breedte */
+    width: 20px;
     height: 20px;
     cursor: pointer;
-    margin: 0; /* Haalt eventuele ongewenste marges weg */
+    margin: 0;
     background-color: white;
     border: 1px solid black;
 }
@@ -124,7 +128,7 @@ button {
     color: rgb(217, 217, 217);
 }
 
-#name,#email,#password,#name_email {
+#name,#email,#password,#password2,#name_email {
     padding: 10px;
     border: 1px solid rgb(113, 113, 113);
     border-radius: 10px;

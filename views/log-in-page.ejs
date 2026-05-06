@@ -16,12 +16,12 @@
       <img src="./assets/left-arrow.png" id="arrow" />
     </header>
     <main>
-      <form action="">
+      <form action="/login" method="post">
         <label for="name/email">Naam/E-mail</label>
         <input
           type="email"
-          name="name_email"
-          id="name_email"
+          name="email"
+          id="email"
           placeholder="Vul in"
           required
         />
@@ -34,14 +34,14 @@
           placeholder="Vul in"
           required
         />
-      </form>
       <a id="forgotpassword">Wachtwoord vergeten?</a>
 
       <button id="loginbutton">Inloggen</button>
+      </form>
       <p>OF</p>
       <button
         id="signupbutton"
-        onclick="window.location.href = './sign-up-page.html'"
+        onclick="window.location.href = '/signin'"
       >
         Registreren
       </button>
