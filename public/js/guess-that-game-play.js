@@ -1,31 +1,32 @@
-const response = await fetch("/data/games.json");
-const games = await response.json();
-
 const difficulty = localStorage.getItem("difficulty");
 
 let blurAmount;
 let xpReward;
+let optionCount;
 
 switch (difficulty) {
   case "easy":
     blurAmount = 5;
     xpReward = 5;
+    optionCount = 3;
     break;
 
   case "medium":
     blurAmount = 10;
     xpReward = 10;
+    optionCount = 5;
     break;
 
   case "hard":
     blurAmount = 20;
     xpReward = 20;
+    optionCount = 8;
     break;
 }
 
 const imgContainer = document.getElementById("imgGame");
 const form = document.getElementById("guessForm");
-const input = document.getElementById("guessInput");
+const select = document.getElementById("guessSelect");
 const title = document.getElementById("title");
 
 const xpDisplay = document.getElementById("xp");
@@ -37,12 +38,52 @@ let correctAnswers = 0;
 let totalAnswers = 0;
 let xp = 0;
 let usedIndexes = [];
+let games = [];
 
 title.innerHTML = `Moeilijkheidsgraad: ${difficulty}`;
 
-chooseImg();
+async function main() {
+  const res = await fetch("/api/games");
+  games = await res.json();
+  console.log("Fetching games...")
 
-function chooseImg() {
+  chooseImg(games);
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const guess = select.value;
+    const correctName = currentGame.title.toLowerCase().replace(/\s+/g, "-");
+
+    if (guess === correctName) {
+      correctAnswers++;
+      xp += xpReward;
+
+      xpDisplay.textContent = xp;
+      progressDisplay.textContent = correctAnswers;
+
+      result.textContent = `Correct! +${xpReward} XP`;
+      result.style.color = "green";
+
+      select.value = "";
+
+      chooseImg(games);
+    } else {
+      result.textContent = `Fout! Correcte antwoord: ${correctName}`;
+      result.style.color = "red";
+
+      xpDisplay.textContent = xp;
+      progressDisplay.textContent = correctAnswers;
+
+      select.value = "";
+
+      chooseImg(games);
+    }
+    totalAnswers++;
+  });
+}
+
+function chooseImg(games) {
   if (totalAnswers >= 4) {
     endGame();
     return;
@@ -58,41 +99,33 @@ function chooseImg() {
 
   currentGame = games[randomIndex];
 
-  imgContainer.innerHTML = `<img src="${currentGame.cover}" width="300" height="300" style="filter: blur(${blurAmount}px);">`;
+  imgContainer.innerHTML = `<img src="${currentGame.thumbnail}" width="300" height="300" style="filter: blur(${blurAmount}px);">`;
+  generateOptions();
 }
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+function generateOptions() {
+  select.innerHTML = `<option value="">-- Kies een spel --</option>`;
 
-  const guess = input.value.trim().toLowerCase().replace(/\s+/g, "-");
-  const correctName = currentGame.title.toLowerCase().replace(/\s+/g, "-");
+  const options = [];
+  options.push(currentGame);
 
-  if (guess === correctName) {
-    correctAnswers++;
-    xp += xpReward;
+  while (options.length < optionCount) {
+    const randomGame = games[Math.floor(Math.random() * games.length)];
 
-    xpDisplay.textContent = xp;
-    progressDisplay.textContent = correctAnswers;
-
-    result.textContent = `Correct! +${xpReward} XP`;
-    result.style.color = "green";
-
-    input.value = "";
-
-    chooseImg();
-  } else {
-    result.textContent = `Fout! Correcte antwoord: ${correctName}`;
-    result.style.color = "red";
-
-    xpDisplay.textContent = xp;
-    progressDisplay.textContent = correctAnswers;
-
-    input.value = "";
-
-    chooseImg();
+    if (!options.find(g => g.id === randomGame.id)) {
+      options.push(randomGame);
+    }
   }
-  totalAnswers++;
-});
+
+  options.sort(() => Math.random() - 0.5);
+
+  options.forEach(game => {
+    const option = document.createElement("option");
+    option.value = game.title.toLowerCase().replace(/\s+/g, "-");
+    option.textContent = game.title;
+    select.appendChild(option);
+  });
+}
 
 function endGame() {
   form.style.display = "none";
@@ -106,3 +139,5 @@ function endGame() {
          <p>Totaal XP verdiend: ${xp}</p>
          <p><a href="/guess-that-game">➡️Terug naar "Raad het spel"⬅️</a><p/>`;
 }
+
+main();
