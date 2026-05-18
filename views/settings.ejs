@@ -35,8 +35,10 @@
             <span class="arrow-down">▼</span>
           </div>
           <div class="tab-content">
-            <label>Gebruikersnaam</label>
-            <input type="text" value="<%= user.name %>" />
+            <form action="/settings/username" method="POST">
+            <label for="username">Gebruikersnaam</label>
+            <input type="text" name="username" id="username" value="<%= user.name %>" />
+            </form>
 
             <label class="setting-item">
               <span>E-mail meldingen</span>

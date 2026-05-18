@@ -1,4 +1,4 @@
-import { Collection, MongoClient } from "mongodb";
+import { Collection, MongoClient, ObjectId } from "mongodb";
 import { Game, User } from "./types";
 import dotenv from "dotenv";
 import bcrypt from "bcrypt";
@@ -100,4 +100,16 @@ export async function login(email: string, password: string): Promise<User> {
     } else {
         throw new Error("Gebruiker niet gevonden.");
     }
+}
+
+export async function updateUsername(email: string, newName: string): Promise<void> {
+  try {
+    await userCollection.updateOne(
+      { email: email },
+      { $set: { name: newName } }
+    );
+  } catch (error) {
+    console.error("Fout bij het updaten van de gebruikersnaam:", error);
+    throw error;
+  }
 }
