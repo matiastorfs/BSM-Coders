@@ -20,9 +20,9 @@ app.use(flashMiddleware);
 
 app.use(express.static(path.join(root, "public")));
 app.use(express.urlencoded({ extended: true }));
-app.use("/home", homeRouter());
-app.use("/guess-that-game", guessRouter());
-app.use("/settings", settingsRouter());
+app.use("/home", secureMiddleware, homeRouter());
+app.use("/guess-that-game", secureMiddleware, guessRouter());
+app.use("/settings", secureMiddleware, settingsRouter());
 
 app.get("/", secureMiddleware, async (req, res) => {
   res.render("index");

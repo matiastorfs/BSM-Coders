@@ -6,13 +6,13 @@ import { secureMiddleware } from "../securemiddleware";
 export default function guessRouter() {
   const router = express.Router();
 
-  router.get("/", secureMiddleware, async (req, res) => {
+  router.get("/", async (req, res) => {
     const games: Game[] = await getGames();
 
     res.render("guess-that-game-homepagina", { games });
   });
 
-  router.get("/1v1, secureMiddleware, async (req, res) => {
+  router.get("/1v1", async (req, res) => {
     const games: Game[] = await getGames();
 
     res.render("guess-that-game-1v1", { games });
