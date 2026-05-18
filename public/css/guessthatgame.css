@@ -32,18 +32,9 @@ h2 {
   text-align: center;
   height: 30px;
 }
-.active {
-  background-color: rgb(106, 106, 138);
-  color: white;
-}
-.inactive {
-  background-color: rgb(212, 212, 238);
-  color: black;
-}
 
 article {
   padding: 20px;
-  border-bottom: 2px solid gray;
   display: grid;
   grid-template-columns: 80px 2fr 1fr;
   grid-template-rows: 40px 40px;
@@ -51,7 +42,10 @@ article {
     "afbeelding titeltje star"
     "afbeelding omschrijving omschrijving";
 }
-.lowestOne {
+.spelen article{
+  border-bottom: 2px solid gray;
+}
+.spelen .lowestOne {
   border-bottom: 0px solid gray;
 }
 article .difficultie {
