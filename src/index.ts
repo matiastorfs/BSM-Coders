@@ -3,6 +3,7 @@ import { connect, getGames, getGameById } from "./database";
 import path from "path";
 import homeRouter from "./routers/home";
 import { Game } from "./types";
+import gamesRouter from "./routers/games";
 import guessRouter from "./routers/guessthatgame";
 import settingsRouter from "./routers/settings";
 
@@ -14,6 +15,7 @@ app.set("port", 3000);
 
 app.use(express.static(path.join(root, "public")));
 app.use("/home", homeRouter());
+app.use("/games", gamesRouter());
 app.use("/guess-that-game", guessRouter());
 app.use("/settings", settingsRouter());
 
@@ -32,13 +34,12 @@ app.get("/api/games", async (req, res) => {
 });
 
 app.get("/game/:id", async (req, res) => {
-      const game: Game | null = await getGameById(req.params.id);
-    if (game) {
-        res.render("info", { game });
-    }
-    else {
-        res.status(404).render("404")
-    }
+  const game: Game | null = await getGameById(req.params.id);
+  if (game) {
+    res.render("info", { game });
+  } else {
+    res.status(404).render("404");
+  }
 });
 
 // Temporary route for all files

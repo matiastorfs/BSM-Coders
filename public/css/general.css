@@ -146,6 +146,38 @@ button {
   }
 }
 
+/*
+#settingsbuttonnav:hover img {
+  animation: settingsturn 1s infinite ease;
+}
+
+*/
+#gamenav:hover img {
+  animation: gameanim 2s infinite ease-in-out;
+}
+
+@keyframes gameanim {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(-90deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 @keyframes settingsturn {
   0% {
     transform: rotate(0deg);
