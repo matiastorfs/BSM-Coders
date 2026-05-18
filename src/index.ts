@@ -24,7 +24,7 @@ app.use("/home", secureMiddleware, homeRouter());
 app.use("/guess-that-game", secureMiddleware, guessRouter());
 app.use("/settings", secureMiddleware, settingsRouter());
 
-app.get("/", secureMiddleware, async (req, res) => {
+app.get("/", async (req, res) => {
   res.render("index");
 });
 

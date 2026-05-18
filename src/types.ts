@@ -19,6 +19,13 @@ export interface User {
     email: string;
     password?: string;
     userIcon: string;
+    data: data;
+}
+
+export interface data{
+  xp?: number;
+  fav?: number[];
+  friends?: string[];
 }
 
 export interface Forum {
