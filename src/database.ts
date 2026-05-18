@@ -1,14 +1,21 @@
-import { Collection, MongoClient } from "mongodb";
-import { Game } from "./types";
+import { Collection, MongoClient, ObjectId } from "mongodb";
+import { Game, User } from "./types";
 import dotenv from "dotenv";
+import bcrypt from "bcrypt";
+
+const saltRounds : number = 10;
 
 dotenv.config();
-const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}`;
+export const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}`;
 
 const client = new MongoClient(uri);
 const gameCollection: Collection<Game> = client
   .db("gamehub")
   .collection<Game>("games");
+
+const userCollection: Collection<User> = client
+  .db("gamehub")
+  .collection<User>("users");
 
 async function exit() {
   try {
@@ -49,5 +56,60 @@ export async function getGameById(id: string | number) {
   } catch (error) {
     console.error("Error fetching game by id:", error);
     return null;
+  }
+}
+
+export async function AddUser(data: any): Promise<void> {
+    try {
+        // Haal de overtollige velden eruit, behoud de rest in 'userData'
+        const { password, passwordConfirm, termsofservice, ...userData } = data;
+
+        if (password !== passwordConfirm) {
+            throw new Error("Wachtwoorden komen niet overeen");
+        }
+
+        // Hash het wachtwoord
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+        // Voeg de gebruiker toe aan de collectie
+        await userCollection.insertOne({
+            ...userData,
+            password: hashedPassword,
+            // userData bevat nu: name, email, userIcon
+        });
+    } catch (error: any) {
+        console.error("Fout bij AddUser:", error);
+        throw error;
+    }
+}
+
+export async function login(email: string, password: string): Promise<User> {
+    if (!email || !password) {
+        throw new Error("Email en wachtwoord zijn verplicht.");
+    }
+
+    const user = await userCollection.findOne({ email });
+
+    if (user) {
+        const isMatch = await bcrypt.compare(password, user.password!);
+        if (isMatch) {
+            return user;
+        } else {
+            throw new Error("Wachtwoord is onjuist.");
+        }
+    } else {
+        throw new Error("Gebruiker niet gevonden.");
+    }
+}
+
+export async function updateUsername(email: string, newName: string): Promise<void> {
+  try {
+    await userCollection.updateOne(
+      { email: email },
+      { $set: { name: newName } }
+    );
+  } catch (error) {
+    console.error("Fout bij het updaten van de gebruikersnaam:", error);
+    throw error;
   }
 }

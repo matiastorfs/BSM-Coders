@@ -20,14 +20,21 @@
     </header>
     <main>
       <div class="profile">
-        <img src="./assets/userdefaultimage.jpg" id="userlogo" />
+        <div class="profile-image-container">
+        <img src="/assets/<%= user.userIcon %>" id="userlogo" alt="Profielfoto" />
+        <div class="profile-image-overlay">
+        <img src="/assets/edit_profile_picture.png" class="edit-icon" alt="Bewerk icoon" />
+        </div>
+        </div>
 
         <div class="usertext">
-          <p id="username">Gebruiker</p>
+          <p id="username"><%= user.name %></p>
           <p id="userdescription">Beschrijving</p>
           <button id="accountsettingsbutton">
+            <a href="/settings">
             Account settings
             <img src="./assets/setting-icon.png" id="accountsettingsicon" />
+            </a>
           </button>
         </div>
       </div>

@@ -27,7 +27,6 @@ header {
 }
 
 .titles-container {
-    
     border-bottom: 1px solid #333;
     cursor: pointer;
 }
@@ -96,10 +95,45 @@ main {
     flex-direction: column;
 }
 
-#userlogo {
-    border-radius: 100%;
+.profile-image-container {
+    position: relative;
     width: 110px;
+    height: 110px;
     margin: 20px;
+    border-radius: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    display: block;
+}
+
+#userlogo {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.profile-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.edit-icon {
+    width: 28px !important;
+    height: 28px !important;
+    display: block;
+}
+
+.profile-image-container:hover .profile-image-overlay {
+    opacity: 0.5;
 }
 
 .usertext {
@@ -173,9 +207,8 @@ small {
     color: #888;
     font-size: 0.75rem;
 }
+
 @media (min-width: 900px) {
-
-
   .profile {
     display: flex;
     align-items: center;
