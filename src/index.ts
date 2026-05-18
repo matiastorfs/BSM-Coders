@@ -81,8 +81,10 @@ app.get("/api/games", async (req, res) => {
   }
 });
 
-app.get("/game/:id", async (req, res) => {
-  const game: Game | null = await getGameById(req.params.id);
+app.get("/game/:id", secureMiddleware, async (req : any, res : any) => {
+  const gameId = req.params.id; 
+  
+  const game: Game | null = await getGameById(gameId);
   if (game) {
     res.render("info", { game });
   }
