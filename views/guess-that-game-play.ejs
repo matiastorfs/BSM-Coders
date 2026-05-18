@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Guess That Game - Play</title>
 
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/general.css" />
-    <link rel="stylesheet" href="./css/guessthatgame.css" />
-    <link rel="stylesheet" href="./css/guessthatgamePlay.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/guessthatgame.css" />
+    <link rel="stylesheet" href="/css/guessthatgamePlay.css" />
 
-    <script type="module" src="./js/guess-that-game-play.js" defer></script>
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/js/guess-that-game-play.js" defer></script>
   </head>
   <body>
     <header>
-      <div>
-        <img src="./assets/RaadHetSpel.png" alt="Raad Het Spel" id="logo" />
-      </div>
+      <h1>Raad Het Spel</h1>
     </header>
     <main>
       <h2 id="title"></h2>
@@ -28,8 +27,10 @@
 
       <form id="guessForm">
         <section id="imgGame"></section>
-        <label for="guessInput">Welk spel denkt u dat het is?</label>
-        <input id="guessInput" name="guess" required autocomplete="off" />
+        <label for="guessSelect">Welk spel denkt u dat het is?</label>
+        <select id="guessSelect" name="guess" required>
+          <option value="">-- Kies een spel --</option>
+        </select>
         <button type="submit">Raad</button>
       </form>
 

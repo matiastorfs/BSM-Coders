@@ -11,7 +11,7 @@
     <script>
       function setDifficulty(level) {
         localStorage.setItem("difficulty", level);
-        window.location.href = "guess-that-game-play.html";
+        window.location.href = "/guess-that-game/play";
       }
     </script>
     <script type="module" src="/js/main.js"></script>
@@ -23,10 +23,7 @@
       <h1>Raad Het Spel</h1>
     </header>
     <main>
-      <section class="modeSelection">
-        <button class="modeButton active" id="soloPlay">Solo Spel</button>
-        <button class="modeButton inactive" id="1v1">1v1</button>
-      </section>
+      
       <section class="spelen">
         <article class="difficulties" onclick="setDifficulty('easy')">
           <img src="/assets/Makkelijk.jpg" class="difficultie" id="easy" />
@@ -68,7 +65,7 @@
           </div>
         </article>
       </section>
-      <h1 id="rankTitle">Ranking 🏆</h1>
+      <h1 id="rankTitle">Ranking <img src="/assets/trophy-icon.png" alt="trophies" class="rankingImages"></h1>
       <section class="ranking" id="rankingList"></section>
     </main>
   </body>
