@@ -98,9 +98,16 @@ form button{
   text-align: center;
 }
 
+.rankingImages{
+  height: 40px;
+  padding-top: 15px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
 .rankingItem {
   color: #232323;
-  background-color: #FDFDFD;
+  background-color: var(--container-color);
   display: flex;
   gap: 15px;
   padding: 12px;
@@ -112,32 +119,26 @@ form button{
 .rankNumber {
   font-size: 2.2rem;
   font-weight: bold;
+  text-align: center;
   width: 40px;
 }
 
 .gold {
-  background: linear-gradient(90deg, #fff6cc, #ffe066);
-  border: 2px solid gold;
-}
-.gold .rankNumber {
-  color: #b8860b;
+  background: var(--container-color);
 }
 
 .silver {
-  background: linear-gradient(90deg, #f2f2f2, #d9d9d9);
-  border: 2px solid silver;
-}
-.silver .rankNumber {
-  color: #808080;
+  background: var(--container-color);
 }
 
 .bronze {
-  background: linear-gradient(90deg, #f4d2b0, #cd7f32);
-  border: 2px solid #cd7f32;
+  background: var(--container-color);
 }
 
-.bronze .rankNumber {
-  color: #8b4513;
+.medalIcon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
 .rankingContent {

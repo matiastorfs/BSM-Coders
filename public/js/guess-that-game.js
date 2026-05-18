@@ -1,13 +1,3 @@
-const soloPlay = document.getElementById("soloPlay");
-soloPlay.addEventListener("click", function () {
-  window.location.href = "/guess-that-game";
-});
-
-const oneVOne = document.getElementById("1v1");
-oneVOne.addEventListener("click", function () {
-  window.location.href = "/guess-that-game/1v1";
-});
-
 async function loadRanking() {
   try {
     const response = await fetch("/data/rankingDummies.json");
@@ -29,8 +19,16 @@ async function loadRanking() {
       if (rank === 2) article.classList.add("silver");
       if (rank === 3) article.classList.add("bronze");
 
-      const medals = ["🥇", "🥈", "🥉"];
-      const rankDisplay = medals[rank - 1] || rank;
+      const medals = [
+        "/assets/1st-place-medal.png",
+        "/assets/2nd-place-medal.png",
+        "/assets/3rd-place-medal.png",
+      ];
+
+      const rankDisplay =
+        rank <= 3
+          ? `<img src="${medals[rank - 1]}" alt="${rank} place medal" class="medalIcon">`
+          : rank;
 
       article.innerHTML = `
         <div class="rankNumber">${rankDisplay}</div>
