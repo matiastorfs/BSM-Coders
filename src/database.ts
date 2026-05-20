@@ -73,9 +73,13 @@ export async function AddUser(data: any): Promise<void> {
 
         // Voeg de gebruiker toe aan de collectie
         await userCollection.insertOne({
-            ...userData,
-            password: hashedPassword,
-            // userData bevat nu: name, email, userIcon
+          ...userData, // userData bevat nu: name, email, userIcon
+          password: hashedPassword,
+          data: {
+              xp: 0,
+              fav: [],
+              friends: []
+          }
         });
     } catch (error: any) {
         console.error("Fout bij AddUser:", error);
@@ -111,5 +115,43 @@ export async function updateUsername(email: string, newName: string): Promise<vo
   } catch (error) {
     console.error("Fout bij het updaten van de gebruikersnaam:", error);
     throw error;
+  }
+}
+
+export async function addXpToUser(email: string, xp: number): Promise<void> {
+  try {
+    await userCollection.updateOne(
+      { email },
+      {
+        $inc: {
+          "data.xp": xp
+        }
+      }
+    );
+  } catch (error) {
+    console.error("Error adding XP:", error);
+    throw error;
+  }
+}
+
+export async function getLeaderboard(): Promise<User[]> {
+  try {
+    return await userCollection
+      .find()
+      .sort({ "data.xp": -1 })
+      .limit(3)
+      .toArray();
+  } catch (error) {
+    console.error("Error fetching leaderboard:", error);
+    throw error;
+  }
+}
+
+export async function getUserByEmail(email: string): Promise<User | null> {
+  try {
+    return await userCollection.findOne({ email });
+  } catch (error) {
+    console.error(error);
+    return null;
   }
 }

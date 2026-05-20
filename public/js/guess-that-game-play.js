@@ -127,11 +127,25 @@ function generateOptions() {
   });
 }
 
-function endGame() {
+async function endGame() {
   form.style.display = "none";
   result.style.color = "green";
 
   imgContainer.innerHTML = "";
+
+  try {
+    await fetch("/api/add-xp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        xp: xp
+      })
+    });
+  } catch (error) {
+    console.error("Was niet in staat om het xp op te slaan:", error);
+  }
 
   result.innerHTML = `<br/><br/><br/>
          <h3>Gefeliciteerd!</h3>
