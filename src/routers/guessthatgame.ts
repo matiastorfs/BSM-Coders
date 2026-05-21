@@ -1,6 +1,7 @@
 import express from "express";
 import { getGames } from "../database";
 import { Game } from "../types";
+import { secureMiddleware } from "../securemiddleware";
 
 export default function guessRouter() {
   const router = express.Router();

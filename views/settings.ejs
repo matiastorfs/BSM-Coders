@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,13 +35,15 @@
             <span class="arrow-down">▼</span>
           </div>
           <div class="tab-content">
-            <label>Gebruikersnaam</label>
-            <input type="text" placeholder="Jouw Gebruikersnaam" />
+            <form action="/settings/username" method="POST">
+            <label for="username">Gebruikersnaam</label>
+            <input type="text" name="username" id="username" value="<%= user.name %>" />
+            </form>
 
-            <label class="setting-item">
-              <span>E-mail meldingen</span>
-              <input type="checkbox" />
-            </label>
+            <form action="/settings/beschrijving" method="POST">
+            <label for="username">Beschrijving</label>
+            <input type="text" name="username" id="username" value="<%= user.name %>" />
+            </form>
           </div>
         </div>
 

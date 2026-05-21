@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="NL">
+<html lang="nl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,10 +23,7 @@
       <h1>Raad Het Spel</h1>
     </header>
     <main>
-      <section class="modeSelection">
-        <button class="modeButton active" id="soloPlay">Solo Spel</button>
-        <button class="modeButton inactive" id="1v1">1v1</button>
-      </section>
+      
       <section class="spelen">
         <article class="difficulties" onclick="setDifficulty('easy')">
           <img src="/assets/Makkelijk.jpg" class="difficultie" id="easy" />
@@ -68,7 +65,7 @@
           </div>
         </article>
       </section>
-      <h1 id="rankTitle">Ranking 🏆</h1>
+      <h1 id="rankTitle">Ranking <img src="/assets/trophy-icon.png" alt="trophies" class="rankingImages"></h1>
       <section class="ranking" id="rankingList"></section>
     </main>
   </body>

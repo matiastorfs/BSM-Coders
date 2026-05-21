@@ -1,12 +1,46 @@
+const messageEl = document.getElementById('flash-message');
+
+if (messageEl) {
+  setTimeout(() => {
+    messageEl.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+    messageEl.style.opacity = "0";
+    messageEl.style.transform = "translateY(-20px)"; // Als je hem naar boven wilt laten gaan
+    
+    setTimeout(() => {
+      messageEl.remove();
+    }, 500);
+  }, 3000); // 3 seconden in beeld
+}
+
+const navMenu = document.querySelector(".nav-menu");
+
 document.querySelectorAll(".toggle-menu").forEach((button) => {
-  button.addEventListener("click", () => {
-    document.querySelector(".nav-menu").classList.toggle("open");
-    // document.body.classList.toggle("menu-open");
+  button.addEventListener("click", (e) => {
+    e.stopPropagation();
+    navMenu.classList.toggle("open");
   });
 });
 
-document.getElementById("btn-account").addEventListener("click", () => {
-  window.location.href = "./account.html";
+window.addEventListener("click", () => {
+  if (navMenu && navMenu.classList.contains("open")) {
+    navMenu.classList.remove("open");
+  }
+});
+
+const accountBtn = document.getElementById("btn-account");
+const accountDropdown = document.getElementById("account-dropdown");
+
+if (accountBtn && accountDropdown) {
+  accountBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    accountDropdown.classList.toggle("show");
+  });
+}
+
+window.addEventListener("click", () => {
+  if (accountDropdown && accountDropdown.classList.contains("show")) {
+    accountDropdown.classList.remove("show");
+  }
 });
 
 const darkToggle = document.querySelector(".switch input");

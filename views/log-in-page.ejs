@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,43 +8,42 @@
     <link rel="stylesheet" href="./css/general.css" />
     <link rel="stylesheet" href="./css/login.css" />
 
-    <script type="module" src="./js/login.js"></script>
-  </head>
-  <body>
-    <header>
-      <h1>Login</h1>
-      <img src="./assets/left-arrow.png" id="arrow" />
-    </header>
-    <main>
-      <form action="">
-        <label for="name/email">Naam/E-mail</label>
-        <input
-          type="email"
-          name="name_email"
-          id="name_email"
-          placeholder="Vul in"
-          required
-        />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/general.css" />
+  <link rel="stylesheet" href="./css/login.css" />
 
-        <label for="password">Wachtwoord</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Vul in"
-          required
-        />
-      </form>
+  <script type="module" src="./js/login.js"></script>
+</head>
+
+<body>
+  <header>
+
+     <% if (message) { %>
+         <p id="flash-message" class="<%= message.type %>"><%= message.message %></p>
+      <% } %>
+        <h1>Login</h1>
+        <img src="./assets/left-arrow.png" id="arrow" />
+  </header>
+  <main>
+    <form action="/login" method="post">
+      <label for="email">E-mail</label>
+      <input type="email" name="email" id="email" placeholder="Vul in" required />
+
+      <label for="password">Wachtwoord</label>
+      <input type="password" name="password" id="password" placeholder="Vul in" required />
       <a id="forgotpassword">Wachtwoord vergeten?</a>
 
       <button id="loginbutton">Inloggen</button>
-      <p>OF</p>
-      <button
-        id="signupbutton"
-        onclick="window.location.href = './sign-up-page.html'"
-      >
-        Registreren
-      </button>
-    </main>
-  </body>
+    </form>
+    <p>OF</p>
+    <button id="signupbutton" onclick="window.location.href = '/signin'">
+      Registreren
+    </button>
+  </main>
+</body>
+
 </html>

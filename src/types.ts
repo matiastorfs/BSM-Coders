@@ -1,3 +1,5 @@
+import { ObjectId } from "mongodb";
+
 export interface Game {
   id: number;
   title: string;
@@ -9,6 +11,22 @@ export interface Game {
   publisher: string;
   developer: string;
   release_date: string;
+}
+
+export interface User {
+    _id?: ObjectId;
+    name: string;
+    email: string;
+    password?: string;
+    userIcon: string;
+    data: data;
+}
+
+export interface data {
+  description: string;
+  xp?: number;
+  fav?: number[];
+  friends?: string[];
 }
 
 export interface Forum {
@@ -29,4 +47,9 @@ export interface Rank {
   name: string;
   description: string;
   xp: number;
+}
+
+export interface FlashMessage {
+    type: "error" | "success";
+    message: string;
 }
