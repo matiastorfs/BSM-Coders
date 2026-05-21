@@ -201,6 +201,34 @@ button {
   width: 35px;
 }
 
+.error {
+    position: fixed;
+  width: 840px;
+  max-width: 95%;
+  left: 20%;
+  top: 13%;
+  z-index: 100;
+  padding: 5px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgb(206, 153, 139);
+  color: rgb(255, 0, 0);
+}
+
+.success {
+  position: fixed;
+  width: 840px;
+  max-width: 95%;
+  left: 20%;
+  top: 12%;
+  z-index: 100;
+  padding: 5px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgb(73, 201, 103);
+  color: green;
+}
+
 @keyframes settingsturn {
   0% {
     transform: rotate(0deg);

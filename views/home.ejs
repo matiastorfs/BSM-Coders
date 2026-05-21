@@ -16,6 +16,9 @@
 
 <body>
   <header>
+    <% if (message) { %>
+         <p id="flash-message" class="<%= message.type %>"><%= message.message %></p>
+        <% } %>
     <%- include("partials/navigation") %>
     <h1>Gamehub</h1>
   </header>

@@ -67,6 +67,7 @@ img {
 .sort-form * {
   justify-content: space-between;
 }
+
 /* */
 
 #list-friends {
@@ -137,6 +138,7 @@ img {
   from {
     transform: scale(1);
   }
+
   to {
     transform: scale(1.05);
   }
@@ -168,12 +170,10 @@ img {
   left: -100%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.3) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%);
   transform: skewX(-25deg);
   pointer-events: none;
 }

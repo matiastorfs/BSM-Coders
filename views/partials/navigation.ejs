@@ -8,7 +8,9 @@
     <div class="account-container">
       <button type="button" id="btn-account">
         <!-- We gebruiken de userIcon van de ingelogde gebruiker als die er is -->
-        <img id="userImage" src="/assets/<%= user.userIcon %>" />
+        <% if(user) { %>
+          <img id="userImage" src="/assets/<%= user.userIcon %>" />
+          <% } %>
       </button>
 
       <!-- Het dropdown menu -->

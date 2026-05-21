@@ -19,6 +19,7 @@ const userCollection: Collection<User> = client
 
 async function exit() {
   try {
+    
     await client.close();
     console.log("Disconnected from database");
   } catch (error) {
@@ -68,11 +69,11 @@ export async function AddUser(data: any): Promise<void> {
             throw new Error("Wachtwoorden komen niet overeen");
         }
 
-        // Hash het wachtwoord
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-        // Voeg de gebruiker toe aan de collectie
         await userCollection.insertOne({
+            ...userData,
+            password: hashedPassword,
           ...userData, // userData bevat nu: name, email, userIcon
           password: hashedPassword,
           data: {
