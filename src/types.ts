@@ -22,7 +22,8 @@ export interface User {
     data: data;
 }
 
-export interface data{
+export interface data {
+  description: string;
   xp?: number;
   fav?: number[];
   friends?: string[];

@@ -7,5 +7,8 @@ export function flashMiddleware(req: Request, res: Response, next: NextFunction)
     } else {
         res.locals.message = undefined;
     }
+    if (!req.session.user) {
+        res.locals.user = undefined;
+    }
     next();
 };

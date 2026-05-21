@@ -6,7 +6,7 @@ import MongoStore from 'connect-mongo'
 const mongoStore = MongoStore.create({
     mongoUrl: uri,
     dbName: "sessions",
-    collectionName: "login-express"   
+    collectionName: "login-express"
 });
 
 mongoStore.on("error", (error) => {
@@ -15,7 +15,7 @@ mongoStore.on("error", (error) => {
 
 declare module 'express-session' {
     export interface SessionData {
-        user?: User
+        user?: User;
         message?: FlashMessage;
     }
 }

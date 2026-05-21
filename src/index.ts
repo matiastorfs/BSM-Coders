@@ -62,10 +62,22 @@ app.post("/signin", async (req, res) => {
 });
 
 app.post("/logout", secureMiddleware, async (req, res) => {
-        req.session.destroy((err) => {
-            res.redirect("/login");
-        });
-    });
+  delete req.session.user;
+  // req.session.destroy((err) => {
+  //   // req.session.message = { type: "error", message: "Succesvol uitgelogd!" };
+  //   // res.redirect("/login");
+
+  //   res.redirect("/temp")
+
+  // });
+  req.session.message = { type: "success", message: "Succesvol uitgelogd!" };
+  res.redirect("/");
+});
+
+// app.get("/temp", (req, res) => {
+//   req.session.message = { type: "success", message: "Succesvol uitgelogd!" };
+//   res.redirect("/");
+// })
 
 app.get("/account", secureMiddleware, (req, res) => {
   res.render("account");
@@ -81,9 +93,9 @@ app.get("/api/games", async (req, res) => {
   }
 });
 
-app.get("/game/:id", secureMiddleware, async (req : any, res : any) => {
-  const gameId = req.params.id; 
-  
+app.get("/game/:id", secureMiddleware, async (req: any, res: any) => {
+  const gameId = req.params.id;
+
   const game: Game | null = await getGameById(gameId);
   if (game) {
     res.render("info", { game });
