@@ -2,6 +2,7 @@ import express from "express";
 import {connect, getGames, getGameById, AddUser, login, addXpToUser, getLeaderboard, getUserByEmail} from "./database";
 import path from "path";
 import homeRouter from "./routers/home";
+import gamesRouter from "./routers/games";
 import { Game, User, FlashMessage } from "./types";
 import guessRouter from "./routers/guessthatgame";
 import settingsRouter from "./routers/settings";
@@ -22,6 +23,7 @@ app.use(express.static(path.join(root, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/home", secureMiddleware, homeRouter());
+app.use("/games", secureMiddleware, gamesRouter());
 app.use("/guess-that-game", secureMiddleware, guessRouter());
 app.use("/settings", secureMiddleware, settingsRouter());
 

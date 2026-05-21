@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gamehub</title>
+
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/general.css" />
+  <link rel="stylesheet" href="./css/home.css" />
+
+  <script type="module" src="./js/main.js"></script>
+  <script type="module" src="./js/home.js"></script>
+</head>
+<body>
+    <header>
+      <%- include("partials/navigation") %>
+      <h1>Ontdek</h1>
+    </header>
+
+    <section class="search-bar">
+      <div class="search-form">
+        <input type="text" id="txt-search" placeholder="Zoeken" />
+
+        <button id="btn-search">
+          <img src="./assets/search-icon.png" />
+        </button>
+        <button id="btn-sort">
+          <img src="./assets/sort-icon.png" />
+        </button>
+      </div>
+      <form class="sort-form" method="GET" action="/home">
+        <button name="sort" value="name">Naam</button>
+        <button name="sort" value="developer">Ontwikkelaar</button>
+        <button name="sort" value="date">Datum</button>
+      </form>
+    </section>
+
+    <ul class="game-cards" id="list-games">
+      <% for(const game of games) { %>
+      <li>
+        <a href="/game/<%= game.id %>" id="game-item<%= game.id %>" class="game-items">
+          <img src="<%= game.thumbnail %>" alt="<%= game.title %>">
+          <em><%= game.title %></em>
+          <p><%= game.developer %></p>
+        </a>
+      </li>
+      <% } %>
+    </ul>
+</body>
+</html>

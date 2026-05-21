@@ -1,86 +1,52 @@
 <!doctype html>
 <html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameHub</title>
+  
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/general.css" />
+    <link rel="stylesheet" href="./css/home.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GameHub</title>
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/home.js"></script>
+  </head>
 
-  <link rel="stylesheet" href="./css/reset.css" />
-  <link rel="stylesheet" href="./css/general.css" />
-  <link rel="stylesheet" href="./css/home.css" />
-
-  <script type="module" src="./js/main.js"></script>
-  <script type="module" src="./js/home.js"></script>
-</head>
-
-<body>
-  <header>
-    <% if (message) { %>
+  <body>
+    <header>
+      <% if (message) { %>
          <p id="flash-message" class="<%= message.type %>"><%= message.message %></p>
         <% } %>
-    <%- include("partials/navigation") %>
-    <h1>Gamehub</h1>
-  </header>
+      <%- include("partials/navigation") %>
+      <h1>Gamehub</h1>
+    </header>
 
-  <main>
-    <section class="friends">
-      <h3>Vrienden <img src="./assets/right-arrow.png" /></h3>
-      <ul id="list-friends">
-        <li>
-          <img src="./assets/user-icon.png" />
-          <p>Vriend</p>
-        </li>
-        <li>
-          <img src="./assets/user-icon.png" />
-          <p>Vriend</p>
-        </li>
-        <li>
-          <img src="./assets/user-icon.png" />
-          <p>Vriend</p>
-        </li>
-      </ul>
-    </section>
-
-    <section class="favorites">
-      <h3>Favorieten <img src="./assets/right-arrow.png" /></h3>
-      <ul class="game-cards" id="list-favorites"></ul>
-    </section>
-
-    <section>
-      <h3>Alle Games <img src="./assets/right-arrow.png" /></h3>
-
-      <section class="search-bar">
-        <div class="search-form">
-          <input type="text" id="txt-search" placeholder="Zoeken" />
-
-          <button id="btn-search">
-            <img src="./assets/search-icon.png" />
-          </button>
-          <button id="btn-sort">
-            <img src="./assets/sort-icon.png" />
-          </button>
-        </div>
-        <form method="GET" action="/home">
-          <button name="sort" value="name">Naam</button>
-          <button name="sort" value="developer">Ontwikkelaar</button>
-          <button name="sort" value="date">Datum</button>
-        </form>
+    <main>
+      <section class="friends">
+        <h3>Vrienden <img src="./assets/right-arrow.png" /></h3>
+        <ul id="list-friends">
+          <li>
+            <img src="./assets/user-icon.png" />
+            <p>Vriend</p>
+          </li>
+          <li>
+            <img src="./assets/user-icon.png" />
+            <p>Vriend</p>
+          </li>
+          <li>
+            <img src="./assets/user-icon.png" />
+            <p>Vriend</p>
+          </li>
+        </ul>
       </section>
 
-      <ul class="game-cards" id="list-games">
-        <% for(const game of games) { %>
-        <li>
-          <a href="/game/<%= game.id %>" id="game-item<%= game.id %>" class="game-items">
-            <img src="<%= game.thumbnail %>" alt="<%= game.title %>">
-            <em><%= game.title %></em>
-            <p><%= game.developer %></p>
-          </a>
-        </li>
-        <% } %>
-      </ul>
-    </section>
-  </main>
-</body>
-
+      <section class="favorites">
+        <h3>Favorieten <img src="./assets/right-arrow.png" /></h3>
+        <ul class="game-cards" id="list-favorites">
+          <p>Je hebt nog geen favorieten games.</p>
+        </ul>
+      </section>
+    </main>
+  </body>
 </html>
