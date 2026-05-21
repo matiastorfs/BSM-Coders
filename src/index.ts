@@ -1,5 +1,5 @@
 import express from "express";
-import { connect, getGames, getGameById, AddUser, login } from "./database";
+import {connect, getGames, getGameById, AddUser, login, addXpToUser, getLeaderboard, getUserByEmail} from "./database";
 import path from "path";
 import homeRouter from "./routers/home";
 import { Game, User, FlashMessage } from "./types";
@@ -20,6 +20,7 @@ app.use(flashMiddleware);
 
 app.use(express.static(path.join(root, "public")));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use("/home", secureMiddleware, homeRouter());
 app.use("/guess-that-game", secureMiddleware, guessRouter());
 app.use("/settings", secureMiddleware, settingsRouter());
@@ -96,6 +97,51 @@ app.get("/api/games", async (req, res) => {
 app.get("/game/:id", secureMiddleware, async (req: any, res: any) => {
   const gameId = req.params.id;
 
+app.post("/api/add-xp", secureMiddleware, async (req: any, res: any) => {
+  try {
+    const { xp } = req.body;
+
+    if (!req.session.user) {
+      return res.status(401).json({ error: "Not logged in" });
+    }
+
+    await addXpToUser(req.session.user.email, Number(xp));
+
+    const updatedUser = await getUserByEmail(req.session.user.email);
+
+    if (updatedUser) {
+      const userWithoutPassword = { ...updatedUser };
+      delete userWithoutPassword.password;
+
+      req.session.user = userWithoutPassword;
+    }
+
+    res.json({ success: true });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to add XP" });
+  }
+});
+
+app.get("/api/leaderboard", secureMiddleware, async (req: any, res: any) => {
+  try {
+    const topPlayers = await getLeaderboard();
+
+    const currentUser = await getUserByEmail(req.session.user.email);
+
+    res.json({
+      topPlayers,
+      currentUser
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to fetch leaderboard" });
+  }
+});
+
+app.get("/game/:id", secureMiddleware, async (req : any, res : any) => {
+  const gameId = req.params.id; 
+  
   const game: Game | null = await getGameById(gameId);
   if (game) {
     res.render("info", { game });
@@ -105,7 +151,6 @@ app.get("/game/:id", secureMiddleware, async (req: any, res: any) => {
   }
 });
 
-// Temporary route for all files
 app.get("/:file.html", (req, res) => {
   res.render(req.params.file);
 });
