@@ -1,6 +1,7 @@
 document.querySelectorAll(".toggle-menu").forEach((button) => {
   button.addEventListener("click", () => {
     document.querySelector(".nav-menu").classList.toggle("open");
+    // document.body.classList.toggle("menu-open");
   });
 });
 
@@ -30,3 +31,21 @@ if (darkToggle !== null) {
 window.addEventListener("storage", () => {
   window.location.reload();
 });
+
+// const menu = document.querySelector(".nav-menu");
+// const backdrop = document.querySelector(".backdrop");
+
+// document.querySelector("#btn-menu").addEventListener("click", () => {
+//   menu.classList.add("open");
+//   document.body.classList.add("menu-open");
+// });
+
+// document.querySelector("#btn-exit").addEventListener("click", () => {
+//   menu.classList.remove("open");
+//   document.body.classList.remove("menu-open");
+// });
+
+// backdrop.addEventListener("click", () => {
+//   menu.classList.remove("open");
+//   document.body.classList.remove("menu-open");
+// });

@@ -51,6 +51,7 @@ nav > * {
   top: 0;
   left: 0;
   width: 100%;
+  height: 4rem;
   justify-content: space-between;
   padding: 18px;
   background-color: var(--navigation-color);
@@ -62,6 +63,7 @@ nav > * {
 }
 
 .nav-menu {
+  margin-top: 4rem;
   top: 0;
   left: 0;
   width: 100%;
@@ -71,11 +73,11 @@ nav > * {
   background-color: var(--navigation-color); /* Pale Petunia */
   color: #232323;
   transform: translateX(-100%);
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 }
-
 .nav-menu.open {
   transform: translateX(0%);
+  transition: transform 0.2s ease;
 }
 
 #homebuttonnav:hover img {
@@ -95,6 +97,7 @@ nav > * {
   display: flex;
   width: fit-content;
   margin: 1.4rem 1.2rem;
+  align-self: flex-end;
 }
 
 .nav-menu a {
@@ -146,12 +149,10 @@ button {
   }
 }
 
-/*
 #settingsbuttonnav:hover img {
   animation: settingsturn 1s infinite ease;
 }
 
-*/
 #gamenav:hover img {
   animation: gameanim 2s infinite ease-in-out;
 }
