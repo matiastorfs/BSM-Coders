@@ -64,21 +64,9 @@ app.post("/signin", async (req, res) => {
 
 app.post("/logout", secureMiddleware, async (req, res) => {
   delete req.session.user;
-  // req.session.destroy((err) => {
-  //   // req.session.message = { type: "error", message: "Succesvol uitgelogd!" };
-  //   // res.redirect("/login");
-
-  //   res.redirect("/temp")
-
-  // });
   req.session.message = { type: "success", message: "Succesvol uitgelogd!" };
   res.redirect("/");
 });
-
-// app.get("/temp", (req, res) => {
-//   req.session.message = { type: "success", message: "Succesvol uitgelogd!" };
-//   res.redirect("/");
-// })
 
 app.get("/account", secureMiddleware, (req, res) => {
   res.render("account");
@@ -96,6 +84,7 @@ app.get("/api/games", async (req, res) => {
 
 app.get("/game/:id", secureMiddleware, async (req: any, res: any) => {
   const gameId = req.params.id;
+});
 
 app.post("/api/add-xp", secureMiddleware, async (req: any, res: any) => {
   try {
@@ -149,10 +138,6 @@ app.get("/game/:id", secureMiddleware, async (req : any, res : any) => {
   else {
     res.status(404).render("404")
   }
-});
-
-app.get("/:file.html", (req, res) => {
-  res.render(req.params.file);
 });
 
 app.listen(app.get("port"), async () => {
