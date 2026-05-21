@@ -70,6 +70,18 @@ app.post("/logout", secureMiddleware, async (req, res) => {
   res.redirect("/");
 });
 
+app.get("/game/:id", secureMiddleware, async (req : any, res : any) => {
+  const gameId = req.params.id; 
+  
+  const game: Game | null = await getGameById(gameId);
+  if (game) {
+    res.render("info", { game });
+  }
+  else {
+    res.status(404).render("404")
+  }
+});
+
 app.get("/account", secureMiddleware, (req, res) => {
   res.render("account");
 });
@@ -82,10 +94,6 @@ app.get("/api/games", async (req, res) => {
     console.error(err);
     res.status(500).json({ error: "Failed to fetch games" });
   }
-});
-
-app.get("/game/:id", secureMiddleware, async (req: any, res: any) => {
-  const gameId = req.params.id;
 });
 
 app.post("/api/add-xp", secureMiddleware, async (req: any, res: any) => {
@@ -130,17 +138,6 @@ app.get("/api/leaderboard", secureMiddleware, async (req: any, res: any) => {
   }
 });
 
-app.get("/game/:id", secureMiddleware, async (req : any, res : any) => {
-  const gameId = req.params.id; 
-  
-  const game: Game | null = await getGameById(gameId);
-  if (game) {
-    res.render("info", { game });
-  }
-  else {
-    res.status(404).render("404")
-  }
-});
 
 app.listen(app.get("port"), async () => {
   await connect();
