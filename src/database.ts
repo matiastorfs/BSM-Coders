@@ -72,6 +72,8 @@ export async function AddUser(data: any): Promise<void> {
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
         await userCollection.insertOne({
+            ...userData,
+            password: hashedPassword,
           ...userData, // userData bevat nu: name, email, userIcon
           password: hashedPassword,
           data: {

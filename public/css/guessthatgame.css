@@ -162,10 +162,6 @@ li:hover {
     cursor: pointer;
 }
 
-.difficulties:hover{
-  cursor: pointer;
-}
-
 @media screen and (min-width: 700px) {
   #rankTitle{
     text-align: left;

@@ -84,7 +84,6 @@ app.get("/api/games", async (req, res) => {
 
 app.get("/game/:id", secureMiddleware, async (req: any, res: any) => {
   const gameId = req.params.id;
-});
 
 app.post("/api/add-xp", secureMiddleware, async (req: any, res: any) => {
   try {
