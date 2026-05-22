@@ -1,5 +1,5 @@
 import express from "express";
-import {connect, getGames, getGameById, AddUser, login, addXpToUser, getLeaderboard, getUserByEmail} from "./database";
+import {connect, getGames, getGameById, AddUser, login, addXpToUser, getLeaderboard, getUserByEmail, updateUserIcon} from "./database";
 import path from "path";
 import homeRouter from "./routers/home";
 import gamesRouter from "./routers/games";
@@ -57,9 +57,28 @@ app.get("/signin", async (req, res) => {
 
 app.post("/signin", async (req, res) => {
   try {
-    await AddUser(req.body);
+    const userData = { ...req.body };
+
+    let uniqueId;
+    let idExists = true;
+
+    while (idExists) {
+      uniqueId = Math.floor(1000 + Math.random() * 9000);
+      idExists = false; 
+    }
+
+    userData.id = uniqueId;
+    if (!userData.userIcon) {
+      userData.userIcon = "userdefaultimage.jpg";
+    }
+
+    await AddUser(userData);
+    
+    req.session.message = { type: "success", message: "Account succesvol aangemaakt" };
     res.redirect("/login");
+    
   } catch (error) {
+    console.error("Registratiefout:", error);
     res.redirect("/signin?error=failed");
   }
 });
@@ -135,6 +154,23 @@ app.get("/api/leaderboard", secureMiddleware, async (req: any, res: any) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to fetch leaderboard" });
+  }
+});
+
+app.post("/update-profile-picture", secureMiddleware, async (req: any, res: any) => {
+  try {
+    const { selectedIcon } = req.body;
+
+    await updateUserIcon(req.session.user.email, selectedIcon);
+
+    req.session.user.userIcon = selectedIcon;
+    req.session.message = { type: "success", message: "Profielfoto succesvol aangepast!" };
+    res.redirect("/account");
+
+  } catch (error) {
+    console.error(error);
+    req.session.message = { type: "error", message: "Fout bij het bijwerken van de profielfoto." };
+    res.redirect("/account");
   }
 });
 

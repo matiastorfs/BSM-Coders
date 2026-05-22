@@ -1,16 +1,18 @@
 const messageEl = document.getElementById('flash-message');
 
+//-----------flashmessage -----------
 if (messageEl) {
   setTimeout(() => {
-    messageEl.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+    messageEl.style.transition = "opacity 0.5s ease, transform 0.5s ease"; 
     messageEl.style.opacity = "0";
-    messageEl.style.transform = "translateY(-20px)"; // Als je hem naar boven wilt laten gaan
+    messageEl.style.transform = "translateX(-50%) translateY(-20px)";
     
     setTimeout(() => {
       messageEl.remove();
     }, 500);
-  }, 3000); // 3 seconden in beeld
+  }, 3000); // 3 seconden
 }
+//------------flashmessage -----------
 
 const navMenu = document.querySelector(".nav-menu");
 
