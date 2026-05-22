@@ -68,9 +68,6 @@ app.post("/signin", async (req, res) => {
     }
 
     userData.id = uniqueId;
-    if (!userData.userIcon) {
-      userData.userIcon = "userdefaultimage.jpg";
-    }
 
     await AddUser(userData);
     
