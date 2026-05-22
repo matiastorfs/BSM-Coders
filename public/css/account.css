@@ -6,6 +6,10 @@
     cursor: pointer;
 }
 
+#userid {
+    font-weight: normal;
+}
+
 .changelogo {
     position: fixed;
     top: 50%;

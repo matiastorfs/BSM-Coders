@@ -57,9 +57,28 @@ app.get("/signin", async (req, res) => {
 
 app.post("/signin", async (req, res) => {
   try {
-    await AddUser(req.body);
+    const userData = { ...req.body };
+
+    let uniqueId;
+    let idExists = true;
+
+    while (idExists) {
+      uniqueId = Math.floor(1000 + Math.random() * 9000);
+      idExists = false; 
+    }
+
+    userData.id = uniqueId;
+    if (!userData.userIcon) {
+      userData.userIcon = "userdefaultimage.jpg";
+    }
+
+    await AddUser(userData);
+    
+    req.session.message = { type: "success", message: "Account succesvol aangemaakt" };
     res.redirect("/login");
+    
   } catch (error) {
+    console.error("Registratiefout:", error);
     res.redirect("/signin?error=failed");
   }
 });

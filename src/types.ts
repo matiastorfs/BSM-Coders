@@ -15,6 +15,7 @@ export interface Game {
 
 export interface User {
     _id?: ObjectId;
+    id: number;
     name: string;
     email: string;
     password?: string;

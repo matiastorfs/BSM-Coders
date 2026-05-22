@@ -31,7 +31,7 @@
         </div>
 
         <div class="usertext">
-          <p id="username"><%= user.name %></p>
+          <p id="username"><%= user.name %><span id="userid">#<%= user.id %></span></p>
           <p id="userdescription"><%= user.data.beschrijving %></p>
           <button id="accountsettingsbutton">
             <a href="/settings">
