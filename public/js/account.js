@@ -50,3 +50,4 @@ function laadEenItem(bestandsnaam, type) {
     });
 }
 laadEenItem("./data/games.json", "projecten");
+

@@ -241,4 +241,10 @@ body.dark-mode input[type="range"]::-moz-range-track {
   background: #444;
 }
 
-
+#opslaanbutton {
+  border: black solid 1px;
+  background-color: rgb(21, 158, 0);
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 5px;
+}

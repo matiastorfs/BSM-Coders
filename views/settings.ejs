@@ -13,6 +13,9 @@
   </head>
   <body>
     <header>
+      <% if (message) { %>
+         <p id="flash-message" class="<%= message.type %>"><%= message.message %></p>
+      <% } %>
       <%- include("partials/navigation") %>
 
       <img src="/assets/left-arrow.png" id="arrow" />
@@ -38,11 +41,13 @@
             <form action="/settings/username" method="POST">
             <label for="username">Gebruikersnaam</label>
             <input type="text" name="username" id="username" value="<%= user.name %>" />
+            <button type="submit" id="opslaanbutton">Opslaan</button>
             </form>
 
             <form action="/settings/beschrijving" method="POST">
-            <label for="username">Beschrijving</label>
-            <input type="text" name="username" id="username" value="<%= user.name %>" />
+            <label for="beschrijving">Beschrijving</label>
+            <input type="text" name="beschrijving" id="beschrijving" value="<%= user.data.beschrijving %>" />
+            <button type="submit" id="opslaanbutton">Opslaan</button>
             </form>
           </div>
         </div>

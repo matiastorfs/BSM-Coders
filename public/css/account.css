@@ -18,7 +18,7 @@ header {
     padding: 20px;
     display: flex;
     align-items: center;
-    
+
     p {
         font-size: 20px;
         padding: 5px;
@@ -41,7 +41,8 @@ header {
     margin-top: 20px;
 }
 
-#tab-projecten:hover, #tab-prestaties:hover {
+#tab-projecten:hover,
+#tab-prestaties:hover {
     color: gray;
     border-bottom: 4px solid #5f5f5f;
 }
@@ -49,7 +50,7 @@ header {
 #data-lijst {
     margin-top: 20px;
     width: 100%;
-    max-width: 900px;
+    max-width: 00px;
 }
 
 #data-lijst li {
@@ -58,7 +59,7 @@ header {
     margin-bottom: 10px;
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .status {
@@ -68,7 +69,7 @@ header {
 
 h1 {
     font-size: 30px;
-    margin-left: 20px; 
+    margin-left: 20px;
     margin-top: 50px;
     width: auto;
     font-weight: normal;
@@ -138,6 +139,7 @@ main {
 
 .usertext {
     padding: 20px;
+
     p {
         padding: 5px;
     }
@@ -159,6 +161,7 @@ main {
     display: flex;
     align-items: center;
 }
+
 #accountsettingsbutton:hover {
     cursor: pointer;
     background-color: rgb(168, 168, 168);
@@ -182,7 +185,7 @@ main {
     height: 110px;
     object-fit: cover;
     border-radius: 4px;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .game-info h3 {
@@ -209,29 +212,29 @@ small {
 }
 
 @media (min-width: 900px) {
-  .profile {
-    display: flex;
-    align-items: center;
-  }
+    .profile {
+        display: flex;
+        align-items: center;
+    }
 
-  .usertext {
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 30px;
-    align-items: center;
-  }
+    .usertext {
+        display: grid;
+        grid-template-columns: auto auto;
+        column-gap: 30px;
+        align-items: center;
+    }
 
-  #username {
-    grid-column: 1;
-    grid-row: 1;
-  }
+    #username {
+        grid-column: 1;
+        grid-row: 1;
+    }
 
-  #userdescription {
-    grid-column: 1;
-    grid-row: 2;
-  }
+    #userdescription {
+        grid-column: 1;
+        grid-row: 2;
+    }
 
-  #accountsettingsbutton {
+    #accountsettingsbutton {
         max-width: 175px;
         grid-column: 2;
         grid-row: 1 / span 2;

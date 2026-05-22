@@ -23,7 +23,7 @@ export interface User {
 }
 
 export interface data {
-  description: string;
+  beschrijving?: string;
   xp?: number;
   fav?: number[];
   friends?: string[];
