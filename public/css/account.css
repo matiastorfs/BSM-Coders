@@ -6,6 +6,79 @@
     cursor: pointer;
 }
 
+.changelogo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    color: black;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+    background-color: rgb(255, 255, 255);
+    height: 250px;
+    width: 500px; 
+    border-radius: 20px;    
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+#instructies {
+    padding-top: 20px;
+}
+
+#changelogotitle {
+    font-weight: bold;
+    margin: 0;
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+.close-button {
+    color: gray;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+.profilepictures:hover {
+    cursor: pointer;
+}
+
+.images-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.profilepictures {
+    display: inline-block;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 20px 10px 0 10px;
+}
+
+.changelogo {
+    display: none;
+}
+
+.changelogo.show {
+    display: flex;
+}
+
+.profilepictures:hover {
+    cursor: pointer;
+    outline: 4px solid #333;
+    outline-offset: 2px;
+}
+
 main {
     display: flex;
     align-items: center;

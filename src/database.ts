@@ -165,3 +165,8 @@ export async function updateBeschrijving(email: string, nieuweBeschrijving: stri
     throw error;
   }
 }
+
+export async function updateUserIcon(email: string, iconName: string): Promise<void> {
+    // Voorbeeld als je met MongoDB/MongoClient werkt:
+    await userCollection.updateOne({ email: email }, { $set: { userIcon: iconName } });
+}
