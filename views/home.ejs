@@ -41,23 +41,24 @@
         </ul>
       </section>
 
-      
-      <% if (favoriteGames.length > 0) { %>
-      <section class="favorite-games">
-        <h2>Favorieten</h2>
-
-        <div class="favorites-container">
-          <% favoriteGames.forEach(game => { %>
-
-            <a href="/game/<%= game.id %>" class="favorite-card">
-              <img src="<%= game.thumbnail %>" alt="<%= game.title %>">
-              <p><%= game.title %></p>
-            </a>
-
-          <% }) %>
-        </div>
+      <section class="favorites">
+        <h3>Favorieten <img src="./assets/right-arrow.png" /></h3>
+        <% if (favoriteGames.length > 0) { %>
+          <ul class="game-cards" id="list-favorites">
+            <% for(const game of favoriteGames) { %>
+            <li>
+              <a href="/game/<%= game.id %>" id="game-item<%= game.id %>" class="game-items">
+                <img src="<%= game.thumbnail %>" alt="<%= game.title %>">
+                <em><%= game.title %></em>
+                <p><%= game.developer %></p>
+              </a>
+            </li>
+            <% } %>
+          </ul>
+        <% } else{ %>
+          <p>Nog geen favorieten </p>
+        <% } %>
       </section>
-      <% } %>
     </main>
   </body>
 </html>

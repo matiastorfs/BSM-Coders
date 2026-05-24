@@ -94,6 +94,26 @@ h2 {
   margin-bottom: 8px;
 }
 
+#btn-favorite {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--button-color);
+  transition: 0.2s ease;
+}
+
+#btn-favorite:hover {
+  background-color: var(--button-highlight-color);
+}
+
+.favorite-active {
+  background-color: #3a3a3a;
+  color: white;
+}
+
+.favorite-active:hover {
+  background-color: #222;
+}
+
 @media (min-width: 900px) {
   h2 {
     text-align: left;

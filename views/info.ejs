@@ -31,8 +31,11 @@
       <section class="info-cover">
         <img src="<%= game.thumbnail %>" id="item-cover" />
         <form method="POST" action="/favorite/<%= game.id %>">
-          <button type="submit" id="btn-favorite">
-            Favoriet
+          <button  type="submit"  id="btn-favorite" class="<%= isFavorite ? 'favorite-active' : '' %>">
+            <%= isFavorite 
+              ? 'Verwijder uit favorieten'
+              : 'Toevoegen aan favorieten'
+            %>
           </button>
         </form>
       </section>

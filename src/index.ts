@@ -70,15 +70,20 @@ app.post("/logout", secureMiddleware, async (req, res) => {
   res.redirect("/");
 });
 
-app.get("/game/:id", secureMiddleware, async (req : any, res : any) => {
-  const gameId = req.params.id; 
-  
+app.get("/game/:id", secureMiddleware, async (req: any, res: any) => {
+  const gameId = Number(req.params.id);
   const game: Game | null = await getGameById(gameId);
+
   if (game) {
-    res.render("info", { game });
-  }
-  else {
-    res.status(404).render("404")
+    const favorites = req.session.user?.data?.fav || [];
+    const isFavorite = favorites.includes(gameId);
+    res.render("info", {
+      game,
+      isFavorite
+    });
+
+  } else {
+    res.status(404).render("404");
   }
 });
 
