@@ -60,6 +60,64 @@ export async function getGameById(id: string | number) {
   }
 }
 
+export async function addFavoriteGame(
+  email: string,
+  gameId: number
+): Promise<void> {
+  try {
+    await userCollection.updateOne(
+      { email },
+      {
+        $addToSet: {
+          "data.fav": gameId
+        }
+      }
+    );
+  } catch (error) {
+    console.error("Error adding favorite:", error);
+    throw error;
+  }
+}
+
+export async function removeFavoriteGame(
+  email: string,
+  gameId: number
+): Promise<void> {
+  try {
+    await userCollection.updateOne(
+      { email },
+      {
+        $pull: {
+          "data.fav": gameId
+        }
+      }
+    );
+  } catch (error) {
+    console.error("Error removing favorite:", error);
+    throw error;
+  }
+}
+
+export async function getFavoriteGames(email: string): Promise<Game[]> {
+  try {
+    const user = await userCollection.findOne({ email });
+
+    if (!user || !user.data?.fav?.length) {
+      return [];
+    }
+
+    return await gameCollection
+      .find({
+        id: { $in: user.data.fav }
+      })
+      .toArray();
+
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
+
 export async function AddUser(data: any): Promise<void> {
     try {
         // Haal de overtollige velden eruit, behoud de rest in 'userData'

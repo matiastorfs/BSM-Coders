@@ -44,7 +44,17 @@
       </div>
 
       <div id="lijst-container">
-        <ul id="data-lijst"></ul>
+        <div id="data-lijst">
+          <% if (favoriteGames.length === 0) { %>
+            <p>Geen favorieten toegevoegd.</p>
+          <% } %>
+          <% favoriteGames.forEach(game => { %>
+            <a href="/game/<%= game.id %>" class="favorite-card">
+              <img src="<%= game.thumbnail %>" width="150">
+              <p><%= game.title %></p>
+            </a>
+          <% }) %>
+        </div>
       </div>
     </main>
   </body>

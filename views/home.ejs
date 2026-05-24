@@ -41,12 +41,23 @@
         </ul>
       </section>
 
-      <section class="favorites">
-        <h3>Favorieten <img src="./assets/right-arrow.png" /></h3>
-        <ul class="game-cards" id="list-favorites">
-          <p>Je hebt nog geen favorieten games.</p>
-        </ul>
+      
+      <% if (favoriteGames.length > 0) { %>
+      <section class="favorite-games">
+        <h2>Favorieten</h2>
+
+        <div class="favorites-container">
+          <% favoriteGames.forEach(game => { %>
+
+            <a href="/game/<%= game.id %>" class="favorite-card">
+              <img src="<%= game.thumbnail %>" alt="<%= game.title %>">
+              <p><%= game.title %></p>
+            </a>
+
+          <% }) %>
+        </div>
       </section>
+      <% } %>
     </main>
   </body>
 </html>

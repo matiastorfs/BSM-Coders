@@ -30,7 +30,11 @@
     <section class="infopage">
       <section class="info-cover">
         <img src="<%= game.thumbnail %>" id="item-cover" />
-        <button type="button" id="btn-favorite">Favoriet</button>
+        <form method="POST" action="/favorite/<%= game.id %>">
+          <button type="submit" id="btn-favorite">
+            Favoriet
+          </button>
+        </form>
       </section>
       <ul class="info-list">
         <li id="item-description"><em>Beschrijving</em><%= game.short_description %></li>
