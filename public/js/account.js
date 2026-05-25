@@ -6,47 +6,46 @@ arrow.addEventListener("click", function () {
 
 const tabProjecten = document.getElementById("tab-projecten");
 const tabPrestaties = document.getElementById("tab-prestaties");
-const lijst = document.getElementById("data-lijst");
+
+const collectiesSection = document.getElementById("collecties-section");
+const prestatiesSection = document.getElementById("prestaties-section");
+tabProjecten.classList.add("active");
 
 tabProjecten.addEventListener("click", function () {
-  laadEenItem("./data/games.json", "projecten");
+  tabProjecten.classList.add("active");
+  tabPrestaties.classList.remove("active");
+
+  collectiesSection.style.display = "block";
+  prestatiesSection.style.display = "none";
 });
 
 tabPrestaties.addEventListener("click", function () {
-  laadEenItem("./data/prestaties.json", "prestaties");
+  tabPrestaties.classList.add("active");
+  tabProjecten.classList.remove("active");
+
+  collectiesSection.style.display = "none";
+  prestatiesSection.style.display = "block";
+
+  laadPrestaties();
 });
 
-function laadEenItem(bestandsnaam, type) {
-  if (type === "projecten") {
-    tabProjecten.classList.add("active");
-    tabPrestaties.classList.remove("active");
-  } else {
-    tabPrestaties.classList.add("active");
-    tabProjecten.classList.remove("active");
-  }
-  fetch(bestandsnaam)
+function laadPrestaties() {
+  fetch("./data/prestaties.json")
     .then((response) => response.json())
     .then((data) => {
-      const item = data[0];
+      prestatiesSection.innerHTML = "";
 
-      lijst.innerHTML = "";
+      data.forEach((item) => {
+        const div = document.createElement("div");
 
-      const li = document.createElement("li");
+        div.classList.add("prestatie-item");
 
-      if (type === "projecten") {
-        li.innerHTML = `
-                    <div class="game-card">
-                        <img src="${item.cover}" style="width:100px;">
-                        <div>
-                            <h3>${item.title}</h3>
-                            <p>${item.description}</p>
-                        </div>
-                    </div>`;
-      } else {
-        li.innerHTML = `<h3>${item.titel}</h3><p>${item.omschrijving}</p>`;
-      }
+        div.innerHTML = `
+          <h3>${item.titel}</h3>
+          <p>${item.omschrijving}</p>
+        `;
 
-      lijst.appendChild(li);
+        prestatiesSection.appendChild(div);
+      });
     });
 }
-laadEenItem("./data/games.json", "projecten");

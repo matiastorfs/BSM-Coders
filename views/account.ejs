@@ -44,17 +44,24 @@
       </div>
 
       <div id="lijst-container">
-        <div id="data-lijst">
-          <% if (favoriteGames.length === 0) { %>
-            <p>Geen favorieten toegevoegd.</p>
+        <section id="collecties-section" class="favorites">
+          <% if (favoriteGames.length > 0) { %>
+            <ul class="game-cards" id="list-favorites">
+              <% for(const game of favoriteGames) { %>
+              <li>
+                <a href="/game/<%= game.id %>">
+                  <img src="<%= game.thumbnail %>">
+                  <em><%= game.title %></em>
+                  <p><%= game.developer %></p>
+                </a>
+              </li>
+              <% } %>
+            </ul>
           <% } %>
-          <% favoriteGames.forEach(game => { %>
-            <a href="/game/<%= game.id %>" class="favorite-card">
-              <img src="<%= game.thumbnail %>" width="150">
-              <p><%= game.title %></p>
-            </a>
-          <% }) %>
-        </div>
+        </section>
+
+        <section id="prestaties-section" class="favorites">
+        </section>
       </div>
     </main>
   </body>

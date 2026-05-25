@@ -49,7 +49,6 @@ header {
 #data-lijst {
     margin-top: 20px;
     width: 100%;
-    max-width: 900px;
 }
 
 #data-lijst li {
@@ -239,4 +238,83 @@ small {
         margin-top: 0;
         width: 180px;
     }
+}
+
+#list-favorites {
+  gap: 1rem;
+}
+
+#list-favorites {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  padding: 1rem;
+  margin: 1rem auto;
+  text-align: center;
+
+  flex-wrap: wrap;
+  overflow-x: visible;
+  overflow-y: visible;
+
+  scrollbar-width: none;
+}
+
+#list-games {
+  display: flex;
+  margin: 1rem 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 1rem;
+}
+
+.favorites p {
+  padding-left: 40px;
+  font-size: 20px;
+}
+
+.game-cards * {
+  display: block;
+}
+
+.game-cards li {
+  background-color: var(--container-color);
+  border: 4px solid var(--container-color);
+  border-radius: 8px;
+}
+
+.game-cards li a {
+  width: 250px;
+  height: 250px;
+  height: fit-content;
+  padding: 1rem;
+}
+
+.game-cards li:hover {
+  border-color: var(--container-highlight-color);
+  animation: grow 0.2s forwards;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.game-cards img {
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.game-cards em,
+.game-cards p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
