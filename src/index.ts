@@ -1,5 +1,5 @@
 import express from "express";
-import {connect, getGames, getGameById, AddUser, login, addXpToUser, getLeaderboard, getUserByEmail, addFavoriteGame, removeFavoriteGame, getFavoriteGames, UpdateUserIcon} from "./database";
+import {connect, getGames, getGameById, AddUser, login, addXpToUser, getLeaderboard, getUserByEmail, addFavoriteGame, removeFavoriteGame, getFavoriteGames, updateUserIcon} from "./database";
 import path from "path";
 import homeRouter from "./routers/home";
 import gamesRouter from "./routers/games";

@@ -49,7 +49,6 @@ function laadPrestaties() {
       });
     });
 }
-laadEenItem("./data/games.json", "projecten");
 
     const profileImageContainer = document.querySelector(".profile-image-container");
     const changeLogoMenu = document.querySelector(".changelogo");
