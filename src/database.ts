@@ -211,21 +211,21 @@ export async function addPlayedGame(email: string): Promise<void> {
     if (newGamesPlayed >= 1 && !hasAchievement("Beginner")) {
       newAchievements.push({
         title: "Beginner",
-        description: "Speel Guess That Game 1 keer"
+        description: "Speel Raad Het Spel 1 keer"
       });
     }
 
     if (newGamesPlayed >= 5 && !hasAchievement("Gevorderde Gamer")) {
       newAchievements.push({
         title: "Gevorderde Gamer",
-        description: "Speel Guess That Game 5 keer"
+        description: "Speel Raad Het Spel 5 keer"
       });
     }
 
     if (newGamesPlayed >= 10 && !hasAchievement("Guess Master")) {
       newAchievements.push({
         title: "Guess Master",
-        description: "Speel Guess That Game 10 keer"
+        description: "Speel Raad Het Spel 10 keer"
       });
     }
 
