@@ -4,21 +4,18 @@
       <img src="/assets/menu.png" />
     </button>
 
-    <!-- Nieuwe container om de knop en het menu samen te houden -->
     <div class="account-container">
       <button type="button" id="btn-account">
-        <!-- We gebruiken de userIcon van de ingelogde gebruiker als die er is -->
         <% if(user) { %>
           <img id="userImage" src="/assets/<%= user.userIcon %>" />
           <% } %>
       </button>
 
-      <!-- Het dropdown menu -->
       <div id="account-dropdown" class="dropdown-menu">
         <a href="/account">Profiel</a>
-        <hr /> <!-- Optioneel streepje tussen profiel en logout -->
+        <hr />
         <form action="/logout" method="POST">
-          <button type="submit" class="logout-link">Log out</button>
+          <button type="submit" class="logout-link">Log uit</button>
         </form>
       </div>
     </div>

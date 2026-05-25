@@ -53,7 +53,8 @@ nav > * {
   width: 100%;
   height: 4rem;
   justify-content: space-between;
-  padding: 18px;
+  align-items: center;
+  padding: 0 18px;
   background-color: var(--navigation-color);
   opacity: 96%;
 }
@@ -81,7 +82,7 @@ nav > * {
 }
 
 #homebuttonnav:hover img {
-  animation: bounce 0.5s ease-in infinite alternate;
+  animation: bounce 0.5s ease-in alternate;
 }
 
 #gtgbuttonnav:hover img {
@@ -90,7 +91,8 @@ nav > * {
 }
 
 #settingsbuttonnav:hover img {
-  animation: settingsturn 1s infinite ease;
+  transition: transform 1s ease;
+  transform: rotate(360deg);
 }
 
 .nav-menu button {
@@ -143,41 +145,28 @@ button {
   cursor: pointer;
 }
 
-#settingsbuttonhover:hover {
-  #settingsicon {
-    animation: settingsturn 1s infinite ease;
-  }
-}
-
-#settingsbuttonnav:hover img {
-  animation: settingsturn 1s infinite ease;
-}
-
 #gamenav:hover img {
-  animation: gameanim 2s infinite ease-in-out;
+  animation: exploreturn 0.5s ease;
 }
 
-@keyframes gameanim {
+@keyframes exploreturn {
   0% {
-    transform: rotate(0deg);
-  }
-
-  25% {
-    transform: rotate(90deg);
+    transform: scale(1);
   }
 
   50% {
-    transform: rotate(0deg);
+    transform: scale(0.8);
   }
 
   75% {
-    transform: rotate(-90deg);
+    transform: scale(1.1);
   }
 
   100% {
-    transform: rotate(0deg);
+    transform: scale(1);
   }
 }
+
 /* Container voor positionering */
 .account-container {
   position: relative;
@@ -185,7 +174,7 @@ button {
 
 /* De dropdown zelf */
 .dropdown-menu {
-  display: none; 
+  display: none;
   position: absolute;
   top: 100%; /* Direct onder de knop */
   right: 0;
@@ -203,7 +192,7 @@ button {
   display: block;
 }
 
-.dropdown-menu a, 
+.dropdown-menu a,
 .dropdown-menu .logout-link {
   display: block;
   padding: 12px 15px;
@@ -217,7 +206,7 @@ button {
   cursor: pointer;
 }
 
-.dropdown-menu a:hover, 
+.dropdown-menu a:hover,
 .dropdown-menu .logout-link:hover {
   background-color: #f5f5f5;
 }
@@ -234,10 +223,11 @@ button {
 }
 
 .error {
-    position: fixed;
+  position: fixed;
   width: 840px;
   max-width: 95%;
-  left: 20%;
+  left: 50%; 
+  transform: translateX(-50%); 
   top: 13%;
   z-index: 100;
   padding: 5px;
@@ -251,7 +241,8 @@ button {
   position: fixed;
   width: 840px;
   max-width: 95%;
-  left: 20%;
+  left: 50%; 
+  transform: translateX(-50%); 
   top: 12%;
   z-index: 100;
   padding: 5px;

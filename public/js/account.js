@@ -49,3 +49,29 @@ function laadPrestaties() {
       });
     });
 }
+laadEenItem("./data/games.json", "projecten");
+
+    const profileImageContainer = document.querySelector(".profile-image-container");
+    const changeLogoMenu = document.querySelector(".changelogo");
+    const closeButton = document.querySelector(".close-button");
+
+    profileImageContainer.addEventListener("click", () => {
+            changeLogoMenu.classList.add("show");
+        });
+
+    closeButton.addEventListener("click", () => {
+            changeLogoMenu.classList.remove("show");
+        });
+
+
+        const profileForm = document.getElementById("profile-form");
+        const iconInput = document.getElementById("selected-icon-input");
+        const profilePics = document.querySelectorAll(".profilepictures");
+
+profilePics.forEach(pic => {
+            pic.addEventListener("click", () => {
+                const chosenIcon = pic.getAttribute("data-icon");
+                iconInput.value = chosenIcon;
+                profileForm.submit();
+            });
+        });

@@ -120,7 +120,6 @@ export async function getFavoriteGames(email: string): Promise<Game[]> {
 
 export async function AddUser(data: any): Promise<void> {
     try {
-        // Haal de overtollige velden eruit, behoud de rest in 'userData'
         const { password, passwordConfirm, termsofservice, ...userData } = data;
 
         if (password !== passwordConfirm) {
@@ -130,12 +129,12 @@ export async function AddUser(data: any): Promise<void> {
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
         await userCollection.insertOne({
-          ...userData, // userData bevat nu: name, email, userIcon
+          ...userData,
           password: hashedPassword,
           data: {
               xp: 0,
               fav: [],
-              friends: []
+              friends: [],
           }
         });
     } catch (error: any) {
@@ -211,4 +210,21 @@ export async function getUserByEmail(email: string): Promise<User | null> {
     console.error(error);
     return null;
   }
+}
+
+export async function updateBeschrijving(email: string, nieuweBeschrijving: string): Promise<void> {
+  try {
+    await userCollection.updateOne(
+      { email: email },
+      { $set: { "data.beschrijving": nieuweBeschrijving } }
+    );
+  } catch (error) {
+    console.error("Fout bij het updaten van de beschrijving:", error);
+    throw error;
+  }
+}
+
+export async function updateUserIcon(email: string, iconName: string): Promise<void> {
+    // Voorbeeld als je met MongoDB/MongoClient werkt:
+    await userCollection.updateOne({ email: email }, { $set: { userIcon: iconName } });
 }

@@ -15,6 +15,7 @@ export interface Game {
 
 export interface User {
     _id?: ObjectId;
+    id: number;
     name: string;
     email: string;
     password?: string;
@@ -23,7 +24,7 @@ export interface User {
 }
 
 export interface data {
-  description: string;
+  beschrijving?: string;
   xp?: number;
   fav?: number[];
   friends?: string[];
