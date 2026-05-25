@@ -27,18 +27,32 @@
         <h3>Vrienden <img src="./assets/right-arrow.png" /></h3>
         <ul id="list-friends">
           <li>
-            <img src="./assets/user-icon.png" />
+            <img src="./assets/falloutprofilepicture.png" />
             <p>Vriend</p>
           </li>
           <li>
-            <img src="./assets/user-icon.png" />
+            <img src="./assets/haloprofilepicture.jpg" />
             <p>Vriend</p>
           </li>
           <li>
-            <img src="./assets/user-icon.png" />
+            <img src="./assets/Minecraft-Steve-Head-profilepicture.jpg" />
             <p>Vriend</p>
+          </li>
+          <li class="addFriend">
+            <img src="./assets/pluscircle.png" />
           </li>
         </ul>
+      </section>
+
+      <section class="addFriendUi">
+        <h4>Voeg vriend toe <img class="closeFriendUi" src="/assets/x-icon.png"></h4>
+        
+
+        <form action="/home" method="POST">
+          <label for="">ID:</label>
+          <input type="text">
+          <button type="submit">Voeg toe</button>
+        </form>
       </section>
 
       <section class="favorites">
@@ -58,6 +72,23 @@
         <% } else{ %>
           <p>Nog geen favorieten </p>
         <% } %>
+      </section>
+
+      <section class="games">
+        <h3>Games <img src="./assets/right-arrow.png" /></h3>
+        <ul class="game-cards" id="list-games">
+          <% for(const game of games) { %>
+            <li>
+              <a href="/game/<%= game.id %>" id="game-item<%= game.id %>" class="game-items">
+                <img src="<%= game.thumbnail %>" alt="<%= game.title %>">
+                <em><%= game.title %></em>
+                <p><%= game.developer %></p>
+              </a>
+            </li>
+          <% } %>
+        </ul>
+
+        <a href="/games">Ontdek meer</a>
       </section>
     </main>
   </body>

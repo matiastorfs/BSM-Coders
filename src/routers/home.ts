@@ -11,14 +11,13 @@ export default function homeRouter() {
 
   router.get("/", async (req: any, res) => {
     games = await getGames();
+    games = games.filter((el, i) => i < 16);
 
-    const favoriteGames = await getFavoriteGames(
-      req.session.user.email
-    );
+    const favoriteGames = await getFavoriteGames(req.session.user.email);
 
     res.render("home", {
       games,
-      favoriteGames
+      favoriteGames,
     });
   });
 

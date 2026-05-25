@@ -94,7 +94,7 @@ img {
 }
 
 #list-friends,
-#list-favorites{
+#list-favorites {
   display: flex;
   gap: 1rem;
   margin: auto 4rem;
@@ -178,10 +178,12 @@ img {
   left: -100%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(to right,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.3) 50%,
-      rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
   transform: skewX(-25deg);
   pointer-events: none;
 }
@@ -195,4 +197,62 @@ img {
   .sort-form {
     flex-direction: row;
   }
+}
+
+.addFriendUi {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--container-color);
+  padding: 1rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.8rem;
+  width: 20rem;
+  border-radius: 8px;
+}
+
+.addFriendUi h4 {
+  font-size: 1.8rem;
+}
+
+.addFriendUi input {
+  background-color: var(--container-highlight-color);
+  border-radius: 4px;
+  width: 5rem;
+}
+
+.addFriendUi img {
+  cursor: pointer;
+}
+
+.addFriendUi button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 4px 1rem;
+  background-color: var(--container-highlight-color);
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.addFriendUi button:hover {
+  background-color: var(--button-color);
+}
+
+.games a {
+  display: flex;
+  background-color: var(--container-color);
+  padding: 1rem;
+  margin: 2rem auto;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.games a:hover {
+  background-color: var(--container-highlight-color);
 }

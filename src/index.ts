@@ -1,5 +1,18 @@
 import express from "express";
-import {connect, getGames, getGameById, AddUser, login, addXpToUser, getLeaderboard, getUserByEmail, addFavoriteGame, removeFavoriteGame, getFavoriteGames, UpdateUserIcon} from "./database";
+import {
+  connect,
+  getGames,
+  getGameById,
+  AddUser,
+  login,
+  addXpToUser,
+  getLeaderboard,
+  getUserByEmail,
+  addFavoriteGame,
+  removeFavoriteGame,
+  getFavoriteGames,
+  updateUserIcon,
+} from "./database";
 import path from "path";
 import homeRouter from "./routers/home";
 import gamesRouter from "./routers/games";
@@ -64,16 +77,18 @@ app.post("/signin", async (req, res) => {
 
     while (idExists) {
       uniqueId = Math.floor(1000 + Math.random() * 9000);
-      idExists = false; 
+      idExists = false;
     }
 
     userData.id = uniqueId;
 
     await AddUser(userData);
-    
-    req.session.message = { type: "success", message: "Account succesvol aangemaakt" };
+
+    req.session.message = {
+      type: "success",
+      message: "Account succesvol aangemaakt",
+    };
     res.redirect("/login");
-    
   } catch (error) {
     console.error("Registratiefout:", error);
     res.redirect("/signin?error=failed");
@@ -95,9 +110,8 @@ app.get("/game/:id", secureMiddleware, async (req: any, res: any) => {
     const isFavorite = favorites.includes(gameId);
     res.render("info", {
       game,
-      isFavorite
+      isFavorite,
     });
-
   } else {
     res.status(404).render("404");
   }
@@ -116,13 +130,13 @@ app.post("/favorite/:id", secureMiddleware, async (req: any, res: any) => {
       await removeFavoriteGame(req.session.user.email, gameId);
       req.session.message = {
         type: "success",
-        message: "Game verwijderd van favorieten"
+        message: "Game verwijderd van favorieten",
       };
     } else {
       await addFavoriteGame(req.session.user.email, gameId);
       req.session.message = {
         type: "success",
-        message: "Game toegevoegd aan favorieten"
+        message: "Game toegevoegd aan favorieten",
       };
     }
     const updatedUser = await getUserByEmail(req.session.user.email);
@@ -139,19 +153,17 @@ app.post("/favorite/:id", secureMiddleware, async (req: any, res: any) => {
 
     req.session.message = {
       type: "error",
-      message: "Er ging iets mis"
+      message: "Er ging iets mis",
     };
     res.redirect("/home");
   }
 });
 
 app.get("/account", secureMiddleware, async (req: any, res) => {
-  const favoriteGames = await getFavoriteGames(
-    req.session.user.email
-  );
+  const favoriteGames = await getFavoriteGames(req.session.user.email);
 
   res.render("account", {
-    favoriteGames
+    favoriteGames,
   });
 });
 
@@ -199,7 +211,7 @@ app.get("/api/leaderboard", secureMiddleware, async (req: any, res: any) => {
 
     res.json({
       topPlayers,
-      currentUser
+      currentUser,
     });
   } catch (error) {
     console.error(error);
@@ -207,23 +219,31 @@ app.get("/api/leaderboard", secureMiddleware, async (req: any, res: any) => {
   }
 });
 
-app.post("/update-profile-picture", secureMiddleware, async (req: any, res: any) => {
-  try {
-    const { selectedIcon } = req.body;
+app.post(
+  "/update-profile-picture",
+  secureMiddleware,
+  async (req: any, res: any) => {
+    try {
+      const { selectedIcon } = req.body;
 
-    await updateUserIcon(req.session.user.email, selectedIcon);
+      await updateUserIcon(req.session.user.email, selectedIcon);
 
-    req.session.user.userIcon = selectedIcon;
-    req.session.message = { type: "success", message: "Profielfoto succesvol aangepast!" };
-    res.redirect("/account");
-
-  } catch (error) {
-    console.error(error);
-    req.session.message = { type: "error", message: "Fout bij het bijwerken van de profielfoto." };
-    res.redirect("/account");
-  }
-});
-
+      req.session.user.userIcon = selectedIcon;
+      req.session.message = {
+        type: "success",
+        message: "Profielfoto succesvol aangepast!",
+      };
+      res.redirect("/account");
+    } catch (error) {
+      console.error(error);
+      req.session.message = {
+        type: "error",
+        message: "Fout bij het bijwerken van de profielfoto.",
+      };
+      res.redirect("/account");
+    }
+  },
+);
 
 app.listen(app.get("port"), async () => {
   await connect();

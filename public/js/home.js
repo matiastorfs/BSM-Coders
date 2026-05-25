@@ -100,4 +100,19 @@ function sortGames(option, sort) {
   });
 });*/
 
+const friendUi = document.querySelector(".addFriendUi");
+document.querySelector(".addFriend").addEventListener("click", () => {
+  if (friendUi.style.display === "none") {
+    friendUi.style.display = "flex";
+  } else {
+    friendUi.style.display = "none";
+  }
+});
 
+document.querySelector(".closeFriendUi").addEventListener("click", () => {
+  if (friendUi.style.display === "none") {
+    friendUi.style.display = "flex";
+  } else {
+    friendUi.style.display = "none";
+  }
+});
