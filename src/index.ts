@@ -1,5 +1,5 @@
 import express from "express";
-import {connect, getGames, getGameById, AddUser, login, addXpToUser, getLeaderboard, getUserByEmail, updateUserIcon} from "./database";
+import {connect, getGames, getGameById, AddUser, login, addXpToUser, getLeaderboard, getUserByEmail, addFavoriteGame, removeFavoriteGame, getFavoriteGames, UpdateUserIcon} from "./database";
 import path from "path";
 import homeRouter from "./routers/home";
 import gamesRouter from "./routers/games";
@@ -86,20 +86,73 @@ app.post("/logout", secureMiddleware, async (req, res) => {
   res.redirect("/");
 });
 
-app.get("/game/:id", secureMiddleware, async (req : any, res : any) => {
-  const gameId = req.params.id; 
-  
+app.get("/game/:id", secureMiddleware, async (req: any, res: any) => {
+  const gameId = Number(req.params.id);
   const game: Game | null = await getGameById(gameId);
+
   if (game) {
-    res.render("info", { game });
-  }
-  else {
-    res.status(404).render("404")
+    const favorites = req.session.user?.data?.fav || [];
+    const isFavorite = favorites.includes(gameId);
+    res.render("info", {
+      game,
+      isFavorite
+    });
+
+  } else {
+    res.status(404).render("404");
   }
 });
 
-app.get("/account", secureMiddleware, (req, res) => {
-  res.render("account");
+app.post("/favorite/:id", secureMiddleware, async (req: any, res: any) => {
+  try {
+    const gameId = Number(req.params.id);
+    const user = await getUserByEmail(req.session.user.email);
+    if (!user) {
+      return res.redirect("/home");
+    }
+    const favorites = user.data?.fav || [];
+
+    if (favorites.includes(gameId)) {
+      await removeFavoriteGame(req.session.user.email, gameId);
+      req.session.message = {
+        type: "success",
+        message: "Game verwijderd van favorieten"
+      };
+    } else {
+      await addFavoriteGame(req.session.user.email, gameId);
+      req.session.message = {
+        type: "success",
+        message: "Game toegevoegd aan favorieten"
+      };
+    }
+    const updatedUser = await getUserByEmail(req.session.user.email);
+
+    if (updatedUser) {
+      const userWithoutPassword = { ...updatedUser };
+      delete userWithoutPassword.password;
+
+      req.session.user = userWithoutPassword;
+    }
+    res.redirect(`/game/${gameId}`);
+  } catch (error) {
+    console.error(error);
+
+    req.session.message = {
+      type: "error",
+      message: "Er ging iets mis"
+    };
+    res.redirect("/home");
+  }
+});
+
+app.get("/account", secureMiddleware, async (req: any, res) => {
+  const favoriteGames = await getFavoriteGames(
+    req.session.user.email
+  );
+
+  res.render("account", {
+    favoriteGames
+  });
 });
 
 app.get("/api/games", async (req, res) => {

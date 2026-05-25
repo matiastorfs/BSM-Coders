@@ -51,7 +51,7 @@ function displayItems(items, type = "games") {
   });
 }
 
-document.querySelector("#btn-search").addEventListener("click", (e) => {
+/*document.querySelector("#btn-search").addEventListener("click", (e) => {
   e.preventDefault();
 
   const searchValue = document.querySelector("#txt-search").value.toLowerCase();
@@ -60,7 +60,7 @@ document.querySelector("#btn-search").addEventListener("click", (e) => {
   );
 
   displayItems(filteredGames);
-});
+});*/
 
 function sortGames(option, sort) {
   const dir = sort === 1 ? 1 : -1;
@@ -76,12 +76,12 @@ function sortGames(option, sort) {
   });
 }
 
-document.querySelector("#btn-sort").addEventListener("click", (e) => {
+/*document.querySelector("#btn-sort").addEventListener("click", (e) => {
   e.preventDefault();
   sortForm.classList.toggle("visible");
-});
+});*/
 
-sortForm.querySelectorAll("button").forEach((btn) => {
+/*sortForm.querySelectorAll("button").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -98,6 +98,6 @@ sortForm.querySelectorAll("button").forEach((btn) => {
       displayItems(sortedGames);
     }
   });
-});
+});*/
 
 

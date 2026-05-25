@@ -19,7 +19,7 @@
     <%- include("partials/navigation") %>
 
       <section id="go-back">
-        <a href="/home">
+        <a href="/games">
           <img src="/assets/left-arrow3.png" id="arrow" />
         </a>
       </section>
@@ -30,7 +30,14 @@
     <section class="infopage">
       <section class="info-cover">
         <img src="<%= game.thumbnail %>" id="item-cover" />
-        <button type="button" id="btn-favorite">Favoriet</button>
+        <form method="POST" action="/favorite/<%= game.id %>">
+          <button  type="submit"  id="btn-favorite" class="<%= isFavorite ? 'favorite-active' : '' %>">
+            <%= isFavorite 
+              ? 'Verwijder uit favorieten'
+              : 'Toevoegen aan favorieten'
+            %>
+          </button>
+        </form>
       </section>
       <ul class="info-list">
         <li id="item-description"><em>Beschrijving</em><%= game.short_description %></li>

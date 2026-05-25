@@ -94,12 +94,15 @@ img {
 }
 
 #list-friends,
-#list-favorites {
+#list-favorites{
   display: flex;
+  gap: 1rem;
   margin: auto 4rem;
+  padding: 1rem;
   text-align: center;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  flex-wrap: wrap;
+  overflow-x: visible;
+  overflow-y: visible;
   scrollbar-width: none;
 }
 
@@ -110,6 +113,11 @@ img {
   flex-wrap: wrap;
   text-align: center;
   gap: 1rem;
+}
+
+.favorites p {
+  padding-left: 40px;
+  font-size: 20px;
 }
 
 .game-cards * {

@@ -43,9 +43,21 @@
 
       <section class="favorites">
         <h3>Favorieten <img src="./assets/right-arrow.png" /></h3>
-        <ul class="game-cards" id="list-favorites">
-          <p>Je hebt nog geen favorieten games.</p>
-        </ul>
+        <% if (favoriteGames.length > 0) { %>
+          <ul class="game-cards" id="list-favorites">
+            <% for(const game of favoriteGames) { %>
+            <li>
+              <a href="/game/<%= game.id %>" id="game-item<%= game.id %>" class="game-items">
+                <img src="<%= game.thumbnail %>" alt="<%= game.title %>">
+                <em><%= game.title %></em>
+                <p><%= game.developer %></p>
+              </a>
+            </li>
+            <% } %>
+          </ul>
+        <% } else{ %>
+          <p>Nog geen favorieten </p>
+        <% } %>
       </section>
     </main>
   </body>

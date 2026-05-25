@@ -47,7 +47,24 @@
       </div>
 
       <div id="lijst-container">
-        <ul id="data-lijst"></ul>
+        <section id="collecties-section" class="favorites">
+          <% if (favoriteGames.length > 0) { %>
+            <ul class="game-cards" id="list-favorites">
+              <% for(const game of favoriteGames) { %>
+              <li>
+                <a href="/game/<%= game.id %>">
+                  <img src="<%= game.thumbnail %>">
+                  <em><%= game.title %></em>
+                  <p><%= game.developer %></p>
+                </a>
+              </li>
+              <% } %>
+            </ul>
+          <% } %>
+        </section>
+
+        <section id="prestaties-section" class="favorites">
+        </section>
       </div>
     </main>
     <div class="changelogo">  
