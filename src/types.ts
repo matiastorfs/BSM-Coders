@@ -26,6 +26,8 @@ export interface User {
 export interface data {
   beschrijving?: string;
   xp?: number;
+  achievements?: Achievement[];
+  gamesPlayed?: number;
   fav?: number[];
   friends?: string[];
 }

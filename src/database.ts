@@ -133,6 +133,8 @@ export async function AddUser(data: any): Promise<void> {
           password: hashedPassword,
           data: {
               xp: 0,
+              gamesPlayed: 0,
+              achievements: [],
               fav: [],
               friends: [],
           }
@@ -186,6 +188,63 @@ export async function addXpToUser(email: string, xp: number): Promise<void> {
     );
   } catch (error) {
     console.error("Error adding XP:", error);
+    throw error;
+  }
+}
+
+export async function addPlayedGame(email: string): Promise<void> {
+  try {
+    const user = await userCollection.findOne({ email });
+
+    if (!user) return;
+
+    const currentGamesPlayed = user.data?.gamesPlayed || 0;
+    const newGamesPlayed = currentGamesPlayed + 1;
+
+    const achievements = user.data?.achievements || [];
+
+    const hasAchievement = (title: string) =>
+      achievements.some(a => a.title === title);
+
+    const newAchievements = [];
+
+    if (newGamesPlayed >= 1 && !hasAchievement("Beginner")) {
+      newAchievements.push({
+        title: "Beginner",
+        description: "Speel Guess That Game 1 keer"
+      });
+    }
+
+    if (newGamesPlayed >= 5 && !hasAchievement("Gevorderde Gamer")) {
+      newAchievements.push({
+        title: "Gevorderde Gamer",
+        description: "Speel Guess That Game 5 keer"
+      });
+    }
+
+    if (newGamesPlayed >= 10 && !hasAchievement("Guess Master")) {
+      newAchievements.push({
+        title: "Guess Master",
+        description: "Speel Guess That Game 10 keer"
+      });
+    }
+
+    await userCollection.updateOne(
+      { email },
+      {
+        $set: {
+          "data.gamesPlayed": newGamesPlayed
+        },
+        $push: {
+          "data.achievements": {
+            $each: newAchievements
+          }
+        }
+      }
+    );
+
+  } catch (error) {
+    console.error("Error updating games played:", error);
     throw error;
   }
 }

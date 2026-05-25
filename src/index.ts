@@ -1,5 +1,5 @@
 import express from "express";
-import {connect, getGames, getGameById, AddUser, login, addXpToUser, getLeaderboard, getUserByEmail, addFavoriteGame, removeFavoriteGame, getFavoriteGames, updateUserIcon} from "./database";
+import {connect, getGames, getGameById, AddUser, login, addXpToUser, getLeaderboard, getUserByEmail, addFavoriteGame, removeFavoriteGame, getFavoriteGames, updateUserIcon, addPlayedGame} from "./database";
 import path from "path";
 import homeRouter from "./routers/home";
 import gamesRouter from "./routers/games";
@@ -188,6 +188,22 @@ app.post("/api/add-xp", secureMiddleware, async (req: any, res: any) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to add XP" });
+  }
+});
+
+app.post("/api/add-played-game", async (req, res) => {
+  try {
+    if (!req.session.user) {
+      return res.status(401).json({ error: "Niet ingelogd" });
+    }
+
+    await addPlayedGame(req.session.user.email);
+
+    res.json({ success: true });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Server error" });
   }
 });
 

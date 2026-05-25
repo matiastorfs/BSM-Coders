@@ -25,8 +25,6 @@ tabPrestaties.addEventListener("click", function () {
 
   collectiesSection.style.display = "none";
   prestatiesSection.style.display = "block";
-
-  laadPrestaties();
 });
 
 function laadPrestaties() {

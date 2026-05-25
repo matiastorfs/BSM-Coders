@@ -63,7 +63,18 @@
           <% } %>
         </section>
 
-        <section id="prestaties-section" class="favorites">
+        <section id="prestaties-section" class="favorites" style="display: none;">
+          <% if (user.data.achievements && user.data.achievements.length > 0) { %>
+            <% user.data.achievements.forEach(prestatie => { %>
+              <div class="prestatie-item">
+                <h3><%= prestatie.title %></h3>
+                <p><%= prestatie.description %></p>
+              </div>
+            <% }) %>
+          <% } else { %>
+            <p>Nog geen prestaties behaald.</p>
+          <% } %>
+
         </section>
       </div>
     </main>
