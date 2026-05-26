@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameHub - Vergelijken</title>
+
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/general.css" />
+  <link rel="stylesheet" href="/css/compare.css" />
+
+  <script type="module" src="/js/main.js"></script>
+</head>
+
+<body>
+  <header>
+    <%- include("partials/navigation") %>
+
+    <section id="go-back">
+      <a href="/games">
+        <img src="/assets/left-arrow3.png" id="arrow" alt="Terug" />
+      </a>
+    </section>
+  </header>
+
+  <main>
+    <h2 class="compare-main-title">Games Vergelijken</h2>
+
+    <div class="compare-wrapper">
+      
+      <section class="compare-column">
+        <h3 class="compare-game-title"><%= game1.title %></h3>
+        <div class="compare-cover">
+          <img src="<%= game1.thumbnail %>" class="compare-item-cover" />
+        </div>
+        <ul class="compare-list">
+          <li><em>Beschrijving</em><%= game1.short_description %></li>
+          <li><em>Ontwikkelaar</em><%= game1.developer %></li>
+          <li><em>Uitgever</em><%= game1.publisher %></li>
+          <li><em>Platforms</em><%= game1.platform %></li>
+          <li><em>Genre</em><%= game1.genre %></li>
+          <li><em>Releasedatum</em><%= game1.release_date %></li>
+        </ul>
+      </section>
+
+      <section class="compare-column">
+        <h3 class="compare-game-title"><%= game2.title %></h3>
+        <div class="compare-cover">
+          <img src="<%= game2.thumbnail %>" class="compare-item-cover" />
+        </div>
+        <ul class="compare-list">
+          <li><em>Beschrijving</em><%= game2.short_description %></li>
+          <li><em>Ontwikkelaar</em><%= game2.developer %></li>
+          <li><em>Uitgever</em><%= game2.publisher %></li>
+          <li><em>Platforms</em><%= game2.platform %></li>
+          <li><em>Genre</em><%= game2.genre %></li>
+          <li><em>Releasedatum</em><%= game2.release_date %></li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+</body>
+
+</html>

@@ -22,11 +22,9 @@ const favoriteGameObjects = favoriteGames
   .map((id) => games.find((g) => g.id === id))
   .filter(Boolean);
 
-// displayItems(favoriteGameObjects, "favorites");
-// displayItems(games);
-
 function displayItems(items, type = "games") {
   const ul = document.querySelector(`#list-${type}`);
+  if (!ul) return;
   ul.innerHTML = "";
 
   items.forEach((item) => {
@@ -51,17 +49,6 @@ function displayItems(items, type = "games") {
   });
 }
 
-/*document.querySelector("#btn-search").addEventListener("click", (e) => {
-  e.preventDefault();
-
-  const searchValue = document.querySelector("#txt-search").value.toLowerCase();
-  const filteredGames = games.filter((game) =>
-    game.title.toLowerCase().includes(searchValue),
-  );
-
-  displayItems(filteredGames);
-});*/
-
 function sortGames(option, sort) {
   const dir = sort === 1 ? 1 : -1;
   return [...games].sort((a, b) => {
@@ -76,43 +63,18 @@ function sortGames(option, sort) {
   });
 }
 
-/*document.querySelector("#btn-sort").addEventListener("click", (e) => {
-  e.preventDefault();
-  sortForm.classList.toggle("visible");
-});*/
-
-/*sortForm.querySelectorAll("button").forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    state = btn.querySelector("img") ? (state + 1) % 3 : 1;
-    sortForm.querySelectorAll("button img").forEach((img) => img.remove());
-
-    if (state === 0) {
-      displayItems(games);
-    } else {
-      const img = `<img src="./assets/arrow-${state === 1 ? "down" : "up"}.png">`;
-      const sortedGames = sortGames(btn.id.replace("sort-", ""), state);
-
-      btn.insertAdjacentHTML("beforeend", img);
-      displayItems(sortedGames);
-    }
-  });
-});*/
-
 const friendUi = document.querySelector(".addFriendUi");
-document.querySelector(".addFriend").addEventListener("click", () => {
-  if (friendUi.style.display === "none") {
-    friendUi.style.display = "flex";
-  } else {
-    friendUi.style.display = "none";
-  }
-});
+const addFriendBtn = document.querySelector(".addFriend");
+const closeFriendBtn = document.querySelector(".closeFriendUi");
 
-document.querySelector(".closeFriendUi").addEventListener("click", () => {
-  if (friendUi.style.display === "none") {
-    friendUi.style.display = "flex";
-  } else {
-    friendUi.style.display = "none";
-  }
-});
+if (addFriendBtn && friendUi) {
+  addFriendBtn.addEventListener("click", () => {
+    friendUi.style.display = friendUi.style.display === "none" ? "flex" : "none";
+  });
+}
+
+if (closeFriendBtn && friendUi) {
+  closeFriendBtn.addEventListener("click", () => {
+    friendUi.style.display = friendUi.style.display === "none" ? "flex" : "none";
+  });
+}
