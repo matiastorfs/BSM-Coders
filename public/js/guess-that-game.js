@@ -11,41 +11,43 @@ async function loadRanking() {
     const myPlayer = data.currentUser;
 
     function createRankingItem(player, rank) {
-      const article = document.createElement("article");
-      article.classList.add("rankingItem");
+  const article = document.createElement("article");
 
-      if (rank === 1) article.classList.add("gold");
-      if (rank === 2) article.classList.add("silver");
-      if (rank === 3) article.classList.add("bronze");
+  const medals = [
+    "/assets/1st-place-medal.png",
+    "/assets/2nd-place-medal.png",
+    "/assets/3rd-place-medal.png",
+  ];
 
-      const medals = [
-        "/assets/1st-place-medal.png",
-        "/assets/2nd-place-medal.png",
-        "/assets/3rd-place-medal.png",
-      ];
+  const rankDisplay =
+    rank <= 3
+      ? `<img src="${medals[rank - 1]}" alt="${rank} place medal" class="medalIcon">`
+      : rank;
 
-      const rankDisplay =
-        rank <= 3
-          ? `<img src="${medals[rank - 1]}" alt="${rank} place medal" class="medalIcon">`
-          : rank;
+  article.innerHTML = `
+    <a href="/user/${player.id}" class="rankingItem ${
+      rank === 1 ? "gold" : ""
+    } ${rank === 2 ? "silver" : ""} ${
+      rank === 3 ? "bronze" : ""
+    }">
 
-      article.innerHTML = `
-        <div class="rankNumber">${rankDisplay}</div>
+      <div class="rankNumber">${rankDisplay}</div>
 
-        <div class="rankingContent">
-          <div class="rankingTop">
-            <em class="playerName">${player.name}</em>
-            <div class="playerXp">${player.data?.xp || 0} XP</div>
-          </div>
-
-          <div class="playerDescription">
-            Gamer
-          </div>
+      <div class="rankingContent">
+        <div class="rankingTop">
+          <em class="playerName">${player.name}</em>
+          <div class="playerXp">${player.data?.xp || 0} XP</div>
         </div>
-      `;
 
-      return article;
-    }
+        <div class="playerDescription">
+          Gamer
+        </div>
+      </div>
+    </a>
+  `;
+
+  return article;
+}
 
     topPlayers.forEach((player, index) => {
       const rank = index + 1;
