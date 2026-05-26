@@ -147,6 +147,14 @@ async function endGame() {
     console.error("Was niet in staat om het xp op te slaan:", error);
   }
 
+  try {
+    await fetch("/api/add-played-game", {
+      method: "POST"
+    });
+  } catch (error) {
+    console.error("Kon gamesPlayed niet opslaan:", error);
+  }
+
   result.innerHTML = `<br/><br/><br/>
          <h3>Gefeliciteerd!</h3>
          <p>Je hebt het spel voltooid.</p>
