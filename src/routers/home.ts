@@ -1,23 +1,28 @@
 import express from "express";
-import { getGames, getFavoriteGames } from "../database";
-import { Game } from "../types";
-import { secureMiddleware } from "../securemiddleware";
-import { flashMiddleware } from "../flashmiddleware";
-
-let games: Game[] = [];
+import { getGames, getFavoriteGames, getUsersByIds } from "../database";
 
 export default function homeRouter() {
   const router = express.Router();
 
   router.get("/", async (req: any, res) => {
-    games = await getGames();
-    games = games.filter((el, i) => i < 16);
+    const user = req.session.user;
+    
+    const games = (await getGames()).slice(0, 16);
+    const favoriteGames = await getFavoriteGames(user.email);
 
-    const favoriteGames = await getFavoriteGames(req.session.user.email);
+    const friendIds = user.friends || [];
+    const mixedIds = [
+      ...friendIds.map((id: any) => Number(id)),
+      ...friendIds.map((id: any) => String(id))
+    ];
+
+    const friendsList = await getUsersByIds(mixedIds);
 
     res.render("home", {
+      user,
       games,
       favoriteGames,
+      friendsList
     });
   });
 

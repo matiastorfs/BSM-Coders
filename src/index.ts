@@ -1,5 +1,5 @@
 import express from "express";
-import {connect, getGames, getGameById, AddUser, login, addXpToUser, getLeaderboard, getUserByEmail, addFavoriteGame, removeFavoriteGame, getFavoriteGames, updateUserIcon, addPlayedGame} from "./database";
+import {connect, getGames, getGameById, AddUser, login, addXpToUser, getLeaderboard, getUserByEmail, addFavoriteGame, removeFavoriteGame, getFavoriteGames, updateUserIcon, addPlayedGame, getUserById, addFriend} from "./database";
 import path from "path";
 import homeRouter from "./routers/home";
 import gamesRouter from "./routers/games";
@@ -248,6 +248,61 @@ app.post("/update-profile-picture", secureMiddleware, async (req: any, res: any)
     }
   },
 );
+
+app.get("/user/:userId", secureMiddleware, async (req: any, res: any) => {
+  try {
+    const userId = req.params.userId;
+    
+    const user = await getUserById(userId);
+
+    if (!user) {
+      return res.status(404).render("404");
+    }
+
+    const favoriteGames = await getFavoriteGames(user.email);
+
+    res.render("user", {
+      otherUser: user,
+      favoriteGames: favoriteGames
+    });
+  } catch (error) {
+    console.error("Fout bij het laden van user pagina:", error);
+    res.status(500).send("Er ging iets mis");
+  }
+});
+
+app.post("/addfriend", secureMiddleware, async (req: any, res: any) => {
+  try {
+    const { friendId } = req.body;
+    const userEmail = req.session.user.email;
+
+    if (!friendId) {
+      req.session.message = { type: "error", message: "ID is verplicht." };
+      return res.redirect("/home");
+    }
+
+    // 1. Voeg de vriend toe aan de database
+    await addFriend(userEmail, friendId);
+
+    // 2. Haal de geüpdatete gebruiker op uit de database
+    const updatedUser = await getUserByEmail(userEmail);
+
+    if (updatedUser) {
+      const userWithoutPassword = { ...updatedUser };
+      delete userWithoutPassword.password;
+
+      // 3. Overschrijf de oude sessie met de nieuwe data (inclusief de nieuwe vriend!)
+      req.session.user = userWithoutPassword;
+    }
+
+    req.session.message = { type: "success", message: "Vriend succesvol toegevoegd!" };
+    res.redirect("/home");
+  } catch (error) {
+    console.error(error);
+    req.session.message = { type: "error", message: "Kon vriend niet toevoegen." };
+    res.redirect("/home");
+  }
+});
 
 app.listen(app.get("port"), async () => {
   await connect();

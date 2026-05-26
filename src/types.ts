@@ -21,6 +21,7 @@ export interface User {
     password?: string;
     userIcon: string;
     data: data;
+    friends?: string[];
 }
 
 export interface data {
@@ -29,7 +30,6 @@ export interface data {
   achievements?: Achievement[];
   gamesPlayed?: number;
   fav?: number[];
-  friends?: string[];
 }
 
 export interface Forum {
