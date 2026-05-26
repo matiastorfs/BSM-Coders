@@ -223,10 +223,7 @@ app.get("/api/leaderboard", secureMiddleware, async (req: any, res: any) => {
   }
 });
 
-app.post(
-  "/update-profile-picture",
-  secureMiddleware,
-  async (req: any, res: any) => {
+app.post("/update-profile-picture", secureMiddleware, async (req: any, res: any) => {
     try {
       const { selectedIcon } = req.body;
 
