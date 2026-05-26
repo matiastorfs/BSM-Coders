@@ -33,7 +33,16 @@ h2 {
   height: 30px;
 }
 
-article {
+article a {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 80px 2fr 1fr;
+  grid-template-rows: 40px 40px;
+  grid-template-areas:
+    "afbeelding titeltje star"
+    "afbeelding omschrijving omschrijving";
+}
+.difficulties {
   padding: 20px;
   display: grid;
   grid-template-columns: 80px 2fr 1fr;
@@ -102,12 +111,17 @@ form button{
 .rankingItem {
   color: #232323;
   background-color: var(--container-color);
+
   display: flex;
   gap: 15px;
+
   padding: 12px;
   border-radius: 10px;
   margin-bottom: 10px;
+
   align-items: flex-start;
+
+  text-decoration: none;
 }
 
 .rankNumber {
