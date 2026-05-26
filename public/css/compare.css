@@ -1,0 +1,122 @@
+.compare-main-title {
+  margin: 4rem auto;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.compare-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.compare-column {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.compare-game-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.compare-cover {
+  display: flex;
+  height: fit-content;
+  flex-direction: column;
+  margin: 1rem auto;
+  width: 100%;
+  max-width: 500px;
+  padding: 1rem;
+  background-color: var(--container-color);
+  border-radius: 8px;
+  gap: 1rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.compare-item-cover {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.compare-list {
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+  background-color: var(--background-color);
+  width: 100%;
+}
+
+.compare-list li {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: var(--container-color);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.compare-list em {
+  background-color: var(--container-color);
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+#go-back {
+  margin-top: 100px;
+  margin-left: 2rem;
+  width: fit-content;
+}
+
+#go-back a {
+  display: inline-block;
+}
+
+#go-back img {
+  display: block;
+}
+
+#arrow {
+  position: relative;
+  margin-left: -10px;
+  width: 40px;
+  cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  #arrow {
+    position: fixed;
+    margin-left: -10px;
+    width: 24px;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 768px) {
+  .compare-wrapper {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .compare-column {
+    width: 100%;
+  }
+}

@@ -11,7 +11,6 @@ img {
   width: 24px;
 }
 
-/* Search bar + sort options */
 .search-bar {
   margin: 2rem 4rem;
   padding: 8px;
@@ -94,7 +93,7 @@ img {
 }
 
 #list-friends,
-#list-favorites{
+#list-favorites {
   display: flex;
   gap: 1rem;
   margin: auto 4rem;
@@ -178,10 +177,12 @@ img {
   left: -100%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(to right,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.3) 50%,
-      rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
   transform: skewX(-25deg);
   pointer-events: none;
 }
@@ -195,4 +196,183 @@ img {
   .sort-form {
     flex-direction: row;
   }
+}
+
+.addFriendUi {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--container-color);
+  padding: 1rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.8rem;
+  width: 20rem;
+  border-radius: 8px;
+}
+
+.addFriendUi h4 {
+  font-size: 1.8rem;
+}
+
+.addFriendUi input {
+  background-color: var(--container-highlight-color);
+  border-radius: 4px;
+  width: 5rem;
+}
+
+.addFriendUi img {
+  cursor: pointer;
+}
+
+.addFriendUi button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 4px 1rem;
+  background-color: var(--container-highlight-color);
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.addFriendUi button:hover {
+  background-color: var(--button-color);
+}
+
+.games a {
+  display: flex;
+  background-color: var(--container-color);
+  padding: 1rem;
+  margin: 2rem auto;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.games a:hover {
+  background-color: var(--container-highlight-color);
+}
+
+#compare-open-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    padding: 12px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+#compare-menu {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 350px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+    z-index: 999;
+    display: none; /* Verberg het menu */
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+    color: black;
+}
+
+#compare-menu.show {
+    display: flex;
+}
+
+.compare-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+#compare-close-btn {
+    font-size: 24px;
+    cursor: pointer;
+    color: gray;
+}
+
+#compare-close-btn:hover {
+  color: rgb(0, 0, 0);
+}
+
+.compare-slots {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.compare-slot {
+    flex: 1;
+    height: 100px;
+    border: 2px dashed #bbb;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    background: #f9f9f9;
+    transition: all 0.2s ease;
+}
+
+.compare-slot.selecting {
+    border: 3px solid #000;
+    background-color: #e8e8e8;
+    box-shadow: none;
+}
+
+.compare-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slot-placeholder {
+    font-size: 12px;
+    font-weight: bold;
+    color: #666;
+}
+
+.compare-vs {
+    font-weight: bold;
+}
+
+#compare-submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#compare-submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#compare-open-btn {
+    transition: transform 0.2s ease;
+}
+
+#compare-open-btn:hover {
+    transform: scale(1.1);
 }
