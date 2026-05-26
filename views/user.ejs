@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/account.css" />
+
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="/js/otheraccount.js"></script>
+  </head>
+  <body>
+    <% if (message) { %>
+         <p id="flash-message" class="<%= message.type %>"><%= message.message %></p>
+      <% } %>
+    <header>
+      <%- include("partials/navigation") %>
+
+      <img src="/assets/left-arrow.png" id="arrow" />
+      <p>Games</p>
+    </header>
+    <main>
+      <div class="profile">
+        <div class="profile-image-container">
+        <img src="/assets/<%= otherUser.userIcon %>" id="userlogo" alt="Profielfoto" />
+        </div>
+
+        <div class="usertext">
+  <p id="username"><%= otherUser.name %><span id="userid">#<%= otherUser.id %></span></p>
+  <p id="userdescription"><%= otherUser.data.beschrijving %></p>
+  
+  <% if (loggedInUser.id === otherUser.id) { %>
+    <button id="accountsettingsbutton">
+      <a href="/settings">
+        Instellingen
+        <img src="/assets/setting-icon.png" id="accountsettingsicon" />
+      </a>
+    </button>
+  <% } else { %>
+    <% if (isFriend) { %>
+      <form action="/removefriend" method="POST">
+        <input type="hidden" name="friendId" value="<%= otherUser.id %>">
+        <button type="submit" class="friend-btn remove-btn">
+          Verwijder vriend
+        </button>
+      </form>
+    <% } else { %>
+      <form action="/addfriend" method="POST">
+        <input type="hidden" name="friendId" value="<%= otherUser.id %>">
+        <button type="submit" class="friend-btn add-btn">
+          Voeg vriend toe
+        </button>
+      </form>
+    <% } %>
+  <% } %>
+</div>
+      </div>
+      <div class="titles-container">
+        <h1 id="tab-projecten">Collecties</h1>
+        <h1 id="tab-prestaties">Prestaties</h1>
+      </div>
+
+      <div id="lijst-container">
+        <section id="collecties-section" class="favorites">
+          <% if (favoriteGames.length > 0) { %>
+            <ul class="game-cards" id="list-favorites">
+              <% for(const game of favoriteGames) { %>
+              <li>
+                <a href="/game/<%= game.id %>">
+                  <img src="<%= game.thumbnail %>">
+                  <em><%= game.title %></em>
+                  <p><%= game.developer %></p>
+                </a>
+              </li>
+              <% } %>
+            </ul>
+          <% } %>
+        </section>
+
+        <section id="prestaties-section" class="favorites" style="display: none;">
+          <% if (otherUser.data.achievements && otherUser.data.achievements.length > 0) { %>
+            <% otherUser.data.achievements.forEach(prestatie => { %>
+              <div class="prestatie-item">
+                <h3><%= prestatie.title %></h3>
+                <p><%= prestatie.description %></p>
+              </div>
+            <% }) %>
+          <% } else { %>
+            <p>Nog geen prestaties behaald.</p>
+          <% } %>
+
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
