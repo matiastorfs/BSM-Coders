@@ -136,8 +136,8 @@ export async function AddUser(data: any): Promise<void> {
               gamesPlayed: 0,
               achievements: [],
               fav: [],
-              friends: [],
-          }
+          },
+          friends: []
         });
     } catch (error: any) {
         console.error("Fout bij AddUser:", error);
@@ -284,6 +284,52 @@ export async function updateBeschrijving(email: string, nieuweBeschrijving: stri
 }
 
 export async function updateUserIcon(email: string, iconName: string): Promise<void> {
-    // Voorbeeld als je met MongoDB/MongoClient werkt:
     await userCollection.updateOne({ email: email }, { $set: { userIcon: iconName } });
+}
+
+export async function getUserById(id: string | number): Promise<User | null> {
+  try {
+    return await userCollection.findOne({ id: Number(id) });
+  } catch (error) {
+    console.error("Fout bij het ophalen van gebruiker via ID:", error);
+    return null;
+  }
+}
+
+export async function addFriend(userEmail: string, friendId: string): Promise<void> {
+  try {
+    await userCollection.updateOne(
+      { email: userEmail },
+      {
+        $addToSet: {
+          friends: friendId
+        }
+      }
+    );
+  } catch (error) {
+    console.error("Fout bij toevoegen vriend:", error);
+    throw error;
+  }
+}
+
+export async function getUsersByIds(ids: (string | number)[]): Promise<User[]> {
+  try {
+    return await userCollection.find({ 
+      id: { $in: ids.map(Number) }
+    }).toArray();
+  } catch (error) {
+    console.error("Fout bij het ophalen van vrienden via IDs:", error);
+    return [];
+  }
+}
+
+export async function removeFriend(userEmail: string, friendId: string): Promise<void> {
+    await userCollection.updateOne(
+      { email: userEmail },
+      {
+        $pull: {
+          friends: friendId
+        }
+      }
+    );
 }

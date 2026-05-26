@@ -15,49 +15,47 @@
 
   <body>
     <header>
-      <% if (message) { %>
+      <% if (typeof message !== 'undefined' && message) { %>
          <p id="flash-message" class="<%= message.type %>"><%= message.message %></p>
-        <% } %>
+      <% } %>
       <%- include("partials/navigation") %>
       <h1>Gamehub</h1>
     </header>
 
     <main>
       <section class="friends">
-        <h3>Vrienden <img src="./assets/right-arrow.png" /></h3>
-        <ul id="list-friends">
-          <li>
-            <img src="./assets/falloutprofilepicture.png" />
-            <p>Vriend</p>
-          </li>
-          <li>
-            <img src="./assets/haloprofilepicture.jpg" />
-            <p>Vriend</p>
-          </li>
-          <li>
-            <img src="./assets/Minecraft-Steve-Head-profilepicture.jpg" />
-            <p>Vriend</p>
-          </li>
-          <li class="addFriend">
-            <img src="./assets/pluscircle.png" />
-          </li>
-        </ul>
-      </section>
+  <h3>Vrienden <img src="./assets/right-arrow.png" /></h3>
+  <ul id="list-friends">
+    <% if (typeof friendsList !== 'undefined' && friendsList.length > 0) { %>
+      <% for(const friend of friendsList) { %>
+        <li>
+          <a href="/user/<%= friend.id %>" class="friend-link">
+            <img src="/assets/<%= friend.userIcon %>" alt="<%= friend.name %>" />
+            <p><%= friend.name %></p>
+          </a>
+        </li>
+      <% } %>
+    <% } else { %>
+      <p style="padding: 10px;">Nog geen vrienden toegevoegd.</p>
+    <% } %>
+
+    <li class="addFriend">
+      <img src="./assets/pluscircle.png" />
+    </li>
+  </ul>
+</section>
 
       <section class="addFriendUi">
         <h4>Voeg vriend toe <img class="closeFriendUi" src="/assets/x-icon.png"></h4>
         
-
-        <form action="/home" method="POST">
-          <label for="">ID:</label>
-          <input type="text">
+        <form action="/addfriend" method="POST">
+          <label for="friendId">ID van vriend:</label>
+          <input type="text" name="friendId" id="friendId" required>
           <button type="submit">Voeg toe</button>
         </form>
-      </section>
-
-      <section class="favorites">
+      </section> <section class="favorites">
         <h3>Favorieten <img src="./assets/right-arrow.png" /></h3>
-        <% if (favoriteGames.length > 0) { %>
+        <% if (typeof favoriteGames !== 'undefined' && favoriteGames.length > 0) { %>
           <ul class="game-cards" id="list-favorites">
             <% for(const game of favoriteGames) { %>
             <li>
@@ -77,14 +75,16 @@
       <section class="list-games">
         <h3>Games <img src="./assets/right-arrow.png" /></h3>
         <ul class="game-cards" id="list-games">
-          <% for(const game of games) { %>
-            <li>
-              <a href="/game/<%= game.id %>" id="game-item<%= game.id %>" class="game-items">
-                <img src="<%= game.thumbnail %>" alt="<%= game.title %>">
-                <em><%= game.title %></em>
-                <p><%= game.developer %></p>
-              </a>
-            </li>
+          <% if (typeof games !== 'undefined') { %>
+            <% for(const game of games) { %>
+              <li>
+                <a href="/game/<%= game.id %>" id="game-item<%= game.id %>" class="game-items">
+                  <img src="<%= game.thumbnail %>" alt="<%= game.title %>">
+                  <em><%= game.title %></em>
+                  <p><%= game.developer %></p>
+                </a>
+              </li>
+            <% } %>
           <% } %>
         </ul>
 
