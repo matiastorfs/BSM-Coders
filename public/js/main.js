@@ -1,12 +1,12 @@
-const messageEl = document.getElementById('flash-message');
+const messageEl = document.getElementById("flash-message");
 
 //-----------flashmessage -----------
 if (messageEl) {
   setTimeout(() => {
-    messageEl.style.transition = "opacity 0.5s ease, transform 0.5s ease"; 
+    messageEl.style.transition = "opacity 0.5s ease, transform 0.5s ease";
     messageEl.style.opacity = "0";
     messageEl.style.transform = "translateX(-50%) translateY(-20px)";
-    
+
     setTimeout(() => {
       messageEl.remove();
     }, 500);
@@ -67,21 +67,3 @@ if (darkToggle !== null) {
 window.addEventListener("storage", () => {
   window.location.reload();
 });
-
-// const menu = document.querySelector(".nav-menu");
-// const backdrop = document.querySelector(".backdrop");
-
-// document.querySelector("#btn-menu").addEventListener("click", () => {
-//   menu.classList.add("open");
-//   document.body.classList.add("menu-open");
-// });
-
-// document.querySelector("#btn-exit").addEventListener("click", () => {
-//   menu.classList.remove("open");
-//   document.body.classList.remove("menu-open");
-// });
-
-// backdrop.addEventListener("click", () => {
-//   menu.classList.remove("open");
-//   document.body.classList.remove("menu-open");
-// });

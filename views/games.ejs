@@ -22,20 +22,28 @@
   </header>
 
   <section class="search-bar">
-    <div class="search-form">
-      <input type="text" id="txt-search" placeholder="Zoeken" />
+    <form class="search-form" action="/games" method="GET">
+      <input type="text" name="q" id="txt-search" placeholder="Zoeken" />
 
       <button id="btn-search">
         <img src="/assets/search-icon.png" />
       </button>
-      <button id="btn-sort">
+      <button type="button" id="btn-sort">
         <img src="/assets/sort-icon.png" />
       </button>
-    </div>
-    <form class="sort-form" method="GET" action="/home">
-      <button name="sort" value="name">Naam</button>
-      <button name="sort" value="developer">Ontwikkelaar</button>
-      <button name="sort" value="date">Datum</button>
+    </form>
+
+    <form class="sort-form <%= showsort %>" action="/games" method="GET">
+      <input type="hidden" name="q" value="<%= query %>">
+      <% for(const option of sortOptions) { %>
+        <button name="sort" value="<%= option.key %>">
+          <%= option.value %>
+          <% if (sort === option.key) { %>
+            <img src="/assets/<%= order === "asc" ? "arrow-up.png" : "arrow-down.png" %>">
+          <% } %>
+        </button>
+      <% } %>
+      <input type="hidden" name="order" value="<%= sort ? (order === 'asc' ? 'desc' : 'asc') : 'asc' %>">
     </form>
   </section>
 
@@ -54,6 +62,8 @@
       </li>
       <% } %>
   </ul>
+  <button class="games" id="load-more">Laad meer</button>
+
   <button id="compare-open-btn">Vergelijk Games</button>
 
   <div id="compare-menu">
@@ -83,6 +93,4 @@
 
   <script type="module" src="/js/compare.js"></script>
 </body>
-</body>
-
 </html>

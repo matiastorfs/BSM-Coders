@@ -1,5 +1,19 @@
 import express from "express";
-import {connect, getGames, getGameById, AddUser, login, addXpToUser, getLeaderboard, getUserByEmail, addFavoriteGame, removeFavoriteGame, getFavoriteGames, updateUserIcon, addPlayedGame} from "./database";
+import {
+  connect,
+  getGames,
+  getGameById,
+  AddUser,
+  login,
+  addXpToUser,
+  getLeaderboard,
+  getUserByEmail,
+  addFavoriteGame,
+  removeFavoriteGame,
+  getFavoriteGames,
+  updateUserIcon,
+  addPlayedGame,
+} from "./database";
 import path from "path";
 import homeRouter from "./routers/home";
 import gamesRouter from "./routers/games";
@@ -32,7 +46,11 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/login", async (req, res) => {
-  res.render("log-in-page");
+  if (req.session.user) {
+    res.redirect("home");
+  } else {
+    res.render("log-in-page");
+  }
 });
 
 app.get("/algemenevoorwaarde", async (req, res) => {
@@ -203,7 +221,6 @@ app.post("/api/add-played-game", async (req, res) => {
     await addPlayedGame(req.session.user.email);
 
     res.json({ success: true });
-
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Server error" });
@@ -226,7 +243,10 @@ app.get("/api/leaderboard", secureMiddleware, async (req: any, res: any) => {
   }
 });
 
-app.post("/update-profile-picture", secureMiddleware, async (req: any, res: any) => {
+app.post(
+  "/update-profile-picture",
+  secureMiddleware,
+  async (req: any, res: any) => {
     try {
       const { selectedIcon } = req.body;
 
