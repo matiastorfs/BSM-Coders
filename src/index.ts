@@ -48,6 +48,10 @@ app.get("/login", async (req, res) => {
   res.render("log-in-page");
 });
 
+app.get("/algemenevoorwaarde", async (req, res) => {
+  res.render("algemenevoorwaarde");
+});
+
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
