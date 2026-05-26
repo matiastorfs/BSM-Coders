@@ -72,4 +72,3 @@ function laadPrestaties() {
       });
     });
 }
-laadEenItem("./data/games.json", "projecten");
