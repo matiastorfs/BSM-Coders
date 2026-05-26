@@ -28,15 +28,34 @@
         </div>
 
         <div class="usertext">
-          <p id="username"><%= otherUser.name %><span id="userid">#<%= otherUser.id %></span></p>
-          <p id="userdescription"><%= otherUser.data.beschrijving %></p>
-          <button id="accountsettingsbutton">
-            <a href="/settings">
-            Voeg vriend toe
-            <img src="./assets/setting-icon.png" id="accountsettingsicon" />
-            </a>
-          </button>
-        </div>
+  <p id="username"><%= otherUser.name %><span id="userid">#<%= otherUser.id %></span></p>
+  <p id="userdescription"><%= otherUser.data.beschrijving %></p>
+  
+  <% if (loggedInUser.id === otherUser.id) { %>
+    <button id="accountsettingsbutton">
+      <a href="/settings">
+        Instellingen
+        <img src="/assets/setting-icon.png" id="accountsettingsicon" />
+      </a>
+    </button>
+  <% } else { %>
+    <% if (isFriend) { %>
+      <form action="/removefriend" method="POST">
+        <input type="hidden" name="friendId" value="<%= otherUser.id %>">
+        <button type="submit" class="friend-btn remove-btn">
+          Verwijder vriend
+        </button>
+      </form>
+    <% } else { %>
+      <form action="/addfriend" method="POST">
+        <input type="hidden" name="friendId" value="<%= otherUser.id %>">
+        <button type="submit" class="friend-btn add-btn">
+          Voeg vriend toe
+        </button>
+      </form>
+    <% } %>
+  <% } %>
+</div>
       </div>
       <div class="titles-container">
         <h1 id="tab-projecten">Collecties</h1>

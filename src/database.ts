@@ -284,7 +284,6 @@ export async function updateBeschrijving(email: string, nieuweBeschrijving: stri
 }
 
 export async function updateUserIcon(email: string, iconName: string): Promise<void> {
-    // Voorbeeld als je met MongoDB/MongoClient werkt:
     await userCollection.updateOne({ email: email }, { $set: { userIcon: iconName } });
 }
 
@@ -322,4 +321,15 @@ export async function getUsersByIds(ids: (string | number)[]): Promise<User[]> {
     console.error("Fout bij het ophalen van vrienden via IDs:", error);
     return [];
   }
+}
+
+export async function removeFriend(userEmail: string, friendId: string): Promise<void> {
+    await userCollection.updateOne(
+      { email: userEmail },
+      {
+        $pull: {
+          friends: friendId
+        }
+      }
+    );
 }
