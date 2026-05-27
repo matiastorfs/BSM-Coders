@@ -9,7 +9,7 @@ h2 {
   width: fit-content;
 }
 
-#go-back a {
+#go-back button {
   display: inline-block;
 }
 
@@ -133,9 +133,9 @@ h2 {
   }
 
   #arrow {
-  position: fixed;
-  margin-left: -10px;
-  width: 24px;
-  cursor: pointer;
-}
+    position: fixed;
+    margin-left: -10px;
+    width: 24px;
+    cursor: pointer;
+  }
 }

@@ -26,7 +26,6 @@
       <section class="friends">
   <h3>Vrienden <img src="./assets/right-arrow.png" /></h3>
   <ul id="list-friends">
-    <% if (typeof friendsList !== 'undefined' && friendsList.length > 0) { %>
       <% for(const friend of friendsList) { %>
         <li>
           <a href="/user/<%= friend.id %>" class="friend-link">
@@ -35,9 +34,6 @@
           </a>
         </li>
       <% } %>
-    <% } else { %>
-      <p style="padding: 10px;">Nog geen vrienden toegevoegd.</p>
-    <% } %>
 
     <li class="addFriend">
       <img src="./assets/pluscircle.png" />
@@ -68,7 +64,7 @@
             <% } %>
           </ul>
         <% } else{ %>
-          <p>Nog geen favorieten </p>
+          <p class="favoriteMessage">Nog geen favorieten </p>
         <% } %>
       </section>
 

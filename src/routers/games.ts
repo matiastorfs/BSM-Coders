@@ -18,7 +18,6 @@ export default function gameRouter() {
 
     const sortOptions = [
       { key: "title", value: "Titel" },
-      { key: "publisher", value: "Uitgeverij" },
       { key: "developer", value: "Ontwikkelaar" },
       { key: "release_date", value: "Datum" },
     ];

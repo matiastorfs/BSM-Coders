@@ -114,8 +114,8 @@ img {
   gap: 1rem;
 }
 
-.favorites p {
-  padding-left: 40px;
+.favoriteMessage {
+  margin: 4rem;
   font-size: 1rem;
 }
 
@@ -213,6 +213,10 @@ img {
   font-size: 1.8rem;
   width: 20rem;
   border-radius: 8px;
+}
+
+.addFriendUi.visible {
+  display: flex;
 }
 
 .addFriendUi h4 {
