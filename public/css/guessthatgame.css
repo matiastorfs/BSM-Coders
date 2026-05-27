@@ -79,23 +79,6 @@ article img {
   height: 15px;
 }
 
-form{
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  align-items: center;
-}
-form select{
-  border: 2px solid black;
-  border-radius: 50px;
-  padding: 8px;
-  text-align: center;
-}
-form button{
-  border: 2px solid black;
-  border-radius: 50px;
-}
-
 .xps{
   padding: 10px;
   text-align: center;
